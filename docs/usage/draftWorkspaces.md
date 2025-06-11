@@ -1,109 +1,106 @@
-# Draft workspaces
+# Espaces de travail de brouillon
 
-Drafts are powerful tools that enable analysts to create and manipulate data in a separate workspace, without impacting the main knowledge base of the platform. Most of the feature available in the platform are also compatible in draft.
+Les brouillons sont des outils puissants qui permettent aux analystes de créer et de manipuler des données dans un espace de travail séparé, sans impacter la base de connaissances principale de la plateforme. La plupart des fonctionnalités disponibles sur la plateforme sont également compatibles dans un brouillon.
 
+## Création de brouillon
 
-## Draft creation
+Les brouillons peuvent être créés de deux manières principales.
 
-Drafts can be created in two major ways.
-
-The first way to create a draft is to manually create one, in the Drafts page. When created this way, the draft will be initialized without any data modified in it.
+La première façon de créer un brouillon est de le créer manuellement, depuis la page Brouillons. Lorsqu'il est créé de cette manière, le brouillon sera initialisé sans aucune donnée modifiée.
 
 ![Draft creation page](assets/draftWorkspace-manual-creation.png)
 
-The second way drafts can be created is when files are imported in the platform. Depending on the platform and connector configuration, uploading a file can automatically generate an import of that file. This automatic import can generate a draft where the result of the file import is available. We have created a variable to let you choose your import (either workbench or draft): [Configuration](../deployment/configuration.md).
+La seconde façon de créer des brouillons est lors de l'importation de fichiers dans la plateforme. Selon la configuration de la plateforme et du connecteur, le téléchargement d'un fichier peut générer automatiquement un import de ce fichier. Cet import automatique peut générer un brouillon où le résultat de l'import du fichier sera disponible. Une variable a été créée pour vous permettre de choisir votre import (soit workbench, soit draft) : [Configuration](../deployment/configuration.md).
 
-In addition, files can be manually imported. When that is the case, an option is available to decide the validation mode to use. When the draft validation mode is selected, a draft will be automatically created and the result of the file import will be available in it.
+De plus, les fichiers peuvent être importés manuellement. Dans ce cas, une option est disponible pour choisir le mode de validation à utiliser. Lorsque le mode de validation brouillon est sélectionné, un brouillon sera automatiquement créé et le résultat de l'import du fichier sera disponible dans celui-ci.
 
-For more detailed information on file import, see the import documentation page here: [Import from files](import-files.md).
+Pour plus d'informations sur l'import de fichiers, consulter la page de documentation dédiée : [Import from files](import-files.md).
 
-To quickly move into the draft and see the result of a file import, a Navigate to draft icon is available.
+Pour accéder rapidement au brouillon et voir le résultat d'un import de fichier, une icône Naviguer vers le brouillon est disponible.
 
 ![Navigate to draft](assets/draftWorkspace-navigate-to-draft.png)
 
-Otherwise, a draft can be accessed by clicking on it in the draft list.
+Sinon, un brouillon peut être ouvert en cliquant dessus dans la liste des brouillons.
 
 ![Draft list](assets/draftWorkspace-draft-list.png)
 
-## Draft overview
+## Vue d'ensemble du brouillon
 
-When entering a draft, the landing page will be the overview of the modifications contained in the draft
+En entrant dans un brouillon, la page d'accueil affichera la vue d'ensemble des modifications contenues dans le brouillon.
 
 ![Draft overview](assets/draftWorkspace-draft-overview.png)
 
-This overview is separated into different tabs: entities, observables, relationships, sightings and containers. Each tab contains the list of the modifications applied to an item of this type.
+Cette vue d'ensemble est séparée en différents onglets : entities, observables, relationships, sightings et containers. Chaque onglet contient la liste des modifications appliquées à un élément de ce type.
 
-### Operation types
+### Types d'opérations
 
-There are 5 types of draft operations that can be applied to items. 3 operations are modifications that directly impact the data:
+Il existe 5 types d'opérations de brouillon pouvant être appliquées aux éléments. 3 opérations sont des modifications qui impactent directement les données :
 
+- CREATE : cela signifie que l'élément a été créé dans le brouillon et n'existe pas dans la base de connaissances principale
+- UPDATE : cela signifie que l'élément existait dans la base de connaissances principale, mais a été modifié dans le brouillon
+- DELETE : cela signifie que l'élément existait dans la base de connaissances principale, mais a été marqué pour suppression dans le brouillon
 
-- CREATE: this means that the item was newly created in the draft, and that it does not exist in the main knowledge base
-- UPDATE: this means that the item existed in the main knowledge base, but was modified in the draft
-- DELETE: this means that the item existed in the main knowledge base, but was marked for deletion in the draft
+2 opérations sont des modifications qui n'ont pas été directement demandées sur l'élément, mais qui résultent de la modification d'éléments liés :
 
-2 operations are modifications that were not directly asked on the item, but that resulted from the modification of linked items:
+- UPDATE_LINKED : cela signifie que l'élément existait dans la base de connaissances principale et n'a pas été modifié directement, mais a été impacté par une modification d'une entité liée. Cela peut arriver lorsqu'une relationship est créée vers cette entité, lorsque cette entité est ajoutée dans un container, etc.
+- DELETE_LINKED : cela signifie que l'élément existait dans la base de connaissances principale et n'a pas été directement marqué pour suppression, mais qu'il sera tout de même supprimé suite à la suppression d'une entité liée
 
-- UPDATE_LINKED: this means that the item existed in the main knowledge base and wasn’t directly modified, but has been impacted by a modification to a linked entity. This can happen when a relationship is created targeting this entity, when this entity is added in a container etc…
-- DELETE_LINKED: this means that the item existed in the main knowledge base and wasn’t directly marked for deletion, but that it still be deleted as a result of the deletion of a linked entity
+### Fichiers dans un brouillon
 
-### Files in a draft
-
-In addition to these lists of entities modified, a file tab is also available.
+En plus de ces listes d'entités modifiées, un onglet fichier est également disponible.
 
 ![Draft files](assets/draftWorkspace-file-tab.png)
 
-In this tab, additional files can uploaded and imported within the draft workspace without impact the main knowledge base. These files will only be visible in the current draft.
+Dans cet onglet, des fichiers supplémentaires peuvent être téléchargés et importés dans l'espace de travail du brouillon sans impacter la base de connaissances principale. Ces fichiers ne seront visibles que dans le brouillon courant.
 
-### Top bar actions
+### Actions de la barre supérieure
 
-When in a draft, the top bar is modified as a reminder that everything done in the platform will only impact the current draft.
+Dans un brouillon, la barre supérieure est modifiée pour rappeler que tout ce qui est fait dans la plateforme n'impactera que le brouillon en cours.
 
 ![Draft context banner](assets/draftWorkspace-context-banner.png)
 
-Clicking on the draft name can be used a quick way to navigate back to the draft overview, and see the recap of all the modifcations.
+Cliquer sur le nom du brouillon permet de revenir rapidement à la vue d'ensemble du brouillon et de voir le récapitulatif de toutes les modifications.
 
-Exiting a draft and going back to the main knowledge base of the platform can be done with the Exit draft button.
+Quitter un brouillon et revenir à la base de connaissances principale de la plateforme peut se faire avec le bouton Quitter le brouillon.
 
-Approving a draft and ingesting it back into the main knowledge base can be done with the Approve draft button.
+Approuver un brouillon et l'ingérer dans la base de connaissances principale peut se faire avec le bouton Approuver le brouillon.
 
-An icon and a number count will be visible when there are ongoing processes in the draft (enrichment connector works, background tasks…). Clicking on this icon will open up the full list of ongoing processes, with more details available.
+Une icône et un compteur seront visibles lorsqu'il y a des processus en cours dans le brouillon (travaux d'enrichment connector, tâches en arrière-plan, etc.). Cliquer sur cette icône ouvrira la liste complète des processus en cours, avec plus de détails disponibles.
 
 ![Draft processes](assets/draftWorkspace-processes.png)
 
-### Draft approve
+### Approbation du brouillon
 
-Once the content of the draft is deemed acceptable, the draft can be approved. Doing so will send the content of the draft for ingestion into the main knowledge base. The draft status will also be updated: the draft will no longer be considered opened, but validated.
+Une fois que le contenu du brouillon est jugé acceptable, il peut être approuvé. Cela enverra le contenu du brouillon pour ingestion dans la base de connaissances principale. Le statut du brouillon sera également mis à jour : le brouillon ne sera plus considéré comme ouvert, mais validé.
 
-Drafts can be approved even if there are ongoing processes still ongoing, but please note that the modifications that would have been applied by these processess will be lost.
+Les brouillons peuvent être approuvés même s'il y a encore des processus en cours, mais veuillez noter que les modifications qui auraient été appliquées par ces processus seront perdues.
 
-Depending on the draft operation of the data, the ingestion process will be sightly different. Only Create, Update and Delete operations are sent for ingestion. Created entities will be fully sent for ingestion. But updated entities will not be fully sent for ingestion and upserted: instead, only the updates applied in the draft will be applied on the main knowledge version. For deletions, only deleted entities will have a delete action applied, and not deletion linked entities
+Selon l'opération de brouillon sur les données, le processus d'ingestion sera légèrement différent. Seules les opérations Create, Update et Delete sont envoyées pour ingestion. Les entités créées seront entièrement envoyées pour ingestion. Mais les entités mises à jour ne seront pas entièrement envoyées et upsertées : seules les mises à jour appliquées dans le brouillon seront appliquées sur la version principale. Pour les suppressions, seules les entités supprimées auront une action de suppression appliquée, et non les entités liées supprimées.
 
-### Data segregation & RBAC in draft
+### Ségrégation des données & RBAC dans le brouillon
 
-Given that in draft you can see your platform, it is important to highlight that:
+Étant donné que dans le brouillon vous pouvez voir votre plateforme, il est important de souligner que :
 
-- [Capabilities](../administration/users.md) will apply in draft: a user without the ability to create or update knwoledge won't be able to create or update knowledge in draft. additionnally, this user won't be able to approve a draft either.
-- [Confidence level](reliability-confidence.md) applies in draft: confidence level will apply in draft, in the exact same way that they are enforced in the platform.
-- [Markings](../administration/segregation.md) will apply in draft: if you are not able to view a data in the platform, then you won't be able to see it in draft either.
-- [Data segregation](../administration/organization-segregation.md): if you have enabled data segregation and an entity has not been shared with you, when accessing a draft, this entity will remain not accessible to you. Additionally, if in the meantime, this entity has been shared to you, this entity will remain hidden from you in draft, since the draft has been created before the access has been granted to you.
+- [Capabilities](../administration/users.md) s'appliquent dans le brouillon : un utilisateur sans la capacité de créer ou de mettre à jour la connaissance ne pourra pas créer ou mettre à jour la connaissance dans le brouillon. De plus, cet utilisateur ne pourra pas non plus approuver un brouillon.
+- [Confidence level](reliability-confidence.md) s'applique dans le brouillon : le niveau de confiance s'appliquera dans le brouillon, de la même manière qu'il est appliqué dans la plateforme.
+- [Markings](../administration/segregation.md) s'appliquent dans le brouillon : si vous n'êtes pas autorisé à voir une donnée dans la plateforme, vous ne pourrez pas la voir non plus dans le brouillon.
+- [Data segregation](../administration/organization-segregation.md) : si vous avez activé la ségrégation des données et qu'une entité ne vous a pas été partagée, lors de l'accès à un brouillon, cette entité restera inaccessible pour vous. De plus, si entre-temps cette entité vous a été partagée, elle restera cachée dans le brouillon, puisque le brouillon a été créé avant que l'accès ne vous soit accordé.
 
+## Vue en lecture seule du brouillon
 
-## Draft read only view
+Une fois le brouillon approuvé et qu'il est désormais en statut validé, il n'est plus possible d'entrer dans ce brouillon et d'y appliquer des modifications.
 
-Once the draft has been approved and that it is now in a validated status, it is no longer possible to enter this draft and apply modifications in it.
-
-However, it is still possible to see the modifications that existed when the draft was approved
+Cependant, il est toujours possible de voir les modifications qui existaient lors de l'approbation du brouillon.
 
 ![Draft processes](assets/draftWorkspace-read-only-view.png)
 
-When opening a validated draft, the same draft overview will be avaible to see all of the draft changes.
+En ouvrant un brouillon validé, la même vue d'ensemble du brouillon sera disponible pour voir tous les changements du brouillon.
 
-In addition, the progress of the ingestion of the draft approval is visible on top of the data lists.
+De plus, la progression de l'ingestion de l'approbation du brouillon est visible en haut des listes de données.
 
-## Features not available in draft
+## Fonctionnalités non disponibles dans le brouillon
 
-Even though drafts try to provide as many actions as possible in the platform, some actions either do not make sense or have not been implemented yet to work in draft mode. Among them:
+Même si les brouillons essaient de fournir autant d'actions que possible dans la plateforme, certaines actions n'ont pas de sens ou n'ont pas encore été implémentées pour fonctionner en mode brouillon. Parmi elles :
 
 - playbooks
 - inference rules
@@ -112,3 +109,5 @@ Even though drafts try to provide as many actions as possible in the platform, s
 - downloading knowledge
 - disseminate a file
 - merge entities
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

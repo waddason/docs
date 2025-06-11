@@ -1,85 +1,85 @@
-# Manual export
+# Export manuel
 
 ## Introduction
 
-With the OpenCTI platform, you can manually export your intelligence content in the following formats:
+Avec la plateforme OpenCTI, il est possible d’exporter manuellement votre contenu de renseignement dans les formats suivants :
 
 - JSON,
 - CSV,
 - PDF,
 - TXT.
 
-
 ![Generate an export panel](assets/Generate_an_export_panel.png)
 
-## Export in structured or document format
+## Exporter au format structuré ou document
 
 <a id="generate-export-section"></a>
-### Generate an export
+### Générer un export
 
-To export one or more entities you have two possibilities. First you can click on the button "Open export panel". The list of pre-existing exports will open, and in the bottom right-hand corner you can configure and generate a new export.
+Pour exporter une ou plusieurs entités, deux possibilités s’offrent à vous. D’abord, il est possible de cliquer sur le bouton « Open export panel ». La liste des exports préexistants s’ouvre, et dans le coin inférieur droit, il est possible de configurer et générer un nouvel export.
 
 ![open export panel](assets/open_export_panel.png)
-This opens the export settings panel, where you can customize your export according to four fields:
+Cela ouvre le panneau de configuration de l’export, où il est possible de personnaliser l’export selon quatre champs :
 
-- desired export format (text/csv, application/pdf, application/vnd.oasis.stix+json, text/plain)
-- export type (simple or full),
-- the max marking definition levels of the elements to be included in the export (a TLP level, for instance). The list of the available max markings is limited by the user allowed markings and its maximum shareable markings (more details about maximum shareable marking definitions in [data segregation](../administration/segregation.md)). For a marking definition type to be taken into account here, a marking definition from this type must be provided. For example, if you select TLP:GREEN for this field, AMBER and RED elements will be excluded but it will not take into account any PAP markings unless one is elected too.
-- the file marking definition levels of the export (a TLP level, for instance). This marking on the file itself will then restrain the access to it in accordance with users' marking definition levels. For example, if a file has the marking TLP:RED and INTERNAL, a user will need to have these marking to see and access the file in the platform.```
+- format d’export souhaité (text/csv, application/pdf, application/vnd.oasis.stix+json, text/plain)
+- type d’export (simple ou full),
+- le niveau maximal de marking definition des éléments à inclure dans l’export (un niveau TLP, par exemple). La liste des markings maximaux disponibles est limitée par les markings autorisés de l’utilisateur et ses markings partageables maximum (plus de détails sur les maximum shareable marking definitions dans [data segregation](../administration/segregation.md)). Pour qu’un type de marking definition soit pris en compte ici, un marking definition de ce type doit être fourni. Par exemple, si TLP:GREEN est sélectionné pour ce champ, les éléments AMBER et RED seront exclus, mais aucun marking PAP ne sera pris en compte sauf si l’un d’eux est également sélectionné.
+- le niveau de marking definition du fichier exporté (un niveau TLP, par exemple). Ce marking sur le fichier lui-même restreindra ensuite l’accès en fonction des niveaux de marking definition des utilisateurs. Par exemple, si un fichier possède les markings TLP:RED et INTERNAL, un utilisateur devra disposer de ces markings pour voir et accéder au fichier sur la plateforme.
 
 ![customize your export](assets/customize_your_export.png)
 
-The second way is to click directly on the "Generate an Export" button to export the content of an entity in the desired format. The same settings panel will open.
+La seconde méthode consiste à cliquer directement sur le bouton « Generate an Export » pour exporter le contenu d’une entité dans le format souhaité. Le même panneau de configuration s’ouvre alors.
 
 ![Export entity content](assets/export_entity_content.png)
 
-Both ways add your export in the Exported files list in the Data tab.
+Dans les deux cas, l’export est ajouté à la liste Exported files dans l’onglet Data.
 ![Exported files list](assets/exported-files-list.png)
 
-### Export possibilities
+### Possibilités d’export
 
-All entities in your instance can be exported either directly via Generate Export or indirectly via Export List in .json and .csv formats.
+Toutes les entités de votre instance peuvent être exportées soit directement via Generate Export, soit indirectement via Export List aux formats .json et .csv.
 
-### Export a list of entities
+### Exporter une liste d’entités
 
-You have the option to export either a single element, such as a report, or a collection of elements, such as multiple reports. These exports may contain not only the entity itself but also related elements, depending on the type of export you select: "simple" or "full". See the [Export types (simple and full)](export.md#export-type-section) section.
+Il est possible d’exporter soit un seul élément, tel qu’un rapport, soit une collection d’éléments, comme plusieurs rapports. Ces exports peuvent contenir non seulement l’entité elle-même mais aussi des éléments liés, selon le type d’export sélectionné : « simple » ou « full ». Voir la section [Export types (simple and full)](export.md#export-type-section).
 
-You can also choose to export a list of entities within a container. To do so, go to the container's entities tab. For example, for a report, if you only want to retrieve entity type attack pattern and indicators to design a detection strategy, go to the entities tab and select specific elements for export.
+Il est également possible d’exporter une liste d’entités au sein d’un container. Pour cela, se rendre dans l’onglet entities du container. Par exemple, pour un rapport, si l’on souhaite uniquement récupérer les entités de type attack pattern et indicators afin de concevoir une stratégie de détection, aller dans l’onglet entities et sélectionner les éléments spécifiques à exporter.
 
 ![Export specific elements](assets/export_specific_elements.png)
 
-### Export a Fintel template (EE only)
+### Exporter un template Fintel (EE uniquement)
 
-In containers, under Enterprise Edition, it's possible to generate html and pdf files from a given template.
-Finished intelligence files can be generated via the general Export button or under the 'Content' section of your container.
+Dans les containers, sous Enterprise Edition, il est possible de générer des fichiers html et pdf à partir d’un template donné.
+Des fichiers de finished intelligence peuvent être générés via le bouton général Export ou dans la section 'Content' de votre container.
 ![Generate Fintel templates button](assets/fintelTemplate-generate-button.png)
 
-You can choose the type of your file (html or pdf), its name, its marking, and the maximum markings of the entities that may be included in the file. Indeed a template can include lists of entities (for instance, the indicators contained in your container) and you may want to restrict the displayed entities according to their markings.
-The internal connector generating your template is called 'Generate FINTEL from template'.
+Il est possible de choisir le type de fichier (html ou pdf), son nom, son marking, et les markings maximum des entités pouvant être incluses dans le fichier. En effet, un template peut inclure des listes d’entités (par exemple, les indicators contenus dans votre container) et il peut être souhaitable de restreindre les entités affichées selon leurs markings.
+Le connecteur interne générant le template s’appelle 'Generate FINTEL from template'.
 ![Export (html) Fintel template pop-up](assets/fintelTemplates-export-html.png)
 
-If you generate Fintel template in html, the file will appear in the right panel and you will be able to modify its content via CK Editor.
+Si un template Fintel est généré en html, le fichier apparaît dans le panneau de droite et il est possible de modifier son contenu via CK Editor.
 ![Fintel template content edition](assets/fintelTemplate-content-edition.png)
 
-Then you can also export your html file in pdf via the internal connector 'HTML content files to PDF' that generates custom pdfs.
+Il est ensuite possible d’exporter le fichier html en pdf via le connecteur interne 'HTML content files to PDF' qui génère des pdf personnalisés.
 ![Export (pdf) Fintel template pop-up](assets/fintelTemplates-export-pdf.png)
 
 ![Fintel template pdf file](assets/fintelTemplates-pdf-file.png)
 
-
 <a id="export-type-section"></a>
-### Export types (simple and full)
+### Types d’export (simple et full)
 
-When you wish to export only the content of a specific entity such as a report, you can choose a "simple" export type.
+Pour exporter uniquement le contenu d’une entité spécifique telle qu’un rapport, il est possible de choisir le type d’export « simple ».
 
-If you also wish to export associated content, you can choose a "full" export. With this type of export, the entity will be exported along with all entities directly associated with the central one (first neighbors).
+Pour exporter également le contenu associé, il est possible de choisir un export « full ». Avec ce type d’export, l’entité sera exportée avec toutes les entités directement associées à l’entité centrale (premiers voisins).
 
 ![Export types](assets/export_types.png)
 
-### Exports list panel
+### Panneau de liste des exports
 
-Once an export has been created, you can find it in the export list panel. Simply click on a particular export to download it.
+Une fois un export créé, il est possible de le retrouver dans le panneau de liste des exports. Il suffit de cliquer sur un export particulier pour le télécharger.
 
-You can also generate a new export directly from the Exports list, as explained in the [Generate an export](export.md#generate-export-section) section.
+Il est également possible de générer un nouvel export directement depuis la liste des exports, comme expliqué dans la section [Générer un export](export.md#generate-export-section).
 
 ![Exports list](assets/exports_list.png)
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

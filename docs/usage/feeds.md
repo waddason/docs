@@ -1,110 +1,110 @@
-# Native feeds
+# Flux natifs
 
-OpenCTI provides versatile mechanisms for sharing data through its built-in feeds, including Live streams, TAXII collections, and CSV feeds.
+OpenCTI propose des mécanismes polyvalents pour le partage de données via ses flux intégrés, notamment les flux en direct (Live streams), les collections TAXII et les flux CSV.
 
-## Feed configuration
+## Configuration des flux
 
-Feeds are configured in the "Data > Data sharing" window. Configuration for all feed types is uniform and relies on the following parameters:
+Les flux sont configurés dans la fenêtre "Données > Partage de données". La configuration de tous les types de flux est uniforme et repose sur les paramètres suivants :
 
-- Filter setup: The feed can have specific filters to publish only a subset of the platform overall knowledge. Any data that meets the criteria established by the user's feed filters will be shared (e.g. specific types of entities, labels, marking definitions, etc.).
-- Access control: A feed can be either public, i.e. accessible without authentication, or restricted. By default, it's accessible to any user with the "Access data sharing" capability, but it's possible to increase restrictions by limiting access to a specific user, group, or organization.
+- Configuration des filtres : le flux peut avoir des filtres spécifiques pour ne publier qu'un sous-ensemble des connaissances globales de la plateforme. Toutes les données répondant aux critères définis par les filtres du flux de l'utilisateur seront partagées (par exemple, types spécifiques d'entités, labels, définitions de marquage, etc.).
+- Contrôle d'accès : un flux peut être public, c'est-à-dire accessible sans authentification, ou restreint. Par défaut, il est accessible à tout utilisateur disposant de la capacité "Accès au partage de données", mais il est possible d'augmenter les restrictions en limitant l'accès à un utilisateur, un groupe ou une organisation spécifique.
 
 ![Feed access restriction](assets/feed-access-restriction.png)
 
-By carefully configuring filters and access controls, you can tailor the behavior of Live streams, TAXII collections, and CSV feeds to align with your specific data-sharing needs.
+En configurant soigneusement les filtres et les contrôles d'accès, il est possible d'adapter le comportement des flux en direct, des collections TAXII et des flux CSV à vos besoins spécifiques de partage de données.
 
 <a id="live-stream-section"></a>
-## Live streams
+## Flux en direct (Live streams)
 
 ### Introduction
 
-Live streams, an exclusive OpenCTI feature, increase the capacity for real-time data sharing by serving STIX 2.1 bundles as TAXII collections with advanced capabilities. What distinguishes them is their dynamic nature, which includes the creation, updating, and deletion of data. Unlike TAXII, Live streams comprehensively resolve relationships and dependencies, ensuring a more nuanced and interconnected exchange of information. This is particularly beneficial in scenarios where sharing involves entities with complex relationships, providing a richer context for the shared data.
+Les flux en direct, une fonctionnalité exclusive d'OpenCTI, augmentent la capacité de partage de données en temps réel en servant des bundles STIX 2.1 sous forme de collections TAXII avec des capacités avancées. Ce qui les distingue, c'est leur nature dynamique, incluant la création, la mise à jour et la suppression de données. Contrairement à TAXII, les flux en direct résolvent de manière exhaustive les relations et dépendances, assurant un échange d'informations plus nuancé et interconnecté. Ceci est particulièrement bénéfique dans les scénarios où le partage implique des entités avec des relations complexes, fournissant un contexte enrichi pour les données partagées.
 
-In scenarios involving data sharing between two OpenCTI platforms, Live streams emerge as the preferred mechanism. These streams operate like TAXII collections but are notably enhanced, supporting:
+Dans les scénarios de partage de données entre deux plateformes OpenCTI, les flux en direct sont le mécanisme privilégié. Ces flux fonctionnent comme des collections TAXII mais sont nettement améliorés, prenant en charge :
 
-* create, update and delete events depending on the parameters,
-* caching already created entities in the last 5 minutes,
-* resolving relationships and dependencies even out of the filters,
-* can be public (without authentication).
+* les événements de création, mise à jour et suppression selon les paramètres,
+* la mise en cache des entités créées dans les 5 dernières minutes,
+* la résolution des relations et dépendances même hors des filtres,
+* la possibilité d'être publics (sans authentification).
 
 ![Live stream](assets/live-stream.png)
 
-!!! warning "Resolve relationships and dependencies"
+!!! avertissement "Résolution des relations et dépendances"
 
-    Dependencies and relationships of entities shared via Live streams, as determined by specified filters, are automatically shared even beyond the confines of these filters. This means that interconnected data, which may not directly meet the filter criteria, is still included in the Live stream. However, OpenCTI data segregation mechanisms are still applied. They allow restricting access to shared data based on factors such as markings or organization. It's imperative to carefully configure and manage these access controls to ensure that no confidential data is shared.
+  Les dépendances et relations des entités partagées via les flux en direct, telles que déterminées par les filtres spécifiés, sont automatiquement partagées même au-delà de ces filtres. Cela signifie que des données interconnectées, qui ne répondent pas directement aux critères des filtres, sont tout de même incluses dans le flux en direct. Cependant, les mécanismes de ségrégation des données d'OpenCTI sont toujours appliqués. Ils permettent de restreindre l'accès aux données partagées en fonction de critères tels que les marquages ou l'organisation. Il est impératif de configurer et de gérer soigneusement ces contrôles d'accès pour garantir qu'aucune donnée confidentielle ne soit partagée.
 
-### Illustrative scenario
+### Scénario illustratif
 
-To better understand how live streams are working, let's take a few examples, from simple to complex.
+Pour mieux comprendre le fonctionnement des flux en direct, voici quelques exemples, du plus simple au plus complexe.
 
-Given a live stream with filters *Entity type: Indicator* `AND` *Label: detection*. Let's see what happens with an indicator with:
+Étant donné un flux en direct avec les filtres *Type d'entité : Indicator* `ET` *Label : detection*. Voyons ce qui se passe avec un indicator ayant :
 
-* Marking definition: `TLP:GREEN`
-* Author `Crowdstrike`
-* Relation `indicates` to the malware `Emotet`
+* Définition de marquage : `TLP:GREEN`
+* Auteur `Crowdstrike`
+* Relation `indicates` vers le malware `Emotet`
 
-| Action                          | Result in stream (with `Avoid dependencies resolution=true`)   | Result in stream (with `Avoid dependencies resolution=false`)                                                                    |
-|:--------------------------------|:---------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
-| 1. Create an indicator          | Nothing                                                        | Nothing                                                                                                                          |
-| 2. Add the label `detection`    | Create `TLP:GREEN`, create `CrowdStrike`, create the indicator | Create `TLP:GREEN`, create `CrowdStrike`, create the malware `Emotet`, create the indicator, create the relationship `indicates` |
-| 3. Remove the label `detection` | Delete the indicator                                           | Delete the indicator and the relationship                                                                                        |
-| 4. Add the label `detection`    | Create the indicator                                           | Create the indicator, create the relationship `indicates`                                                                        |
-| 5. Delete the indicator         | Delete the indicator                                           | Delete the indicator  and the relationship                                                                                       |
+| Action                          | Résultat dans le flux (avec `Eviter la résolution des dépendances=true`)   | Résultat dans le flux (avec `Eviter la résolution des dépendances=false`)                                                                    |
+|:--------------------------------|:----------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Créer un indicator           | Rien                                                                         | Rien                                                                                                                                        |
+| 2. Ajouter le label `detection` | Créer `TLP:GREEN`, créer `CrowdStrike`, créer l'indicator                   | Créer `TLP:GREEN`, créer `CrowdStrike`, créer le malware `Emotet`, créer l'indicator, créer la relation `indicates`                         |
+| 3. Retirer le label `detection` | Supprimer l'indicator                                                        | Supprimer l'indicator et la relation                                                                                                         |
+| 4. Ajouter le label `detection` | Créer l'indicator                                                            | Créer l'indicator, créer la relation `indicates`                                                                                             |
+| 5. Supprimer l'indicator        | Supprimer l'indicator                                                        | Supprimer l'indicator et la relation                                                                                                         |
 
-Details on how to consume these Live streams can be found on [the dedicated page](import-automated.md).
+Pour plus de détails sur la consommation de ces flux en direct, consulter [la page dédiée](import-automated.md).
 
 
-## TAXII Collections
+## Collections TAXII
 
-OpenCTI has an embedded TAXII API endpoint which provides valid STIX 2.1 bundles. If you wish to know more about the TAXII standard, [please read the official introduction](https://oasis-open.github.io/cti-documentation/taxii/intro.html).
+OpenCTI dispose d'un point de terminaison TAXII intégré qui fournit des bundles STIX 2.1 valides. Pour en savoir plus sur la norme TAXII, [lire l'introduction officielle](https://oasis-open.github.io/cti-documentation/taxii/intro.html).
 
-In OpenCTI you can create as many TAXII 2.1 collections as needed. 
+Dans OpenCTI, il est possible de créer autant de collections TAXII 2.1 que nécessaire.
 
 ![TAXII Collection](assets/taxii-collection.png)
 
-After creating a new collection, every system with a proper access token can consume the collection using different kinds of authentication (basic, bearer, etc.). 
+Après la création d'une nouvelle collection, tout système disposant d'un jeton d'accès approprié peut consommer la collection en utilisant différents types d'authentification (basic, bearer, etc.).
 
-As when using the GraphQL API, TAXII 2.1 collections have a classic pagination system that should be handled by the consumer. Also, it's important to understand that element dependencies (nested IDs) inside the collection are not always contained/resolved in the bundle, so consistency needs to be handled at the client level.
+Comme pour l'utilisation de l'API GraphQL, les collections TAXII 2.1 disposent d'un système classique de pagination qui doit être géré côté consommateur. Il est également important de comprendre que les dépendances d'éléments (IDs imbriqués) à l'intérieur de la collection ne sont pas toujours contenues/résolues dans le bundle, la cohérence devant donc être gérée côté client.
 
 <a id="csv-feeds-section"></a>
-## CSV feeds
+## Flux CSV
 
 ### Introduction
 
-The CSV feed facilitates the automatic generation of a CSV file, accessible via a URL. 
-The CSV file is regenerated and updated at user-defined intervals, providing flexibility. 
-The entries in the file correspond to the information that matches the filters applied and that were created or modified in the platform during the time interval (between the last generation of the CSV and the new one).
+Le flux CSV permet la génération automatique d'un fichier CSV, accessible via une URL.
+Le fichier CSV est régénéré et mis à jour à des intervalles définis par l'utilisateur, offrant ainsi de la flexibilité.
+Les entrées du fichier correspondent aux informations qui correspondent aux filtres appliqués et qui ont été créées ou modifiées sur la plateforme pendant l'intervalle de temps (entre la dernière génération du CSV et la nouvelle).
 
 ![CSV feed](assets/csv-feed.png)
 
 ### Rolling Time & Base Attribute
 
-The *Rolling Time* value (represented in minutes) determines how far back in time OpenCTI should look for data that matches your filters since the last fetch. The *Base Attribute* value determines whether OpenCTI should look for data <ins>created</ins> within the *Rolling Time* period, or data <ins>updated</ins> within the *Rolling Time* period.
+La valeur *Rolling Time* (exprimée en minutes) détermine la période sur laquelle OpenCTI doit rechercher les données correspondant à vos filtres depuis le dernier fetch. La valeur *Base Attribute* détermine si OpenCTI doit rechercher les données <ins>créées</ins> pendant la période *Rolling Time*, ou les données <ins>mises à jour</ins> pendant cette période.
 
 ### Duplication
-To easily configure a new CSV feed, you can choose to start from an existing feed configuration and duplicate it.
-The "duplicate" action is accessible from the feed burger menu. 
+Pour configurer facilement un nouveau flux CSV, il est possible de partir d'une configuration de flux existante et de la dupliquer.
+L'action "dupliquer" est accessible depuis le menu burger du flux.
 
 ![CSV feed duplication button](assets/feeds-duplicate.png)
 
-When you duplicate the CSV feed, all fields are copied to the creation form and can be edited.
-The new feed is named with a "-copy" suffix.
+Lors de la duplication du flux CSV, tous les champs sont copiés dans le formulaire de création et peuvent être modifiés.
+Le nouveau flux porte le suffixe "-copy" dans son nom.
 
 ![CSV feed duplication form](assets/feeds-duplication-form.png)
 
 
-### CSV size limit
+### Limite de taille du CSV
 
-The CSV data generated from a CSV feed has a limit of 5 000 entries by default. 
-If more than 5 000 entities are retrieved by the platform, only the most recent 5 000 will be shared in the file.
-    
-You can change this limit by setting the corresponding environment variable:
+Les données CSV générées à partir d'un flux CSV ont une limite de 5 000 entrées par défaut.
+Si plus de 5 000 entités sont récupérées par la plateforme, seules les 5 000 plus récentes seront partagées dans le fichier.
+  
+Il est possible de modifier cette limite en définissant la variable d'environnement correspondante :
 
 ```
 DATA_SHARING__MAX_CSV_FEED_RESULT=10000
 ```
 
-Or in the platform configuration file:
+Ou dans le fichier de configuration de la plateforme :
 
 ```
 "data_sharing": {
@@ -112,8 +112,9 @@ Or in the platform configuration file:
 },
 ```
 
-!!! warning "Performance considerations"
+!!! avertissement "Considérations de performance"
 
-    Changing the size limit can lead to performance degradation depending on your platform and your CSV feed configuration. 
-    Please test your setup properly and align this number with your platform capacity to avoid any problem.
+  Modifier la limite de taille peut entraîner une dégradation des performances selon votre plateforme et la configuration de votre flux CSV.
+  Tester correctement votre installation et aligner ce nombre avec la capacité de votre plateforme pour éviter tout problème.
 
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

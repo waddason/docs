@@ -1,39 +1,41 @@
-# Indicators Lifecycle Management
-
+# Gestion du cycle de vie des Indicators
 
 ## Introduction
 
-OpenCTI enforces strict rules to determine the period during which an indicator is effective for usage. This period is defined by the `valid_from` and `valid_until` dates. All along its lifecycle, the indicator `score` will decrease according to [configured decay rules](../administration/decay-rules.md). After the indicator expires, the object is marked as `revoked` and the `detection` field is automatically set to `false`. Here, we outline how these dates are calculated within the OpenCTI platform and how the score is updated with decay rules.
+OpenCTI applique des règles strictes pour déterminer la période pendant laquelle un indicator est effectif pour l’utilisation. Cette période est définie par les dates `valid_from` et `valid_until`. Tout au long de son cycle de vie, le `score` de l’indicator diminue selon les [règles de déclin configurées](../administration/decay-rules.md). Après expiration de l’indicator, l’objet est marqué comme `revoked` et le champ `detection` est automatiquement défini à `false`. Ce document explique comment ces dates sont calculées dans la plateforme OpenCTI et comment le score est mis à jour avec les règles de déclin.
 
+## Définir les dates de validité
 
-## Setting validity dates
+### La source de données fournit les dates
 
-### Data source provided the dates
+Si une source de données fournit les dates `valid_from` et `valid_until` lors de la création d’un indicator sur la plateforme, ces dates sont utilisées sans modification. Cependant, si la création est effectuée depuis l’interface utilisateur et que l’indicator est éligible à être géré par une règle de déclin, la plateforme modifiera la valeur de `valid_until` avec celle calculée par la règle de déclin.
 
-If a data source provides `valid_from` and `valid_until` dates when creating an indicator on the platform, these dates are used without modification. But, if the creation is performed from the UI and the indicator is elligible to be manages by a decay rule, the platform will change this valid_until with the one calculated by the Decay rule.
+### Règles de secours pour les dates non spécifiées
 
-### Fallback rules for unspecified dates
+Si une source de données ne fournit pas de dates de validité, OpenCTI applique la règle de déclin correspondant à l’indicator pour déterminer ces dates.
+La date `valid_until` est calculée en fonction du score de révocation de la règle de déclin : elle est fixée à l’instant précis où l’indicator atteindra ce score de révocation.
+Après la date `valid_until`, l’indicator est marqué comme révoqué.
 
-If a data source does not provide validity dates, OpenCTI applies the decay rule matching the indicator to determine these dates.
-The `valid_until` date is computed based on the revoke score of the decay rule : it is set at the exact time at which the indicator will reach the revoke score.
-Past `valid_until` date, the indicator is marked as revoked.
+## Déclin du score
 
-## Score decay
+Les indicators ont un score initial à la création, soit fourni par la source de données, soit 50 par défaut.
+Au fil du temps, ce score va diminuer selon les règles de déclin configurées.
+Le score est mis à jour à chaque point de réaction défini pour la règle de déclin correspondant à l’indicator lors de la création.
 
-Indicators have an initial score at creation, either provided by data source, or 50 by default.
-Over time, this score is going to decrease according to the configured decay rules.
-Score is updated at each reaction point defined for the decay rule matching the indicator at creation.
+## Exemple
 
-## Example
-
-This URL indicator has matched the `Built-in IP and URL` decay rule. Its initial score at creation is 100. 
+Cet indicator d’URL a été associé à la règle de déclin `Built-in IP and URL`. Son score initial à la création est de 100.
 
 ![Indicator overview](./assets/indicators-lifecycle-example-overview.png)
 
-Right next to the indicator score, there is a button `Lifecycle` which enables to open a dialog to see the details of the indicator's lifecyle.
+Juste à côté du score de l’indicator, il y a un bouton `Lifecycle` qui permet d’ouvrir une boîte de dialogue pour voir les détails du cycle de vie de l’indicator.
 
 ![Indicator lifecycle](./assets/indicators-lifecycle-example-dialog.png)
 
 ## Conclusion
 
-Understanding how OpenCTI calculates validity periods and scores is essential for effective threat intelligence analysis. These rules ensure that your indicators are accurate and up-to-date, providing a reliable foundation for threat intelligence data.
+Comprendre comment OpenCTI calcule les périodes de validité et les scores est essentiel pour une analyse efficace de la cybermenace. Ces règles garantissent que vos indicators sont précis et à jour, fournissant une base fiable pour les données de threat intelligence.
+
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

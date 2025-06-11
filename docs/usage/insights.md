@@ -1,5 +1,7 @@
-# Insights (AI-powered)
+# Insights (IA alimentée)
 
-!!! tip "Under construction"
+!!! astuce "En cours de construction"
 
-    This page is under construction
+    Cette page est en cours de construction
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -1,186 +1,188 @@
-# Reliability and Confidence
+# Fiabilité et Confiance
 
-## Generalities
+## Généralités
 
-In (Cyber) Threat Intelligence, evaluation of information sources and of information quality is one of the most important aspect of the work. It is of the utter most importance to assess situations by taking into account reliability of the sources and credibility of the information.
+Dans le domaine de la Cyber Threat Intelligence, l’évaluation des sources d’information et de la qualité des informations est l’un des aspects les plus importants du travail. Il est primordial d’évaluer les situations en tenant compte de la fiabilité des sources et de la crédibilité des informations.
 
-This concept is foundational in OpenCTI, and have real impact on:
+Ce concept est fondamental dans OpenCTI, et a un impact réel sur :
 
-* the data [deduplication process](deduplication.md)
-* the data stream filtering for ingestion and sharing
+* le [processus de déduplication](deduplication.md) des données
+* le filtrage des flux de données pour l’ingestion et le partage
 
-### What is the Reliability of a source?
+### Qu’est-ce que la fiabilité d’une source ?
 
-Reliability of a source of information is a measurement of the trust that the analyst can have about the source, based on the technical capabilities or history of the source. Is the source a reliable partner with long sharing history? A competitor? Unknown?
+La fiabilité d’une source d’information mesure la confiance que l’analyste peut accorder à cette source, en se basant sur ses capacités techniques ou son historique. La source est-elle un partenaire fiable avec un long historique de partage ? Un concurrent ? Inconnue ?
 
-Reliability of sources are often stated at organizational level, as it requires an overview of the whole history with it. 
+La fiabilité des sources est souvent évaluée au niveau organisationnel, car cela nécessite une vue d’ensemble de tout l’historique avec cette source.
 
-In the Intelligence field, Reliability is often notated with the [NATO Admiralty code](https://en.wikipedia.org/wiki/Admiralty_code).
+Dans le domaine du renseignement, la fiabilité est souvent notée selon le [code d’Admirauté de l’OTAN](https://fr.wikipedia.org/wiki/Code_d%27admiraut%C3%A9).
 
-### What is Confidence of an information?
+### Qu’est-ce que la confiance dans une information ?
 
-Reliability of a source is important but even a trusted source can be wrong. Information in itself has a credibility, based on what is known about the subject and the level of corroboration by other sources.
+La fiabilité d’une source est importante, mais même une source fiable peut se tromper. L’information elle-même possède une crédibilité, basée sur ce qui est connu du sujet et le niveau de corroboration par d’autres sources.
 
-Credibility is often stated at the analyst team level, expert of the subject, able to judge the information with its context.
+La crédibilité est souvent évaluée au niveau de l’équipe d’analystes, experts du sujet, capables de juger l’information dans son contexte.
 
-In the Intelligence field, Confidence is often notated with the [NATO Admiralty code](https://en.wikipedia.org/wiki/Admiralty_code).
+Dans le domaine du renseignement, la confiance est souvent notée selon le [code d’Admirauté de l’OTAN](https://fr.wikipedia.org/wiki/Admiralty_code).
 
-!!! info "Why Confidence instead of Credibility?"
+!!! info "Pourquoi Confiance au lieu de Crédibilité ?"
 
-    Using both Reliability and Credibility is an advanced use case for most of CTI teams. It requires a mature organization and a well staffed team. For most of internal CTI team, a simple confidence level is enough to forge assessment, in particular for teams that concentrate on technical CTI. 
+    Utiliser à la fois la Fiabilité et la Crédibilité est un cas d’usage avancé pour la plupart des équipes CTI. Cela nécessite une organisation mature et une équipe bien dotée. Pour la majorité des équipes CTI internes, un simple niveau de confiance suffit pour établir une évaluation, en particulier pour les équipes qui se concentrent sur la CTI technique.
 
-    Thus in OpenCTI, we have made the choice to fuse the notion of Credibility with the Confidence level that is commonly used by the majority of users. They have now the liberty to push forward their practice and use both Confidence and Reliability in their daily assessments.
+    Ainsi, dans OpenCTI, nous avons fait le choix de fusionner la notion de Crédibilité avec le niveau de Confiance couramment utilisé par la majorité des utilisateurs. Ils ont désormais la liberté d’aller plus loin dans leur pratique et d’utiliser à la fois la Confiance et la Fiabilité dans leurs évaluations quotidiennes.
 
 
-## Reliability open vocabulary
+## Vocabulaire ouvert de la fiabilité
 
-Reliability value can be set for every Entity in the platform that can be Author of Knowledge:
+La valeur de fiabilité peut être définie pour chaque Entité de la plateforme pouvant être Auteur de Connaissance :
 
 * `Organizations`
 * `Individuals`
 * `Systems`
-* and also `Reports`
+* ainsi que `Reports`
 
-Reliability on `Reports` allows you to specify the reliability associated to the original author of the report if you received it through a provider.
+La fiabilité sur les `Reports` permet de spécifier la fiabilité associée à l’auteur original du rapport si vous l’avez reçu via un fournisseur.
 
-For all Knowledge in the platform, the reliability of the source of the Knowledge (author) is displayed in the Overview. This way, you can always forge your assessment of the provided Knowledge regarding the reliability of the author.
+Pour toutes les Connaissances de la plateforme, la fiabilité de la source de la Connaissance (auteur) est affichée dans l’Aperçu. Ainsi, vous pouvez toujours forger votre propre évaluation de la Connaissance fournie en fonction de la fiabilité de l’auteur.
 
 ![Entity reliability and confidence](./assets/entity-reliability-confidence.png)
 
-You can also now filter entities by the reliability of its author.
+Il est également possible de filtrer les entités selon la fiabilité de leur auteur.
 
-!!! tip "Tip"
+!!! astuce "Astuce"
 
-    This way, you may choose to feed your work with only Knowledge provided by reliable sources.
+    De cette façon, il est possible de n’alimenter votre travail qu’avec des Connaissances provenant de sources fiables.
 
-Reliability is an open vocabulary that can be customized in Settings -> Taxonomies -> Vocabularies : reliability_ov. 
+La fiabilité est un vocabulaire ouvert qui peut être personnalisé dans Paramètres -> Taxonomies -> Vocabulaires : reliability_ov.
 
 !!! info
-    
-    The setting by default is the Reliability scale from NATO Admiralty code. But you can define whatever best fit your organization.
+
+    Le paramètre par défaut est l’échelle de fiabilité du code d’Admirauté de l’OTAN. Mais il est possible de définir ce qui correspond le mieux à votre organisation.
 
 ![Settings reliability](./assets/settings-reliability_ov.png)
 
 
-## Confidence scale
+## Échelle de confiance
 
-Confidence level can be set for:
+Le niveau de confiance peut être défini pour :
 
-* Analyses: `Report`, `Grouping`, `Malware analysis`, `Notes`
-* Cases: `Incident Response`, `Request for Information`, `Request for Takedown`, `Feedback`
-* Events: `Incident`, `Sighting`, `Observed data`
-* Observations: `Indicator`, `Infrastructure`
-* Threats: `Threat actor (Group)`, `Threat actor (Individual)`, `Intrusion Set`, `Campaign`
-* Arsenal: `Malware`, `Channel`, `Tool`, `Vulnerability`
+* Analyses : `Report`, `Grouping`, `Malware analysis`, `Notes`
+* Cas : `Incident Response`, `Request for Information`, `Request for Takedown`, `Feedback`
+* Événements : `Incident`, `Sighting`, `Observed data`
+* Observations : `Indicator`, `Infrastructure`
+* Menaces : `Threat actor (Group)`, `Threat actor (Individual)`, `Intrusion Set`, `Campaign`
+* Arsenal : `Malware`, `Channel`, `Tool`, `Vulnerability`
 
-For all of these entities, the Confidence level is displayed in the Overview, along with the Reliability. This way, you can rapidly assess the Knowledge with the Confidence level representing the credibility/quality of the information.
+Pour toutes ces entités, le niveau de Confiance est affiché dans l’Aperçu, en même temps que la Fiabilité. Ainsi, il est possible d’évaluer rapidement la Connaissance grâce au niveau de Confiance représentant la crédibilité/qualité de l’information.
 
-### Confidence scale customization
+### Personnalisation de l’échelle de confiance
 
-Confidence level is a numerical value between 0 and 100. But Multiple "Ticks" can be defined and labelled to provide a meaningful scale.
+Le niveau de confiance est une valeur numérique comprise entre 0 et 100. Mais plusieurs « paliers » peuvent être définis et étiquetés pour fournir une échelle significative.
 
-Confidence level can be customized for each entity type in Settings > Customization > Entity type.
+Le niveau de confiance peut être personnalisé pour chaque type d’entité dans Paramètres > Personnalisation > Type d’entité.
 
 ![Confidence level customization](assets/confidence-level-customization.png)
 
-As such customization can be cumbersome, three confidence level templates are provided in OpenCTI:
+Comme une telle personnalisation peut être fastidieuse, trois modèles d’échelle de confiance sont fournis dans OpenCTI :
 
-* Admiralty: corresponding to the [Admiralty code's credibility scale](https://en.wikipedia.org/wiki/Admiralty_code)
-* Objective: corresponding to a full objective scale, aiming to leave any subjectivity behind. With this scale, an information confidence is:
-    * "Cannot be judged": there is no data regarding the credibility of the information
-    * "Told": the information is known because it has been told to the source. The source doesn't verify it by any means.
-    * "Induced": the information is the result of an analysis work and is based on other similar information assumed to be true.
-    * "Deduced": the information is the result of an analysis work, and is a logical conclusion of other information assumed to be true.
-    * "Witnessed": the source have observed itself the described situation or object.
-* standard: the historic confidence level scale in OpenCTI defining a Low, Med and High level of confidence.
+* Admiralty : correspondant à l’[échelle de crédibilité du code d’Admirauté](https://fr.wikipedia.org/wiki/Code_d%27admiraut%C3%A9)
+* Objective : correspondant à une échelle totalement objective, visant à éliminer toute subjectivité. Avec cette échelle, la confiance dans une information est :
+    * « Ne peut être jugée » : aucune donnée concernant la crédibilité de l’information
+    * « Told » : l’information est connue car elle a été rapportée à la source. La source ne la vérifie pas.
+    * « Induced » : l’information est le résultat d’un travail d’analyse et se base sur d’autres informations similaires supposées vraies.
+    * « Deduced » : l’information est le résultat d’un travail d’analyse, et constitue une conclusion logique d’autres informations supposées vraies.
+    * « Witnessed » : la source a elle-même observé la situation ou l’objet décrit.
+* standard : l’échelle historique de confiance dans OpenCTI définissant un niveau de confiance Bas, Moyen et Élevé.
 
-It is always possible to modify an existing template to define a custom scale adapted to your context.
+Il est toujours possible de modifier un modèle existant pour définir une échelle personnalisée adaptée à votre contexte.
 
-!!! tip "Tip"
+!!! astuce "Astuce"
 
-    If you use the Admiralty code setting for both reliability and Confidence, you will find yourself with the equivalent of NATO confidence notation in the Overview of your different entities (A1, B2, C3, etc.)
+    Si vous utilisez le paramètre du code d’Admirauté pour la fiabilité et la Confiance, vous retrouverez l’équivalent de la notation OTAN dans l’Aperçu de vos différentes entités (A1, B2, C3, etc.)
 
 <a id="confidence-level-section"></a>
-### Max confidence level
+### Niveau de confiance maximal
 
-#### Overview
+#### Aperçu
 
-We know that in organizations, different users do not always have the same expertise or seniority.  As a result, some specific users can be more "trusted" when creating or updating knowledge than others. Additionally, because connectors, TAXII feeds and streams are all linked to respectively one user, it is important to be able to differentiate which connector, stream or TAXII feed is more trustable than others.
+Il est connu que, dans les organisations, les utilisateurs n’ont pas toujours le même niveau d’expertise ou d’ancienneté. Par conséquent, certains utilisateurs spécifiques peuvent être plus « fiables » lors de la création ou de la mise à jour de connaissances que d’autres. De plus, comme les connecteurs, flux TAXII et streams sont tous liés à un utilisateur, il est important de pouvoir différencier quel connecteur, flux ou stream TAXII est plus digne de confiance qu’un autre.
 
-This is why we have introduced the concept of max confidence level to tackle this use case.
+C’est pourquoi nous avons introduit le concept de niveau de confiance maximal pour répondre à ce cas d’usage.
 
-Max confidence level per user allows organizations to fine tune their users to ensure knowledge updated and created stays as consistent as possible.
+Le niveau de confiance maximal par utilisateur permet aux organisations d’affiner la gestion de leurs utilisateurs afin de garantir que les connaissances créées ou mises à jour restent aussi cohérentes que possible.
 
-The maximum confidence level can be set at the Group level or at the User level, and can be overridden by entity type for fine-tuning your confidence policy.
+Le niveau de confiance maximal peut être défini au niveau du Groupe ou de l’Utilisateur, et peut être surchargé par type d’entité pour affiner votre politique de confiance.
 
-#### Overall way of working
+#### Fonctionnement général
 
-The overall idea is that users with a max confidence level lower than a confidence level of an entity cannot update or delete this entity.
+L’idée générale est que les utilisateurs ayant un niveau de confiance maximal inférieur au niveau de confiance d’une entité ne peuvent pas mettre à jour ou supprimer cette entité.
 
-Also, in a conservative approach, when 2 confidence levels are possible, we would always take the lowest one.
+De plus, dans une approche conservatrice, lorsque deux niveaux de confiance sont possibles, le plus bas est toujours retenu.
 
-To have a detailed understanding of the concept, please browse through this diagram:
+Pour une compréhension détaillée du concept, consulter ce schéma :
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FlVU6O39B76MJmtnzg9DbZZ%2FConfidence-Level---Documentation%3Ftype%3Dwhiteboard%26node-id%3D0%253A1%26t%3DPQWrdBF6iMGEp0bw-1" allowfullscreen></iframe>
 
-#### User effective confidence level
+#### Niveau de confiance effectif de l’utilisateur
 
-User and group confidence level configuration shall be viewed as:
+La configuration du niveau de confiance utilisateur et groupe doit être vue comme :
 
-* a maximum confidence level between 0 and 100 (optional for users, mandatory for groups);
-* a list of overrides (a max confidence level between 0 and 100) per entity type (optional).
+* un niveau de confiance maximal entre 0 et 100 (optionnel pour les utilisateurs, obligatoire pour les groupes) ;
+* une liste de surcharges (un niveau de confiance maximal entre 0 et 100) par type d’entité (optionnel).
 
-The user's effective confidence level is the result of this configuration from multiple sources (user and their groups).
+Le niveau de confiance effectif de l’utilisateur résulte de cette configuration provenant de plusieurs sources (utilisateur et ses groupes).
 
-To compute this value, OpenCTI uses the following strategy:
+Pour calculer cette valeur, OpenCTI utilise la stratégie suivante :
 
-* effective maximum confidence is the maximum value found in the user's groups;
-* effective overrides per entity type are cumulated from all groups, taking the maximum value if several overrides are set on the same entity type
-* if a user maximum confidence level is set, it overrides everything from groups, including the overrides per entity type defined at group level
-* if not, but the user has specific overrides per entity types, they override the corresponding confidence levels per entity types coming from groups
-* if a user has the administrator's "Bypass" capability, the effective confidence level will always be 100 without overrides, regardless of the group and user configuration on confidence level
+* le niveau de confiance maximal effectif est la valeur maximale trouvée parmi les groupes de l’utilisateur ;
+* les surcharges effectives par type d’entité sont cumulées de tous les groupes, en prenant la valeur maximale si plusieurs surcharges sont définies sur le même type d’entité ;
+* si un niveau de confiance maximal utilisateur est défini, il surcharge tout ce qui vient des groupes, y compris les surcharges par type d’entité définies au niveau groupe ;
+* sinon, mais si l’utilisateur a des surcharges spécifiques par type d’entité, elles surchargent les niveaux de confiance correspondants provenant des groupes ;
+* si l’utilisateur dispose de la capacité administrateur « Bypass », le niveau de confiance effectif sera toujours 100 sans surcharge, quel que soit le groupe ou la configuration utilisateur sur le niveau de confiance.
 
-The following diagram describes the different use-cases you can address with this system.
+Le schéma suivant décrit les différents cas d’usage que vous pouvez adresser avec ce système.
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/board/cecHM2dDyOPoviw6qbVYK4/Effective-Confidence-Level-Computation---Documentation?node-id=0-1&t=ZSJNGb93mPAQRPVh-1" allowfullscreen></iframe>
 
-#### How to set a confidence level
+#### Comment définir un niveau de confiance
 
-You can set up a maximum confidence levels from the Confidences tab in the edition panel of your user or group.
-The value can be selected between 0 and 100, or using the admiralty scale selector.
+Il est possible de définir un niveau de confiance maximal depuis l’onglet Confidences dans le panneau d’édition de votre utilisateur ou groupe.
+La valeur peut être sélectionnée entre 0 et 100, ou en utilisant le sélecteur d’échelle Admiralty.
 
-At the group level, the maximum confidence level is mandatory, but is optional at the user level (you have to enable it using the corresponding toggle button).
+Au niveau du groupe, le niveau de confiance maximal est obligatoire, mais il est optionnel au niveau utilisateur (il faut l’activer via le bouton correspondant).
 
 ![Update Confidence Level](assets/update-confidence-level.png)
 
-#### How to override a max confidence level per entity type
+#### Comment surcharger un niveau de confiance maximal par type d’entité
 
-You also have the possibility to override a max confidence level per entity type, limited to Stix Domain Objects. 
+Il est également possible de surcharger un niveau de confiance maximal par type d’entité, limité aux Stix Domain Objects.
 
 ![Override Max Confidence Level Per Entity](assets/user-confidence-overrides.png)
 
-You can visualize the user's effective confidence level in the user's details view, by hovering the corresponding tooltip.
-It describes where the different values might come from.
+Il est possible de visualiser le niveau de confiance effectif de l’utilisateur dans la vue de détails de l’utilisateur, en survolant l’info-bulle correspondante.
+Elle décrit l’origine des différentes valeurs.
 
 ![Override Confidence Tooltip](assets/override-confidence-tooltip.png)
 
-## Usage in OpenCTI
+## Utilisation dans OpenCTI
 
-### Example with the admiralty code template
+### Exemple avec le modèle code d’Admirauté
 
-Your organization have received a report from a CTI provider. At your organization level, this provider is considered as reliable most of the time and its reliability level has been set to "B - Usually Reliable" (your organization uses the Admiralty code).
+Votre organisation a reçu un rapport d’un fournisseur CTI. Au niveau de votre organisation, ce fournisseur est considéré comme fiable la plupart du temps et son niveau de fiabilité a été défini sur « B - Généralement fiable » (votre organisation utilise le code d’Admirauté).
 
-This report concerns ransomware threat landscape and have been analysed by your CTI analyst specialized in cybercrime. This analyst has granted a confidence level of "2 - Probably True" to the information. 
+Ce rapport concerne le paysage des menaces ransomware et a été analysé par votre analyste CTI spécialisé en cybercriminalité. Cet analyste a attribué un niveau de confiance de « 2 - Probablement vrai » à l’information.
 
-As a technical analyst, through the cumulated reliability and Confidence notations, you now know that the technical elements of this report are probably worth consideration.
+En tant qu’analyste technique, grâce à la notation cumulée de la fiabilité et de la Confiance, vous savez désormais que les éléments techniques de ce rapport méritent probablement d’être pris en considération.
 
 ![Example with the admiralty code template](assets/example-admiralty-code.png)
 
-### Example with the Objective template
+### Exemple avec le modèle Objective
 
-As a CTI analyst in a governmental CSIRT, you build up Knowledge that will be shared within the platform to beneficiaries. Your CSIRT is considered as a reliable source by your beneficiaries, even if you play a role of a proxy with other sources, but your beneficiaries need some insights about how the Knowledge has been built/gathered. 
+En tant qu’analyste CTI dans un CSIRT gouvernemental, vous construisez des Connaissances qui seront partagées sur la plateforme avec les bénéficiaires. Votre CSIRT est considéré comme une source fiable par vos bénéficiaires, même si vous jouez un rôle de relais avec d’autres sources, mais vos bénéficiaires ont besoin d’informations sur la façon dont la Connaissance a été construite/recueillie.
 
-For that, you use the "Objective" confidence scale in your platform to provide beneficiaries with that. When the Knowledge is the work of the investigation of your CSIRT, either from incident response or attack infrastructure investigation, you set the confidence level to "Witnessed", "Deduced" or "Induced" (depending on if you observed directly the data, or inferred it during your research). When the information has not been verified by the CSIRT but has value to be shared with beneficiaries, you can use the "Told" level to make it clear to them that the information is probably valuable but has not been verified.
+Pour cela, vous utilisez l’échelle de confiance « Objective » dans votre plateforme afin de fournir ces informations aux bénéficiaires. Lorsque la Connaissance est le fruit de l’enquête de votre CSIRT, soit à partir d’une réponse à incident, soit d’une investigation sur une infrastructure d’attaque, vous définissez le niveau de confiance sur « Witnessed », « Deduced » ou « Induced » (selon que vous avez observé directement les données ou que vous les avez déduites lors de votre recherche). Lorsque l’information n’a pas été vérifiée par le CSIRT mais présente un intérêt à être partagée avec les bénéficiaires, vous pouvez utiliser le niveau « Told » pour leur indiquer clairement que l’information est probablement intéressante mais n’a pas été vérifiée.
 
 ![Example with the Objective template](assets/example-objective-scale.png)
 
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

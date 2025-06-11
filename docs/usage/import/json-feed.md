@@ -1,127 +1,129 @@
-# JSON Feeds
+# Flux JSON
 
-JSON feed ingester enables users to import any web json api.
+L'ingesteur de flux JSON permet aux utilisateurs d'importer n'importe quelle API web JSON.
 
 <a id="best-practices-section"></a>
-## Best practices
+## Bonnes pratiques
 
-In OpenCTI, the "Data > Ingestion" section provides users with built-in functions for automated data import. These functions are designed for specific purposes and can be configured to seamlessly ingest data into the platform. Here, we'll explore the configuration process for the five built-in functions: Live Streams, TAXII Feeds, TAXII Push, RSS Feeds, and JSON/CSV Feeds.
+Dans OpenCTI, la section "Data > Ingestion" fournit aux utilisateurs des fonctions intégrées pour l'importation automatisée de données. Ces fonctions sont conçues pour des usages spécifiques et peuvent être configurées pour ingérer les données de manière transparente dans la plateforme. Nous allons explorer ici le processus de configuration des cinq fonctions intégrées : Live Streams, TAXII Feeds, TAXII Push, RSS Feeds et JSON/CSV Feeds.
 
-Ensuring a secure and well-organized environment is paramount in OpenCTI. Here are two recommended best practices to enhance security, traceability, and overall organizational clarity:
+Assurer un environnement sécurisé et bien organisé est primordial dans OpenCTI. Voici deux bonnes pratiques recommandées pour renforcer la sécurité, la traçabilité et la clarté organisationnelle :
 
-1. Create a dedicated user for each source: Generate a user specifically for feed import, following the convention `[F] Source name` for clear identification. Assign the user to the "Connectors" group to streamline user management and permission related to data creation. Please [see here](../../deployment/connectors.md#connector-token-section) for more information on this good practice.
-2. Establish a dedicated Organization for the source: Create an organization named after the data source for clear identification. Assign the newly created organization to the "Default author" field in feed import configuration if available.
+1. Créer un utilisateur dédié pour chaque source : Générer un utilisateur spécifiquement pour l'import de flux, en suivant la convention `[F] Nom de la source` pour une identification claire. Assigner l'utilisateur au groupe "Connectors" afin de faciliter la gestion des utilisateurs et des permissions liées à la création de données. Veuillez [voir ici](../../deployment/connectors.md#connector-token-section) pour plus d'informations sur cette bonne pratique.
+2. Créer une Organisation dédiée pour la source : Créer une organisation nommée d'après la source de données pour une identification claire. Assigner la nouvelle organisation au champ "Default author" dans la configuration d'import de flux si disponible.
 
-By adhering to these best practices, you ensure independence in managing rights for each import source through dedicated user and organization structures. In addition, you enable clear traceability to the entity's creator, facilitating source evaluation, dashboard creation, data filtering and other administrative tasks.
+En respectant ces bonnes pratiques, il est possible de gérer de façon indépendante les droits pour chaque source d'import via des structures d'utilisateur et d'organisation dédiées. De plus, cela permet une traçabilité claire du créateur de l'entité, facilitant l'évaluation de la source, la création de tableaux de bord, le filtrage des données et d'autres tâches administratives.
 
 ## Configuration
 
-Configuring a JSON feed will be simple or complex depending on the needs of pagination.
-So we will show be example of its different and how to configure it in the two cases.
+La configuration d'un flux JSON sera simple ou complexe selon les besoins de pagination.
+Nous allons donc illustrer par exemple ses différentes possibilités et comment les configurer dans les deux cas.
 
-### Simple API
+### API simple
 
-Here's a step-by-step guide to configure JSON ingesters:
+Voici un guide étape par étape pour configurer les ingesteurs JSON :
 
-1. Schedule period: As the API is not paginated, its recommended to configure a longer polling period
-2. HTTP JSON URL: Provide the URL of the JSON API from which items will be imported.
-3. HTTP Verb: Provide the type of verb that will be GET by default.
-4. JSON Mappers: Choose the JSON mapper to be used to import the data.
-5. Authentication type (if necessary): Enter the authentication type.
+1. Période de planification : Comme l'API n'est pas paginée, il est recommandé de configurer une période d'interrogation plus longue.
+2. URL HTTP JSON : Fournir l'URL de l'API JSON à partir de laquelle les éléments seront importés.
+3. Verbe HTTP : Indiquer le type de verbe, qui sera GET par défaut.
+4. Mappers JSON : Choisir le mapper JSON à utiliser pour importer les données.
+5. Type d'authentification (si nécessaire) : Saisir le type d'authentification.
 
-### Paginated API
+### API paginée
 
-For paginated API its more difficult to configure the JSON feed. You have more elements.
+Pour une API paginée, la configuration du flux JSON est plus complexe. Il y a plus d'éléments à prendre en compte.
 
-#### Verb and variables
+#### Verbe et variables
 
-You need to start to configure the verb to use and the variables.
+Il faut commencer par configurer le verbe à utiliser et les variables.
 
 **GET**
 
-When you use a GET API, a majority of case will use query parameters to be able to setup variables for the pagination.
-For example lets take an api where the get command need to specify the page number to consume.
-There is a part of the URI that need to be dynamic.
+Lorsque vous utilisez une API GET, dans la majorité des cas, des paramètres de requête sont utilisés pour définir les variables de pagination.
+Par exemple, prenons une API où la commande GET doit spécifier le numéro de page à consommer.
+Une partie de l'URI doit donc être dynamique.
 
 ```https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=20&startIndex=$offset```
 
-You can see in this example that the page query parameter need to be associated with the pagination.
+Dans cet exemple, le paramètre de requête page doit être associé à la pagination.
 
-So to be able to do this, you have to configure this parameter as a variable, here **${offset}**
+Pour cela, il faut configurer ce paramètre comme une variable, ici **${offset}**
 
 **POST**
 
-When you use a POST API, you need to specify the body of the post. Depending on the API it could be JSON or any other body content.
+Lorsque vous utilisez une API POST, il faut spécifier le corps de la requête. Selon l'API, il peut s'agir de JSON ou de tout autre contenu.
 
-Like the previous example in the get, you can specify variables in the body configuration.
+Comme dans l'exemple précédent avec GET, il est possible de spécifier des variables dans la configuration du corps.
 
 ``` { "page": "$offset" }```
 
-or for example this kind of command for a Trino query that define a $created variable.
+ou par exemple cette commande pour une requête Trino qui définit une variable $created.
 
 ```SELECT * FROM observables WHERE created_at > TIMESTAMP '$created' ORDER BY created_at ASC LIMIT 10```
 
-#### Query attributes
+#### Attributs de requête
 
-The query attribute will be the definition of how to setup the required variable.
+L'attribut de requête sera la définition de la façon de configurer la variable requise.
 
-Let's take the previous example with the GET uri.
+Prenons l'exemple précédent avec l'URI GET.
 
 ```https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=20&startIndex=$offset```
 
-For the uri of the GET example, we need to configure the **offset** variables.
+Pour l'URI de l'exemple GET, il faut configurer la variable **offset**.
 
-![Data import and workbenches panel](../assets/json-feed-paginated.png)
-Lets describe each configuration:
-- Resolve from: **Data**
+![Panneau d'import de données et workbenches](../assets/json-feed-paginated.png)
+Décrivons chaque configuration :
+- Résoudre à partir de : **Data**
 
-Where the variable will be parsed from. You can choose between Header and Data.
+D'où la variable sera extraite. Il est possible de choisir entre Header et Data.
 
-- Exposed attribute to: **Query parameter**
+- Attribut exposé à : **Query parameter**
 
-How the attribute will be exposed in the next http call. You can choose between Body / Query parameter and Header
+Comment l'attribut sera exposé lors du prochain appel HTTP. Il est possible de choisir entre Body / Query parameter et Header.
 
-- Resolve operation: **Count**
+- Opération de résolution : **Count**
 
-Apply an operation on the resolved data. You can choose between Data and Count.
+Appliquer une opération sur les données résolues. Il est possible de choisir entre Data et Count.
 
-- State operation: **Sum**
+- Opération d'état : **Sum**
 
-How to compute the state for the next execution. You can choose between Replace and Sum.
+Comment calculer l'état pour la prochaine exécution. Il est possible de choisir entre Replace et Sum.
 
-- Get from path: **$.vulnerabilities**
+- Extraire depuis le chemin : **$.vulnerabilities**
 
-How to extract the data from the data result. 
+Comment extraire les données du résultat.
 
-- To attribute name: **offset**
+- Nom de l'attribut cible : **offset**
 
-The name of the attribute that will contain the value and so **to use in the query / body or headers**
+Le nom de l'attribut qui contiendra la valeur et donc **à utiliser dans la requête / le corps ou les headers**
 
-- Default value: **0**
+- Valeur par défaut : **0**
 
-The default value for the target attribute.
+La valeur par défaut pour l'attribut cible.
 
-#### Headers
+#### En-têtes
 
-If your API require some specific headers, you can simply add some.
+Si votre API nécessite des en-têtes spécifiques, il suffit de les ajouter.
 
-![JSON feed headers](../assets/json-feed-headers.png)
+![En-têtes du flux JSON](../assets/json-feed-headers.png)
 
-#### Sub pagination
+#### Sous-pagination
 
-This one is a very specific option that will be used in some really rare use case. For example Trino is a system that require sub pagination to get the data.
+Cette option très spécifique sera utilisée dans de rares cas. Par exemple, Trino est un système qui nécessite une sous-pagination pour obtenir les données.
 
-![JSON sub pagination option](../assets/json-feed-sub.png)
+![Option de sous-pagination JSON](../assets/json-feed-sub.png)
 
-#### Mapper and verify
+#### Mapper et vérification
 
-With the correct mapper configured you can click on the verify button to get an idea of what you can get.
+Avec le bon mapper configuré, il est possible de cliquer sur le bouton de vérification pour avoir un aperçu du résultat.
 
-![JSON feed verify](../assets/json-feed-verify.png)
+![Vérification du flux JSON](../assets/json-feed-verify.png)
 
-In the result you will be able to see the result of the query parameters computing (state) and the data mapped to STIX (objects). 
+Dans le résultat, il sera possible de voir le résultat du calcul des paramètres de requête (state) et les données mappées en STIX (objects).
 
-The state is a json object that represent information that will be injected in the parameters / body or headers for the next execution.
+L'état est un objet JSON qui représente les informations qui seront injectées dans les paramètres / le corps ou les headers pour la prochaine exécution.
 
-You need to be careful and really take the time to adapt your configuration to obtain the expected mapping.
+Il est important de prendre le temps d'adapter la configuration pour obtenir le mapping attendu.
 
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

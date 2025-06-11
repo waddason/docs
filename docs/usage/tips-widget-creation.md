@@ -1,113 +1,116 @@
-# Pro-tips on widget creation
+# Astuces pour la création de widgets
 
-Previously, the creation of widgets has been covered. To help users being more confident in creating widgets, here are some details to master the widget creation.
+La création de widgets a déjà été abordée. Pour aider les utilisateurs à gagner en confiance dans la création de widgets, voici quelques détails pour maîtriser la création de widgets.
 
 <a id="howto-section"></a>
-## How to choose the appropriate widget visualization for your use case?
+## Comment choisir la visualisation de widget appropriée pour votre cas d'utilisation ?
 
-We can classify the widgets in 3 different types.
+On peut classer les widgets en 3 types différents.
 
-### Single dimension widgets
+### Widgets à dimension unique
 
-Use these widgets when you would like to display information about one single type of object (entity or relation).
+Utiliser ces widgets lorsque vous souhaitez afficher des informations sur un seul type d'objet (entité ou relation).
 
-- **Widget visualizations: number, list, list (distribution), timeline, donuts, radar, map, bookmark, tree map.**
-- Use case example: view the amount of malware in platform (number widget), view the top 10 threat actor group target a specific country (distribution list widget), etc.
+- **Visualisations de widget : nombre, liste, liste (distribution), chronologie, donuts, radar, carte, signet, tree map.**
+- Exemple de cas d'utilisation : afficher le nombre de malware sur la plateforme (widget nombre), afficher le top 10 des groupes de threat actor ciblant un pays spécifique (widget liste de distribution), etc.
 
-### Multi dimension widgets
+### Widgets multi-dimensions
 
-Use these widgets if you would like to compare or have some insights about similar types of object (up to 5).
+Utiliser ces widgets si vous souhaitez comparer ou obtenir des informations sur des types d'objets similaires (jusqu'à 5).
 
-- **Widget visualizations: line, area, heatmap, vertical bars.**
-- Use case example: view the amount of malware, intrusion sets, threat actor groups added in the course of last month in the platform (line or area widget).
+- **Visualisations de widget : ligne, aire, heatmap, barres verticales.**
+- Exemple de cas d'utilisation : afficher le nombre de malware, intrusion sets, threat actor groups ajoutés au cours du dernier mois sur la plateforme (widget ligne ou aire).
 
-!!! warning "Type of object in widget"
-  These widgets need to use the same "type" of object to work properly. You always need to add relationships in the filter view if you have selected a "knowledge graph" perspective. If you have selected the knowledge graph entity, adding "Entities" (click on `+ entities`) will not work, since you are not counting the same things.
+!!! avertissement "Type d'objet dans le widget"
+  Ces widgets doivent utiliser le même "type" d'objet pour fonctionner correctement. Il faut toujours ajouter des relations dans la vue des filtres si vous avez sélectionné une perspective "knowledge graph". Si vous avez sélectionné l'entité du knowledge graph, ajouter des "Entities" (cliquer sur `+ entities`) ne fonctionnera pas, car vous ne comptez pas les mêmes éléments.
 
-### Break down widgets
+### Widgets de répartition
 
-Use this widget if you want to divide your data set into smaller parts to make it clearer and more useful for analysis.
+Utiliser ce widget si vous souhaitez diviser votre ensemble de données en parties plus petites pour le rendre plus clair et plus utile à l'analyse.
 
-- **Widget visualization: horizontal bars.**
-- Use case example: view the list of malware targeting a country breakdown by the type of malware.
+- **Visualisation de widget : barres horizontales.**
+- Exemple de cas d'utilisation : afficher la liste des malware ciblant un pays, répartis par type de malware.
 
 ![breakdown example](assets/widget-breakdown-example.png)
 
-## Adding datasets to your widget
+## Ajouter des ensembles de données à votre widget
 
-Adding datasets can serve two purposes: comparing data or breakdown a view to have deeper understanding on what a specific dataset is composed of. 
+Ajouter des ensembles de données peut servir deux objectifs : comparer des données ou décomposer une vue pour mieux comprendre la composition d'un ensemble de données spécifique.
 
-### Use Case 1: compare several datasets
+### Cas d'utilisation 1 : comparer plusieurs ensembles de données
 
-As mentioned in [How to choose the appropriate widget visualization for your use case?](#howto-section) section you can add data sets to compare different data. Make sure to add the same type of objects (entities or relations) to be able to compare the same objects, by using access buttons like `+`, `+ Relationships`, or `+ Entities`.
+Comme mentionné dans la section [Comment choisir la visualisation de widget appropriée pour votre cas d'utilisation ?](#howto-section), vous pouvez ajouter des ensembles de données pour comparer différentes données. Veiller à ajouter le même type d'objets (entités ou relations) afin de pouvoir comparer les mêmes objets, en utilisant les boutons d'accès comme `+`, `+ Relationships` ou `+ Entities`.
 
-You can add up to 5 different data sets.  The `Label` field allows you to name a data set, and this label can then be shown as a legend in the widget using the `Display legend` button in the widget parameters (see the next section).
+Vous pouvez ajouter jusqu'à 5 ensembles de données différents. Le champ `Label` permet de nommer un ensemble de données, et ce label peut ensuite être affiché comme légende dans le widget en utilisant le bouton `Display legend` dans les paramètres du widget (voir la section suivante).
 
-### Use case 2: break down your chart
+### Cas d'utilisation 2 : décomposer votre graphique
 
-As mentioned in [How to choose the appropriate widget visualization for your use case?](#howto-section) section you can add data sets to decompose your graph into smaller meaningful chunks. In the below points, you can find some use cases that will help you understand how to structure your data.
+Comme mentionné dans la section [Comment choisir la visualisation de widget appropriée pour votre cas d'utilisation ?](#howto-section), vous pouvez ajouter des ensembles de données pour décomposer votre graphique en parties significatives plus petites. Vous trouverez ci-dessous quelques cas d'utilisation pour vous aider à comprendre comment structurer vos données.
 
-You can break down a view either by **entity or by relations**, depending on what you need to count.
+Vous pouvez décomposer une vue soit par **entité soit par relations**, selon ce que vous souhaitez compter.
 
-#### Break down by entity
+#### Décomposer par entité
 
-**Use case example: I need to understand what are the most targeted countries by malware, and have a breakdown for each country by malware type.**
+**Exemple de cas d'utilisation : comprendre quels sont les pays les plus ciblés par les malware, et obtenir une répartition pour chaque pays par type de malware.**
 
-**Process:**
+**Procédure :**
 
-1. To achieve this use case, you first need to select the horizontal bar vizualisation.
-2. Then you need to select the knowledge graph perspective.
+1. Pour réaliser ce cas d'utilisation, il faut d'abord sélectionner la visualisation en barres horizontales.
+2. Puis sélectionner la perspective knowledge graph.
 
-In the filters view:
+Dans la vue des filtres :
 
-3. Then input your main query `Source type = Malware AND Target type = Countries AND Relation type = Targets`. Add a label to your dataset. 
-4. Add **an entity data set** by using access button `+ Entities`.
-5. Add the following filters `Entity type = Malware AND In regards of = targets`. Add a label to your dataset.
+3. Saisir ensuite votre requête principale `Source type = Malware AND Target type = Countries AND Relation type = Targets`. Ajouter un label à votre ensemble de données.
+4. Ajouter **un ensemble de données entité** en utilisant le bouton d'accès `+ Entities`.
+5. Ajouter les filtres suivants `Entity type = Malware AND In regards of = targets`. Ajouter un label à votre ensemble de données.
 
 ![filter view](assets/widget-breakdwon-by-entity-filter.png)
 
-In the parameter view:
+Dans la vue des paramètres :
 
-6. Attribute (of your relation) = entity (so that you display the different entities values)
-7. Display the source toggle = off
-8. Attribute (of your entity malware) = Malware type (since you want to break down your relations by the malware types)
+6. Attribut (de votre relation) = entity (pour afficher les différentes valeurs d'entités)
+7. Affichage du toggle source = désactivé
+8. Attribut (de votre entité malware) = Malware type (puisque vous souhaitez répartir vos relations par types de malware)
 
 ![parameter view](assets/widget-breakdown-by-entity-parameter.png)
 
-As a result, you get a list of countries broken down by malware types.
+En résultat, vous obtenez une liste de pays répartis par types de malware.
 
 ![final result](assets/widget-breakdown-by-entity-final.png)
 
-#### Break down by relation
+#### Décomposer par relation
 
-**Use case example: I need to understand what are the top targeting malware and have a breakdown of the top targets per malware**
+**Exemple de cas d'utilisation : comprendre quels sont les malware les plus ciblants et obtenir une répartition des principales cibles par malware**
 
-**Process:**
+**Procédure :**
 
-1. To achieve this use case, you first need to select the horizontal bar vizualisation.
-2. Then you need to select the knowledge graph perspective.
+1. Pour réaliser ce cas d'utilisation, il faut d'abord sélectionner la visualisation en barres horizontales.
+2. Puis sélectionner la perspective knowledge graph.
 
-In the filters view:
+Dans la vue des filtres :
 
-3. Then input your main query `Source type = Malware AND Relation type = Targets`. Add a label to your dataset. 
-4. Add **a relation data set** by using access button  `+ Relationships`
-5. Add the following filters `Source type = Malware AND Relation type = targets`. Add a label to your dataset.
+3. Saisir ensuite votre requête principale `Source type = Malware AND Relation type = Targets`. Ajouter un label à votre ensemble de données.
+4. Ajouter **un ensemble de données relation** en utilisant le bouton d'accès `+ Relationships`
+5. Ajouter les filtres suivants `Source type = Malware AND Relation type = targets`. Ajouter un label à votre ensemble de données.
 
 ![filter view](assets/widget-breakdown-by-relation-filter.png)
 
-In the parameter view:
+Dans la vue des paramètres :
 
-7. Attribute (of your relation): entity (so that you display the different entities values)
-8. Display the source toggle = on
-9. Attribute (of your entity malware) = Malware type (since you want to break down your relations by the malware types)
-10. Display the source toggle = off
+7. Attribut (de votre relation) : entity (pour afficher les différentes valeurs d'entités)
+8. Affichage du toggle source = activé
+9. Attribut (de votre entité malware) = Malware type (puisque vous souhaitez répartir vos relations par types de malware)
+10. Affichage du toggle source = désactivé
 
 ![paramter view](assets/widget-breakdwon-by-relation-parameter.png)
 
-As a result, you get a list of malware with the breakdown of their top targets.
+En résultat, vous obtenez une liste de malware avec la répartition de leurs principales cibles.
 
 ![final view](assets/widget-breakdown-by-relation-final.png)
 
-## More use cases
+## Autres cas d'utilisation
 
-To see more use cases, feel free to have a look at this [blog post](https://blog.filigran.io/new-octi-dashboards-the-first-graph-dashboarding-engine-for-the-stix-model-406e4eb5842a) that will provide you additional information.
+Pour voir d'autres cas d'utilisation, n'hésitez pas à consulter cet [article de blog](https://blog.filigran.io/new-octi-dashboards-the-first-graph-dashboarding-engine-for-the-stix-model-406e4eb5842a) qui vous apportera des informations complémentaires.
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

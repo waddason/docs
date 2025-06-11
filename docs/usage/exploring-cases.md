@@ -1,117 +1,116 @@
-# Cases
+# Cas
 
-When you click on "Cases" in the left-side bar, you access all the "Cases" tabs, visible on the top bar on the left. By default, the user directly access the "Incident Responses" tab, but can navigate to the other tabs as well.
+En cliquant sur "Cases" dans la barre latérale gauche, vous accédez à tous les onglets "Cases", visibles en haut à gauche. Par défaut, l'utilisateur accède directement à l'onglet "Incident Responses", mais peut également naviguer vers les autres onglets.
 
-As Analyses, `Cases` can contain other objects. This way, by adding context and results of your investigations in the case, you will be able to get an up-to-date overview of the ongoing situation, and later produce more easily an incident report. 
+Comme les Analyses, les `Cases` peuvent contenir d'autres objets. Ainsi, en ajoutant du contexte et les résultats de vos investigations dans le case, vous pourrez obtenir une vue d'ensemble à jour de la situation en cours, et produire plus facilement un rapport d'incident par la suite.
 
-From the `Cases` section, users can access the following tabs:
+Depuis la section `Cases`, les utilisateurs peuvent accéder aux onglets suivants :
 
-- `Incident Responses`: This type of Cases is dedicated to the management of incidents. An Incident Response case does not represent an incident, but all the context and actions that will encompass the response to a specific incident.
-- `Request for Information`: CTI teams are often asked to provide extensive information and analysis on a specific subject, be it related to an ongoing incident or a particular trending threat. Request for Information cases allow you to store context and actions relative to this type of request and its response.
-- `Request for Takedown`: When an organization is targeted by an attack campaign, a typical response action can be to request the Takedown of elements of the attack infrastructure, for example a domain name impersonating the organization to phish its employees, or an email address used to deliver phishing content. As Takedown needs in most case to reach out to external providers and be effective quickly, it often needs specific workflows. Request for Takedown cases give you a dedicated space to manage these specific actions.
-- `Tasks`: In every case, you need tasks to be performed in order to solve it. The Tasks tab allows you to review all created tasks to quickly see past due date, or quickly see every task assigned to a specific user.
-- `Feedbacks`: If you use your platform to interact with other teams and provide them CTI Knowledge, some users may want to give you feedback about it. Those feedbacks can easily be considered as another type of case to solve, as it will often refer to Knowledge inconsistency or gaps.
+- `Incident Responses` : Ce type de Cases est dédié à la gestion des incidents. Un Incident Response case ne représente pas un incident, mais tout le contexte et les actions qui vont englober la réponse à un incident spécifique.
+- `Request for Information` : Les équipes CTI sont souvent sollicitées pour fournir des informations et analyses approfondies sur un sujet particulier, qu'il soit lié à un incident en cours ou à une menace émergente. Les Request for Information cases permettent de stocker le contexte et les actions relatives à ce type de demande et à sa réponse.
+- `Request for Takedown` : Lorsqu'une organisation est ciblée par une campagne d'attaque, une action de réponse typique peut consister à demander le Takedown d'éléments de l'infrastructure d'attaque, par exemple un nom de domaine usurpant l'organisation pour piéger ses employés, ou une adresse email utilisée pour diffuser du contenu de phishing. Comme le Takedown nécessite dans la plupart des cas de contacter des fournisseurs externes et d'être efficace rapidement, il requiert souvent des workflows spécifiques. Les Request for Takedown cases offrent un espace dédié pour gérer ces actions spécifiques.
+- `Tasks` : Dans chaque case, des tâches doivent être réalisées pour le résoudre. L'onglet Tasks permet de consulter toutes les tâches créées afin de voir rapidement celles en retard, ou de visualiser toutes les tâches assignées à un utilisateur spécifique.
+- `Feedbacks` : Si vous utilisez votre plateforme pour interagir avec d'autres équipes et leur fournir de la CTI Knowledge, certains utilisateurs peuvent souhaiter vous faire un retour à ce sujet. Ces feedbacks peuvent facilement être considérés comme un autre type de case à résoudre, car ils font souvent référence à des incohérences ou des lacunes dans la Knowledge.
 
 ![Cases Default page is Incident Response](assets/cases-default-landing-page.png)
 
 ## Incident Response, Request for Information & Request for Takedown
 
-### General presentation
+### Présentation générale
 
-Incident responses, Request for Information & Request for Takedown cases are an important part of the case management system in OpenCTI. Here, you can organize the work of your team to respond to cybersecurity situations. You can also give context to the team and other users on the platform about the situation and actions (to be) taken.
+Les Incident responses, Request for Information & Request for Takedown cases sont une partie importante du système de gestion des cases dans OpenCTI. Ici, vous pouvez organiser le travail de votre équipe pour répondre à des situations de cybersécurité. Vous pouvez également donner du contexte à l'équipe et aux autres utilisateurs de la plateforme concernant la situation et les actions (à) prendre.
 
-To manage the situation, you can issue `Tasks` and assign them to users in the platform, by directly creating a Task or by applying a Case template that will append a list of predefined tasks.
+Pour gérer la situation, il est possible de créer des `Tasks` et de les assigner à des utilisateurs de la plateforme, soit en créant directement une Task, soit en appliquant un modèle de Case qui ajoutera une liste de tâches prédéfinies.
 
-To bring context, you can use your Case as a container (like Reports or Groupings), allowing you to add any Knowledge from your platform in it. You can also use this possibility to trace your investigation, your Case playing the role of an Incident report. You will find more information about case management [here](case-management.md).
+Pour apporter du contexte, vous pouvez utiliser votre Case comme un container (comme les Reports ou Groupings), ce qui vous permet d'y ajouter toute la Knowledge de votre plateforme. Vous pouvez également utiliser cette possibilité pour tracer votre investigation, votre Case jouant le rôle de rapport d'incident. Vous trouverez plus d'informations sur la gestion des cases [ici](case-management.md).
 
-Incident Response, Request for Information & Request for Takedown are not STIX 2.1 Objects.
+Les Incident Response, Request for Information & Request for Takedown ne sont pas des objets STIX 2.1.
 
-When clicking on the Incident Response, Request for Information & Request for Takedown tabs at the top, you see the list of all the Cases you have access to, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes.
+En cliquant sur les onglets Incident Response, Request for Information & Request for Takedown en haut, vous voyez la liste de tous les Cases auxquels vous avez accès, selon vos [allowed marking definitions](../administration/users.md). Vous pouvez ensuite rechercher et filtrer selon certains attributs communs et spécifiques.
 
-### Visualizing Knowledge within an Incident Response, Request for Information & Request for Takedown
+### Visualiser la Knowledge dans un Incident Response, Request for Information & Request for Takedown
 
-When clicking on an Incident Response, Request for Information or Request for Takedown, you land on the Overview tab. The following tabs are accessible:
+En cliquant sur un Incident Response, Request for Information ou Request for Takedown, vous arrivez sur l'onglet Overview. Les onglets suivants sont accessibles :
 
-- Overview: Overview of Cases are slightly different from the usual (described [here](overview.md#overview-section)). Cases' Overview displays also the list of the tasks associated with the case. It also let you highlight Incident, Report or Sighting at the origin of the case. If other cases contains some Observables with your Case, they will be displayed as Related Cases in the Overview.
-- Knowledge: a complex tab that regroups all the structured Knowledge contained in the Case, accessible through different views (See below for a dive-in). As described [here](overview.md#knowledge-section).
-- Content: a tab to provide access to content mapping, suggested mapping and allows to preview, manage and write the deliverables associated with the Case. For example, an analytical report to share with other teams, a markdown file to feed a collaborative wiki, etc. As described [here](overview.md#content-section).
-- Entities: A table containing all SDO (Stix Domain Objects) contained in the Case, with search and filters available. It also displays if the SDO has been added directly or through [inferences with the reasoning engine](inferences.md)
-- Observables: A table containing all SCO (Stix Cyber Observable) contained in the Case, with search and filters available. It also displays if the SDO has been added directly or through [inferences with the reasoning engine](inferences.md)
-- Data: as described [here](overview.md#data-section).
+- Overview : L'Overview des Cases diffère légèrement de l'habituel (décrit [ici](overview.md#overview-section)). L'Overview des Cases affiche également la liste des tâches associées au case. Il permet aussi de mettre en avant l'Incident, le Report ou le Sighting à l'origine du case. Si d'autres cases contiennent des Observables en commun avec votre Case, ils seront affichés comme Related Cases dans l'Overview.
+- Knowledge : un onglet complexe qui regroupe toute la Knowledge structurée contenue dans le Case, accessible via différentes vues (voir ci-dessous pour plus de détails). Comme décrit [ici](overview.md#knowledge-section).
+- Content : un onglet pour accéder au content mapping, au suggested mapping et permet de prévisualiser, gérer et rédiger les livrables associés au Case. Par exemple, un rapport analytique à partager avec d'autres équipes, un fichier markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Entities : Un tableau contenant tous les SDO (Stix Domain Objects) contenus dans le Case, avec recherche et filtres disponibles. Il indique également si le SDO a été ajouté directement ou via [inférences avec le reasoning engine](inferences.md)
+- Observables : Un tableau contenant tous les SCO (Stix Cyber Observable) contenus dans le Case, avec recherche et filtres disponibles. Il indique également si le SDO a été ajouté directement ou via [inférences avec le reasoning engine](inferences.md)
+- Data : comme décrit [ici](overview.md#data-section).
 
-Exploring and modifying the structured Knowledge contained in a Case can be done through different lenses.
+Explorer et modifier la Knowledge structurée contenue dans un Case peut se faire sous différents angles.
 
-#### Graph View
+#### Vue Graphique
 
 ![Graph View of a Case](assets/case-graph.png)
 
-In Graph view, STIX SDO are displayed as graph nodes and relationships as graph links. Nodes are colored depending on their type. Direct relationship are displayed as plain link and inferred relationships in dotted link.
-At the top right, you will find a series of icons. From there you can change the current type of view. Here you can also perform global action on the Knowledge of the Case. Let's highlight 2 of them:
+En vue Graph, les STIX SDO sont affichés comme des nœuds du graphe et les relations comme des liens. Les nœuds sont colorés selon leur type. Les relations directes sont affichées en trait plein et les relations inférées en pointillé.
+En haut à droite, vous trouverez une série d'icônes. De là, il est possible de changer le type de vue actuel. Vous pouvez également effectuer des actions globales sur la Knowledge du Case. Deux d'entre elles sont à noter :
 
-- Suggestions: This tool suggests you some logical relationships to add between your contained Object to give more consistency to your Knowledge.
-- Share with an Organization: if you have designated a main Organization in the platform settings, you can here share your Case and its content with users of another Organization.
-At the bottom, you have many option to manipulate the graph:
-- Multiple option for shaping the graph and applying forces to the nodes and links
-- Multiple selection options
-- Multiple filters, including a time range selector allowing you to see the evolution of the Knowledge within the Case.
-- Multiple creation and edition tools to modify the Knowledge contained in the Case.
+- Suggestions : Cet outil vous suggère des relations logiques à ajouter entre vos objets contenus afin de donner plus de cohérence à votre Knowledge.
+- Share with an Organization : si vous avez désigné une Organisation principale dans les paramètres de la plateforme, vous pouvez ici partager votre Case et son contenu avec les utilisateurs d'une autre Organisation.
+En bas, de nombreuses options permettent de manipuler le graphe :
+- Plusieurs options pour façonner le graphe et appliquer des forces aux nœuds et liens
+- Plusieurs options de sélection multiple
+- Plusieurs filtres, dont un sélecteur de plage temporelle permettant de voir l'évolution de la Knowledge dans le Case.
+- Plusieurs outils de création et d'édition pour modifier la Knowledge contenue dans le Case.
 
-
-#### Timeline view
+#### Vue Timeline
 
 ![Timeline view of a Case](assets/case-timeline.png)
 
-This view allows you to see the structured Knowledge chronologically. This view is particularly useful in the context of a Case, allowing you to see the chain of events, either from the attack perspectives, the defense perspectives or both.
-The view can be filtered and displayed relationships too.
+Cette vue permet de visualiser la Knowledge structurée de façon chronologique. Elle est particulièrement utile dans le contexte d'un Case, permettant de voir la chaîne des événements, que ce soit du point de vue de l'attaque, de la défense ou les deux.
+La vue peut être filtrée et afficher également les relations.
 
-#### Matrix view
+#### Vue Matrix
 
-If your Case contains attack patterns, you will be able to visualize them in a Matrix view.
+Si votre Case contient des attack patterns, vous pourrez les visualiser dans une vue Matrix.
 
-### Restricting access to an Incident Response, Request for Information & Request for Takedown
+### Restreindre l'accès à un Incident Response, Request for Information & Request for Takedown
 
-#### Organization segregation
+#### Ségrégation par organisation
 
-If you have designated a main Organization in the platform settings, you can share your Case and its content with users of an other Organization.
+Si vous avez désigné une Organisation principale dans les paramètres de la plateforme, vous pouvez partager votre Case et son contenu avec les utilisateurs d'une autre Organisation.
 
 ![containers-organization-sharing-button.png](assets%2Fcontainers-organization-sharing-button.png)
 
-[read more about organization segregation](..%2Fadministration%2Forganization-segregation.md)
+[lire plus sur la ségrégation par organisation](..%2Fadministration%2Forganization-segregation.md)
 
-#### Authorized members
+#### Membres autorisés
 
-**Authorized members** allow to restrict access to an entity to certain users, groups, or organizations within the platform.
+**Membres autorisés** permet de restreindre l'accès à une entité à certains utilisateurs, groupes ou organisations au sein de la plateforme.
 
-To define authorized members, you need to click on the '**Manage Access Restriction**' button. This button is visible if you have the '**Manage Authorized Members**' capability.
+Pour définir les membres autorisés, il faut cliquer sur le bouton '**Gérer la restriction d'accès**'. Ce bouton est visible si vous disposez de la capacité '**Gérer les membres autorisés**'.
 
 ![containers-manage-access-restriction-button.png](assets%2Fcontainers-manage-access-restriction-button.png)
 
-
 ## Tasks
 
-Tasks are actions to be performed in the context of a Case (Incident Response, Request for Information, Request for Takedown). Usually, a task is assigned to a user, but important tasks may involve more participants.
+Les Tasks sont des actions à réaliser dans le contexte d'un Case (Incident Response, Request for Information, Request for Takedown). Généralement, une task est assignée à un utilisateur, mais des tâches importantes peuvent impliquer plusieurs participants.
 
-When clicking on the Tasks tab at the top of the interface, you see the list of all the Tasks you have access to, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes of the tasks.
+En cliquant sur l'onglet Tasks en haut de l'interface, vous voyez la liste de toutes les Tasks auxquelles vous avez accès, selon vos [allowed marking definitions](../administration/users.md). Vous pouvez ensuite rechercher et filtrer selon certains attributs communs et spécifiques des tasks.
 
-Clicking on a Task, you land on its Overview tab. For a Tasks, the following tabs are accessible:
+En cliquant sur une Task, vous arrivez sur son onglet Overview. Pour une Task, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Content: as described [here](overview.md#content-section).
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
-
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Content : comme décrit [ici](overview.md#content-section).
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ## Feedbacks
 
-When a user fill a feedback form from its Profile/Feedback menu, it will then be accessible here.
+Lorsqu'un utilisateur remplit un formulaire de feedback depuis son menu Profil/Feedback, il sera accessible ici.
 
-This feature gives the opportunity to engage with other users of your platform and to respond directly to their concern about it or the Knowledge, without the need of third party software.
+Cette fonctionnalité offre la possibilité d'échanger avec les autres utilisateurs de votre plateforme et de répondre directement à leurs préoccupations concernant celle-ci ou la Knowledge, sans avoir besoin d'un logiciel tiers.
 
 ![Feedback Overview](assets/feedback-overview.png)
 
-Clicking on a Feedback, you land on its Overview tab. For a Feedback, the following tabs are accessible:
+En cliquant sur un Feedback, vous arrivez sur son onglet Overview. Pour un Feedback, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Content: as described [here](overview.md#content-section). 
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Content : comme décrit [ici](overview.md#content-section).
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

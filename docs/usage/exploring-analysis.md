@@ -1,180 +1,177 @@
 # Analyses
 
-When you click on "Analyses" in the left-side bar, you see all the "Analyses" tabs, visible on the top bar on the left. By default, the user directly access the "Reports" tab, but can navigate to the other tabs as well.
+Lorsque vous cliquez sur "Analyses" dans la barre latérale gauche, vous voyez tous les onglets "Analyses", visibles sur la barre supérieure à gauche. Par défaut, l'utilisateur accède directement à l'onglet "Reports", mais peut également naviguer vers les autres onglets.
 
-From the `Analyses` section, users can access the following tabs:
+Depuis la section `Analyses`, les utilisateurs peuvent accéder aux onglets suivants :
 
-- `Reports`: See Reports as a sort of containers to detail and structure what is contained on a specific report, either from a source or write by yourself. Think of it as an Intelligence Production in OpenCTI.
-- `Groupings`: Groupings are containers, like Reports, but do not represent an Intelligence Production. They regroup Objects sharing an explicit context. For example, a Grouping might represent a set of data that, in time, given sufficient analysis, would mature to convey an incident or threat report as Report container.
-- `Malware Analyses`: As define by STIX 2.1 standard, Malware Analyses captures the metadata and results of a particular static or dynamic analysis performed on a malware instance or family.
-- `Notes`: Through this tab, you can find all the Notes that have been written in the platform, for example to add some analyst's unstructured knowledge about an Object.
-- `External references`: Intelligence is never created from nothing. External references give user a way to link sources or reference documents to any Object in the platform.
+- `Reports` : Considérer les Reports comme des sortes de conteneurs permettant de détailler et structurer ce qui est contenu dans un rapport spécifique, qu'il provienne d'une source ou qu'il soit rédigé par vous-même. À voir comme une Intelligence Production dans OpenCTI.
+- `Groupings` : Les Groupings sont des conteneurs, comme les Reports, mais ne représentent pas une Intelligence Production. Ils regroupent des Objects partageant un contexte explicite. Par exemple, un Grouping peut représenter un ensemble de données qui, avec le temps et une analyse suffisante, pourrait évoluer pour devenir un incident ou un rapport de menace sous forme de Report.
+- `Malware Analyses` : Comme défini par la norme STIX 2.1, Malware Analyses capture les métadonnées et les résultats d'une analyse statique ou dynamique effectuée sur un échantillon ou une famille de malware.
+- `Notes` : Cet onglet permet de retrouver toutes les Notes rédigées sur la plateforme, par exemple pour ajouter des connaissances non structurées d'un analyste à propos d'un Object.
+- `External references` : L'intelligence n'est jamais créée ex nihilo. Les External references permettent de lier des sources ou des documents de référence à tout Object de la plateforme.
 
 ![Analyses Default page is Reports](assets/analysis-default-page.png)
 
 ## Reports
 
-### General presentation
+### Présentation générale
 
-Reports are one of the central component of the platform. It is from a `Report` that knowledge is extracted and integrated in the platform for further navigation, analyses and exports. Always tying the information back to a report allows for the user to be able to identify the source of any piece of information in the platform at all time.
+Les Reports sont l'un des composants centraux de la plateforme. C'est à partir d'un `Report` que la connaissance est extraite et intégrée dans la plateforme pour une navigation, des analyses et des exports ultérieurs. Toujours rattacher l'information à un report permet à l'utilisateur d'identifier la source de toute information présente dans la plateforme à tout moment.
 
-In the MITRE STIX 2.1 documentation, a `Report` is defined as such :
+Dans la documentation MITRE STIX 2.1, un `Report` est défini comme suit :
 
-> Reports are collections of threat intelligence focused on one or more topics, such as a description of a threat actor, malware, or attack technique, including context and related details. They are used to group related threat intelligence together so that it can be published as a comprehensive cyber threat story.
+> Les Reports sont des collections de renseignements sur les menaces axées sur un ou plusieurs sujets, tels qu'une description d'un acteur de menace, d'un malware ou d'une technique d'attaque, incluant le contexte et les détails associés. Ils servent à regrouper des renseignements liés afin qu'ils puissent être publiés sous forme d'une histoire complète sur une menace cyber.
 
-As a result, a `Report` object in OpenCTI is a set of attributes and metadata defining and describing a document outside the platform, which can be a threat intelligence report from a security reseearch team, a blog post, a press article a video, a conference extract, a MISP event, or any type of document and source.
+Ainsi, un objet `Report` dans OpenCTI est un ensemble d'attributs et de métadonnées définissant et décrivant un document externe à la plateforme, qui peut être un rapport de renseignement sur les menaces d'une équipe de sécurité, un article de blog, un article de presse, une vidéo, un extrait de conférence, un événement MISP, ou tout type de document et de source.
 
-When clicking on the Reports tab at the top left, you see the list of all the Reports you have access to, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes of reports.
+En cliquant sur l'onglet Reports en haut à gauche, vous voyez la liste de tous les Reports auxquels vous avez accès, en fonction de vos [marking definitions autorisées](../administration/users.md). Il est alors possible de rechercher et filtrer selon des attributs communs et spécifiques aux reports.
 
-### Visualizing Knowledge within a Report
+### Visualiser la connaissance dans un Report
 
-When clicking on a Report, you land on the Overview tab. For a Report, the following tabs are accessible:
+En cliquant sur un Report, vous arrivez sur l'onglet Overview. Pour un Report, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge contained in the report, accessible through different views (See below for a dive-in). As described [here](overview.md#knowledge-section).
-- Content: a tab to provide access to content mapping, suggested mapping and allows to preview, manage and write the deliverables associated with the Report. For example, an analytical report to share with other teams, a markdown file to feed a collaborative wiki, etc. As described [here](overview.md#content-section).
-- Entities: A table containing all SDO (Stix Domain Objects) contained in the Report, with search and filters available. It also displays if the SDO has been added directly or through [inferences with the reasoning engine](inferences.md)
-- Observables: A table containing all SCO (Stix Cyber Observable) contained in the Report, with search and filters available. It also displays if the SCO has been added directly or through [inferences with the reasoning engine](inferences.md)
-- Data: as described [here](overview.md#data-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe qui regroupe toute la connaissance structurée contenue dans le report, accessible via différentes vues (voir ci-dessous pour plus de détails). Comme décrit [ici](overview.md#knowledge-section).
+- Content : un onglet permettant d'accéder au mapping de contenu, aux suggestions de mapping, et de prévisualiser, gérer et rédiger les livrables associés au Report. Par exemple, un rapport analytique à partager avec d'autres équipes, un fichier markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Entities : Un tableau contenant tous les SDO (Stix Domain Objects) présents dans le Report, avec recherche et filtres disponibles. Il indique également si le SDO a été ajouté directement ou via [inférences avec le moteur de raisonnement](inferences.md).
+- Observables : Un tableau contenant tous les SCO (Stix Cyber Observable) présents dans le Report, avec recherche et filtres disponibles. Il indique également si le SCO a été ajouté directement ou via [inférences avec le moteur de raisonnement](inferences.md).
+- Data : comme décrit [ici](overview.md#data-section).
 
-Exploring and modifying the structured Knowledge contained in a Report can be done through different lenses.
+Explorer et modifier la connaissance structurée contenue dans un Report peut se faire selon différentes perspectives.
 
-#### Graph View
+#### Vue Graphique
 
 ![Graph View of a Report](assets/report-graph-view.png)
 
-In Graph view, STIX SDO are displayed as graph nodes and relationships as graph links. Nodes are colored depending of their type. Direct relationship are displayed as plain link and inferred relationships in dotted link.
-At the top right, you will find a serie of icons. From there you can change the current type of view. Here you can also perform global action on the Knowledge of the Report. Let's highlight 2 of them:
-- Suggestions: This tool suggests you some logical relationships to add between your contained Object to give more consistency to your Knowledge.
-- Share with an Organization: if you have designated a main Organization in the platform settings, you can here share your Report and its content with users of an other Organization.
+En vue Graphique, les STIX SDO sont affichés comme des nœuds de graphe et les relations comme des liens. Les nœuds sont colorés selon leur type. Les relations directes sont affichées en trait plein et les relations inférées en pointillé.
+En haut à droite, une série d'icônes permet de changer le type de vue actuel. Il est aussi possible d'effectuer des actions globales sur la connaissance du Report. Deux actions principales :
+- Suggestions : Cet outil propose des relations logiques à ajouter entre vos Objects pour donner plus de cohérence à votre connaissance.
+- Partager avec une Organization : si une Organization principale a été définie dans les paramètres de la plateforme, il est possible de partager ici votre Report et son contenu avec les utilisateurs d'une autre Organization.
 
-At the bottom, you have many option to manipulate the graph:
-- Multiple option for shaping the graph and applying forces to the nodes and links
-- Multiple selection options
-- Multiple filters, including a time range selector allowing you to see the evolution of the Knowledge within the Report.
-- Multiple creation and edition tools to modify the Knowledge contained in the Report.
+En bas, de nombreuses options permettent de manipuler le graphe :
+- Plusieurs options pour façonner le graphe et appliquer des forces aux nœuds et liens
+- Options de sélection multiple
+- Filtres multiples, incluant un sélecteur de plage temporelle pour visualiser l'évolution de la connaissance dans le Report
+- Outils de création et d'édition multiples pour modifier la connaissance contenue dans le Report
 
-
-#### Timeline view
+#### Vue Chronologique
 
 ![Timeline view of a Report](assets/report-timeline-view.png)
 
-This view allows you to see the structured Knowledge chronologically. This view is really useful when the report describes an attack or a campaign that lasted some time, and the analyst payed attention to the dates.
-The view can be filtered and displayed relationships too.
+Cette vue permet de visualiser la connaissance structurée de façon chronologique. Elle est particulièrement utile lorsque le report décrit une attaque ou une campagne qui s'est déroulée sur une période, et que l'analyste a prêté attention aux dates.
+La vue peut être filtrée et affiche également les relations.
 
-#### Correlation view
+#### Vue Corrélation
 
 ![Correlation view of a Report](assets/report-correlation-view.png)
 
-The correlation view is a great way to visualize and find other Reports related to your current subject of interest. This graph displays all Report related to the important nodes contained in your current Report, for example Objects like Malware or Intrusion sets.
+La vue de corrélation est idéale pour visualiser et trouver d'autres Reports liés à votre sujet d'intérêt actuel. Ce graphe affiche tous les Reports liés aux nœuds importants contenus dans votre Report, par exemple des Objects comme Malware ou Intrusion sets.
 
-#### Matrix view
+#### Vue Matrice
 
 ![Matrix view of a Report](assets/report-matrix-view.png)
 
-If your Report describes let's say an attack, a campaign, or an understanding of an Intrusion set, it should contains multiple attack patterns Objects to structure the Knowledge about the TTPs of the Threat Actor. Those attack patterns can be displayed as highlighted matrices, by default the MITRE ATT&CK Enterprise matrix. As some matrices can be huge, it can be also filtered to only display attack patterns describes in the Report.
+Si votre Report décrit, par exemple, une attaque, une campagne ou une compréhension d'un Intrusion set, il devrait contenir plusieurs Objects attack patterns pour structurer la connaissance sur les TTPs du Threat Actor. Ces attack patterns peuvent être affichés sous forme de matrices, par défaut la matrice MITRE ATT&CK Enterprise. Comme certaines matrices peuvent être volumineuses, il est possible de filtrer pour n'afficher que les attack patterns décrits dans le Report.
 
-### Restricting access to the report
+### Restreindre l'accès au report
 
-#### Organization segregation
+#### Ségrégation par Organization
 
-If you have designated a main Organization in the platform settings, you can share your Report and its content with users of an other Organization.
+Si une Organization principale a été définie dans les paramètres de la plateforme, il est possible de partager votre Report et son contenu avec les utilisateurs d'une autre Organization.
 
 ![containers-organization-sharing-button.png](assets%2Fcontainers-organization-sharing-button.png)
 
-[read more about organization segregation](..%2Fadministration%2Forganization-segregation.md)
+[en savoir plus sur la ségrégation par organization](..%2Fadministration%2Forganization-segregation.md)
 
-#### Authorized members
+#### Membres autorisés
 
-**Authorized members** allow to restrict access to an entity to certain users, groups, or organizations within the platform.
+**Membres autorisés** permet de restreindre l'accès à une entité à certains utilisateurs, groupes ou organizations au sein de la plateforme.
 
-To define authorized members, you need to click on the '**Manage Access Restriction**' button. This button is visible if you have the '**Manage Authorized Members**' capability.
+Pour définir les membres autorisés, cliquer sur le bouton '**Gérer la restriction d'accès**'. Ce bouton est visible si vous disposez de la capacité '**Gérer les membres autorisés**'.
 
 ![containers-manage-access-restriction-button.png](assets%2Fcontainers-manage-access-restriction-button.png)
 
-
-[read more about authorized members](..%2Fadministration%2Fauthorized-members.md)
-
+[en savoir plus sur les membres autorisés](..%2Fadministration%2Fauthorized-members.md)
 
 ## Groupings
 
-Groupings are an alternative to Report for grouping Objects sharing a context without describing an Intelligence Production.
+Les Groupings sont une alternative aux Reports pour regrouper des Objects partageant un contexte sans décrire une Intelligence Production.
 
-In the MITRE STIX 2.1 documentation, a `Grouping` is defined as such :
+Dans la documentation MITRE STIX 2.1, un `Grouping` est défini comme suit :
 
-> A Grouping object explicitly asserts that the referenced STIX Objects have a shared context, unlike a STIX Bundle (which explicitly conveys no context). A Grouping object should not be confused with an intelligence product, which should be conveyed via a STIX Report. A STIX Grouping object might represent a set of data that, in time, given sufficient analysis, would mature to convey an incident or threat report as a STIX Report object. For example, a Grouping could be used to characterize an ongoing investigation into a security event or incident. A Grouping object could also be used to assert that the referenced STIX Objects are related to an ongoing analysis process, such as when a threat analyst is collaborating with others in their trust community to examine a series of Campaigns and Indicators.
+> Un objet Grouping affirme explicitement que les objets STIX référencés partagent un contexte, contrairement à un STIX Bundle (qui n'en véhicule aucun). Un objet Grouping ne doit pas être confondu avec un produit de renseignement, qui doit être transmis via un STIX Report. Un objet Grouping peut représenter un ensemble de données qui, avec le temps et une analyse suffisante, pourrait évoluer pour devenir un incident ou un rapport de menace sous forme de STIX Report. Par exemple, un Grouping peut servir à caractériser une enquête en cours sur un événement ou incident de sécurité. Il peut aussi servir à affirmer que les objets STIX référencés sont liés à un processus d'analyse en cours, comme lorsqu'un analyste de menace collabore avec d'autres membres de sa communauté de confiance pour examiner une série de Campaigns et d'Indicators.
 
-When clicking on the Groupings tab at the top of the interface, you see the list of all the Groupings you have access to, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes of the groupings.
+En cliquant sur l'onglet Groupings en haut de l'interface, vous voyez la liste de tous les Groupings auxquels vous avez accès, en fonction de vos [marking definitions autorisées](../administration/users.md). Il est alors possible de rechercher et filtrer selon des attributs communs et spécifiques aux groupings.
 
-Clicking on a Grouping, you land on its Overview tab. For a Groupings, the following tabs are accessible:
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge contained in the groupings, as for a Report, except for the Timeline view. As described [here](overview.md#knowledge-section).
-- Content: a tab to provide access to content mapping, suggested mapping and allows to preview, manage and write the deliverables associated with the Grouping. For example, an analytical report to share with other teams, a markdown file to feed a collaborative wiki, etc. As described [here](overview.md#content-section).
-- Entities: A table containing all SDO (Stix Domain Objects) contained in the Grouping, with search and filters available. It also display if the SDO has been added directly or through [inferences with the reasonging engine](inferences.md)
-- Observables: A table containing all SCO (Stix Cyber Observable) contained in the Grouping, with search and filters available. It also display if the SDO has been added directly or through [inferences with the reasonging engine](inferences.md)
-- Data: as described [here](overview.md#data-section).
+En cliquant sur un Grouping, vous arrivez sur son onglet Overview. Pour un Grouping, les onglets suivants sont accessibles :
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe qui regroupe toute la connaissance structurée contenue dans le grouping, comme pour un Report, à l'exception de la vue chronologique. Comme décrit [ici](overview.md#knowledge-section).
+- Content : un onglet permettant d'accéder au mapping de contenu, aux suggestions de mapping, et de prévisualiser, gérer et rédiger les livrables associés au Grouping. Par exemple, un rapport analytique à partager avec d'autres équipes, un fichier markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Entities : Un tableau contenant tous les SDO (Stix Domain Objects) présents dans le Grouping, avec recherche et filtres disponibles. Il indique également si le SDO a été ajouté directement ou via [inférences avec le moteur de raisonnement](inferences.md).
+- Observables : Un tableau contenant tous les SCO (Stix Cyber Observable) présents dans le Grouping, avec recherche et filtres disponibles. Il indique également si le SDO a été ajouté directement ou via [inférences avec le moteur de raisonnement](inferences.md).
+- Data : comme décrit [ici](overview.md#data-section).
 
-### Restricting access to a Grouping
+### Restreindre l'accès à un Grouping
 
-#### Organization segregation
+#### Ségrégation par Organization
 
-If you have designated a main Organization in the platform settings, you can share your Grouping and its content with users of an other Organization.
+Si une Organization principale a été définie dans les paramètres de la plateforme, il est possible de partager votre Grouping et son contenu avec les utilisateurs d'une autre Organization.
 
 ![containers-organization-sharing-button.png](assets%2Fcontainers-organization-sharing-button.png)
 
-[read more about organization segregation](..%2Fadministration%2Forganization-segregation.md)
+[en savoir plus sur la ségrégation par organization](..%2Fadministration%2Forganization-segregation.md)
 
-#### Authorized members
+#### Membres autorisés
 
-**Authorized members** allow to restrict access to an entity to certain users, groups, or organizations within the platform.
+**Membres autorisés** permet de restreindre l'accès à une entité à certains utilisateurs, groupes ou organizations au sein de la plateforme.
 
-To define authorized members, you need to click on the '**Manage Access Restriction**' button. This button is visible if you have the '**Manage Authorized Members**' capability.
+Pour définir les membres autorisés, cliquer sur le bouton '**Gérer la restriction d'accès**'. Ce bouton est visible si vous disposez de la capacité '**Gérer les membres autorisés**'.
 
 ![containers-manage-access-restriction-button.png](assets%2Fcontainers-manage-access-restriction-button.png)
 
-
-[read more about authorized members](..%2Fadministration%2Fauthorized-members.md)
+[en savoir plus sur les membres autorisés](..%2Fadministration%2Fauthorized-members.md)
 
 ## Malware Analyses
 
-Malware analyses are an important part of the Cyber Threat Intelligence, allowing an precise understanding of what and how a malware really do on the host but also how and from where it receives its command and communicates its results.
+Les Malware analyses sont une composante importante du Cyber Threat Intelligence, permettant une compréhension précise de ce que fait réellement un malware sur l'hôte, mais aussi de la façon dont il reçoit ses commandes et communique ses résultats.
 
-In OpenCTI, Malware Analyses can be created from enrichment connectors that will take an Observable as input and perform a scan on a online service platform to bring back results. As such, Malware Analyses can be done on File, Domain and URL.
+Dans OpenCTI, les Malware Analyses peuvent être créées à partir de connecteurs d'enrichissement qui prennent un Observable en entrée et effectuent une analyse sur une plateforme de service en ligne pour ramener les résultats. Ainsi, les Malware Analyses peuvent être réalisées sur File, Domain et URL.
 
-In the MITRE STIX 2.1 documentation, a `Malware Analyses` is defined as such :
-> Malware Analyses captures the metadata and results of a particular static or dynamic analysis performed on a malware instance or family.
+Dans la documentation MITRE STIX 2.1, un `Malware Analyses` est défini comme suit :
+> Malware Analyses capture les métadonnées et les résultats d'une analyse statique ou dynamique effectuée sur un échantillon ou une famille de malware.
 
-When clicking on the Malware Analyses tab at the top of the interface, you see the list of all the Malware Analyses you have access to, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes of the Malware Analyses.
+En cliquant sur l'onglet Malware Analyses en haut de l'interface, vous voyez la liste de toutes les Malware Analyses auxquelles vous avez accès, en fonction de vos [marking definitions autorisées](../administration/users.md). Il est alors possible de rechercher et filtrer selon des attributs communs et spécifiques aux Malware Analyses.
 
-Clicking on a Malware Analyses, you land on its Overview tab. The following tabs are accessible:
-- Overview: This view contains some additions from the common Overview [here](overview.md#overview-section). You will find here details about how the analysis have been performed, what is the global result regarding the malicioussness of the analysed artifact and all the Observables that have been found during the analysis. 
-- Knowledge: If you Malware analysis is linked to other Objects that are not part of the analysis result, they will be displayed here. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Malware Analyses. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+En cliquant sur une Malware Analyses, vous arrivez sur son onglet Overview. Les onglets suivants sont accessibles :
+- Overview : Cette vue contient quelques ajouts par rapport à l'Overview commun [ici](overview.md#overview-section). Vous y trouverez des détails sur la façon dont l'analyse a été réalisée, le résultat global concernant la dangerosité de l'artefact analysé et tous les Observables découverts lors de l'analyse.
+- Knowledge : Si votre Malware analysis est liée à d'autres Objects qui ne font pas partie du résultat de l'analyse, ils seront affichés ici. Comme décrit [ici](overview.md#knowledge-section).
+- Content : Cet onglet spécifique permet de prévisualiser, gérer et rédiger les livrables associés à la Malware Analyses. Par exemple, un rapport analytique à partager avec d'autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ![Malware Analyses Overview](assets/malwareanalysis-overview.png)
 
-
 ## Notes
 
-Not every Knowledge can be structured. For allowing any users to share their insights about a specific Knowledge, they can create a Note for every Object and relationship in OpenCTI they can access to. All the Notes are listed within the Analyses menu for allowing global review of this unstructured addition to the global Knowledge.
+Toute connaissance ne peut pas être structurée. Pour permettre à tout utilisateur de partager ses observations sur une connaissance spécifique, il peut créer une Note pour chaque Object et relation dans OpenCTI auxquels il a accès. Toutes les Notes sont listées dans le menu Analyses pour permettre une revue globale de cet ajout non structuré à la connaissance globale.
 
-In the MITRE STIX 2.1 documentation, a `Note` is defined as such :
-> A Note is intended to convey informative text to provide further context and/or to provide additional analysis not contained in the STIX Objects, Marking Definition objects, or Language Content objects which the Note relates to. Notes can be created by anyone (not just the original object creator).
+Dans la documentation MITRE STIX 2.1, une `Note` est définie comme suit :
+> Une Note est destinée à transmettre un texte informatif pour fournir un contexte supplémentaire et/ou une analyse additionnelle non contenue dans les objets STIX, Marking Definition ou Language Content auxquels la Note se rapporte. Les Notes peuvent être créées par n'importe qui (pas seulement le créateur de l'objet d'origine).
 
-Clicking on a Note, you land on its Overview tab. The following tabs are accessible:
-- Overview: as described [here](overview.md#overview-section).
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+En cliquant sur une Note, vous arrivez sur son onglet Overview. Les onglets suivants sont accessibles :
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ## External references
 
-Intelligence is never created from nothing. External references give user a way to link sources or reference documents to any Object in the platform. All external references are listed within the Analyses menu for accessing directly sources of the structured Knowledge.
+L'intelligence n'est jamais créée ex nihilo. Les External references permettent de lier des sources ou des documents de référence à tout Object de la plateforme. Toutes les external references sont listées dans le menu Analyses pour accéder directement aux sources de la connaissance structurée.
 
-In the MITRE STIX 2.1 documentation, a `External references` is defined as such :
-> External references are used to describe pointers to information represented outside of STIX. For example, a Malware object could use an external reference to indicate an ID for that malware in an external database or a report could use references to represent source material.
+Dans la documentation MITRE STIX 2.1, une `External references` est définie comme suit :
+> Les External references servent à décrire des pointeurs vers des informations représentées en dehors de STIX. Par exemple, un objet Malware peut utiliser une external reference pour indiquer un identifiant pour ce malware dans une base de données externe ou un report peut utiliser des références pour représenter des sources.
 
-Clicking on an External reference, you land on its Overview tab. The following tabs are accessible:
-- Overview: as described [here](overview.md#overview-section).
+En cliquant sur une External reference, vous arrivez sur son onglet Overview. Les onglets suivants sont accessibles :
+- Overview : comme décrit [ici](overview.md#overview-section).
 
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

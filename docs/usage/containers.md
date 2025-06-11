@@ -1,12 +1,12 @@
 # Containers
 
-## STIX standard
+## Standard STIX
 
-### Definition
+### Définition
 
-In the [STIX 2.1 standard](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html), some STIX Domain Objects (SDO) can be considered as "container of knowledge", using the `object_refs` attribute to refer multiple other objects as nested references. In `object_refs`, it is possible to refer to entities and relationships. 
+Dans le [standard STIX 2.1](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html), certains STIX Domain Objects (SDO) peuvent être considérés comme des "containers de connaissances", utilisant l’attribut `object_refs` pour référencer plusieurs autres objets comme références imbriquées. Dans `object_refs`, il est possible de référencer des entités et des relations.
 
-### Example
+### Exemple
 
 ```json
 {
@@ -28,7 +28,7 @@ In the [STIX 2.1 standard](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.h
 }
 ```
 
-In the previous example, we have a nested reference to 3 other objects:
+Dans l’exemple précédent, nous avons une référence imbriquée vers 3 autres objets :
 
 ```json
 "object_refs": [
@@ -38,39 +38,40 @@ In the previous example, we have a nested reference to 3 other objects:
 ]
 ```
 
-## Implementation
+## Implémentation
 
-### Types of container
+### Types de container
 
-In OpenCTI, containers are displayed differently than other entities, because they contain pieces of knowledge. Here is the list of containers in the platform:
+Dans OpenCTI, les containers sont affichés différemment des autres entités, car ils contiennent des éléments de connaissance. Voici la liste des containers dans la plateforme :
 
-| Type of entity | STIX standard | Description                                                                                                                                                                                 |
+| Type d’entité  | Standard STIX | Description                                                                                                                                                                                 |
 |:---------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Report         | Native        | Reports are collections of threat intelligence focused on one or more topics, such as a description of a threat actor, malware, or attack technique, including context and related details. |
-| Grouping       | Native        | A Grouping object explicitly asserts that the referenced STIX Objects have a shared context, unlike a STIX Bundle (which explicitly conveys no context).                                    |
-| Observed Data  | Native        | Observed Data conveys information about cyber security related entities such as files, systems, and networks using the STIX Cyber-observable Objects (SCOs).                                |
-| Note           | Native        | A Note is intended to convey informative text to provide further context and/or to provide additional analysis not contained in the STIX Objects.                                           |
-| Opinion        | Native        | An Opinion is an assessment of the correctness of the information in a STIX Object produced by a different entity.                                                                          |
-| Case           | Extension     | A case whether an Incident Response, a Request for Information or a Request for Takedown is used to convey an epic with a set of tasks.                                                     |
-| Task           | Extension     | A task, generally used in the context of a case, is intended to convey information about something that must be done in a limited timeframe.                                                |
+| Report         | Natif         | Les reports sont des collections de renseignements sur les menaces axées sur un ou plusieurs sujets, comme la description d’un threat actor, d’un malware ou d’une technique d’attaque, incluant le contexte et les détails associés. |
+| Grouping       | Natif         | Un objet Grouping affirme explicitement que les objets STIX référencés partagent un même contexte, contrairement à un STIX Bundle (qui n’apporte aucun contexte explicite).                |
+| Observed Data  | Natif         | Observed Data transmet des informations sur des entités liées à la cybersécurité telles que des fichiers, systèmes et réseaux en utilisant les STIX Cyber-observable Objects (SCOs).        |
+| Note           | Natif         | Une Note est destinée à transmettre un texte informatif pour fournir un contexte supplémentaire et/ou une analyse additionnelle non contenue dans les objets STIX.                         |
+| Opinion        | Natif         | Une Opinion est une évaluation de la justesse des informations contenues dans un objet STIX produit par une autre entité.                                                                  |
+| Case           | Extension     | Un case, qu’il s’agisse d’un Incident Response, d’une Request for Information ou d’une Request for Takedown, est utilisé pour transmettre un epic avec un ensemble de tâches.               |
+| Task           | Extension     | Un task, généralement utilisé dans le contexte d’un case, est destiné à transmettre des informations sur une action à réaliser dans un délai limité.                                        |
 
-### Containers behavior
+### Comportement des containers
 
-In the platform, it is always possible to visualize the list of entities and/or observables referenced in a container (`Container > Entities or Observables`) but also to add / remove entities from the container.
+Dans la plateforme, il est toujours possible de visualiser la liste des entités et/ou observables référencés dans un container (`Container > Entities or Observables`), mais aussi d’ajouter / supprimer des entités du container.
 
 ![Entities](assets/entities.png)
 
-As containers can also contain relationships, which are generally linked to the other entities in the container, it is also possible to visualize the container as a graph (`Container > Knowledge`)
+Comme les containers peuvent aussi contenir des relations, généralement liées aux autres entités du container, il est également possible de visualiser le container sous forme de graphe (`Container > Knowledge`)
 
 ![Graph](assets/graph.png)
 
-### Containers of an entity or a relationship
+### Containers d’une entité ou d’une relation
 
-On the entity or the relationship side, you can always find all containers where the object is contained using the top menu `Analysis`:
+Du côté de l’entité ou de la relation, il est toujours possible de retrouver tous les containers dans lesquels l’objet est contenu en utilisant le menu supérieur `Analysis` :
 
 ![Analysis](assets/analysis.png)
 
-In all containers list, you can also filter containers based on one or multiple contained object(s):
+Dans la liste de tous les containers, il est aussi possible de filtrer les containers en fonction d’un ou plusieurs objets contenus :
 
 ![Container filters](assets/container-filters.png)
 
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -1,23 +1,23 @@
-# Nested references and objects
+# Références et objets imbriqués
 
-## STIX standard
+## Standard STIX
 
-### Definition
+### Définition
 
-In the [STIX 2.1 standard](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html), objects can:
+Dans le [standard STIX 2.1](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html), les objets peuvent :
 
-1. Refer to other objects in directly in their `attributes`, by referencing one or multiple IDs.
-2. Have other objects directly embedded in the entity.
+1. Faire référence à d'autres objets directement dans leurs `attributes`, en référant un ou plusieurs IDs.
+2. Avoir d'autres objets directement intégrés dans l'entité.
 
-### Example
+### Exemple
 
 ```json
 {
    "type": "intrusion-set",
    "spec_version": "2.1",
    "id": "intrusion-set--4e78f46f-a023-4e5f-bc24-71b3ca22ec29",
-   "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff", // nested reference to an identity
-   "object_marking_refs": ["marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"], // nested reference to multiple marking defintions
+   "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff", // référence imbriquée vers une identity
+   "object_marking_refs": ["marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"], // référence imbriquée vers plusieurs marking definitions
    "external_references": [
       {
          "source_name": "veris",
@@ -34,14 +34,14 @@ In the [STIX 2.1 standard](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.h
 }
 ```
 
-In the previous example, we have 2 nested references to other objects in:
+Dans l'exemple précédent, il y a 2 références imbriquées vers d'autres objets dans :
 
 ```json
-"created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff", // nested reference to an identity
-"object_marking_refs": ["marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"], // nested reference to multiple marking defintions
+"created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff", // référence imbriquée vers une identity
+"object_marking_refs": ["marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"], // référence imbriquée vers plusieurs marking definitions
 ```
 
-But we also have a nested object within the entity (an `External Reference`):
+Mais il y a aussi un objet imbriqué dans l'entité (une `External Reference`) :
 
 ```json
 "external_references": [
@@ -53,17 +53,17 @@ But we also have a nested object within the entity (an `External Reference`):
 ]
 ```
 
-## Implementation
+## Implémentation
 
-### Modelization
+### Modélisation
 
-In OpenCTI, all nested references and objects are modelized as relationships, to be able to pivot more easily on labels, external references, kill chain phases, marking definitions, etc.
+Dans OpenCTI, toutes les références et objets imbriqués sont modélisés comme des relations, afin de permettre de pivoter plus facilement sur les labels, external references, kill chain phases, marking definitions, etc.
 
 ![Investigation](assets/investigation.png)
 
 ### Import & export
 
-When importing and exporting data to/from OpenCTI, the translation between nested references and objects to full-fledged nodes and edges is automated and therefore transparent for the users. Here is an example with the object in the graph above:
+Lors de l'import et de l'export de données vers/depuis OpenCTI, la traduction entre références et objets imbriqués et des nœuds et arêtes complets est automatisée et donc transparente pour les utilisateurs. Voici un exemple avec l'objet du graphe ci-dessus :
 
 ```json
 {
@@ -93,3 +93,4 @@ When importing and exporting data to/from OpenCTI, the translation between neste
 }
 ```
 
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -1,83 +1,83 @@
-# Pivot and investigate
+# Pivot et investigation
 
-In OpenCTI, all data are structured as an extensive knowledge graph, where every element is interconnected. The investigation functionality provides a powerful tool for pivoting on any entity or relationship within the platform. Pivoting enables users to explore and analyze connections between entities and relationships, facilitating a comprehensive understanding of the data.
+Dans OpenCTI, toutes les données sont structurées sous forme d’un vaste graphe de connaissances, où chaque élément est interconnecté. La fonctionnalité d’investigation offre un outil puissant pour pivoter sur n’importe quelle entité ou relation au sein de la plateforme. Le pivot permet d’explorer et d’analyser les connexions entre entités et relations, facilitant ainsi une compréhension globale des données.
 
-To access investigations, navigate to the top right corner of the toolbar:
+Pour accéder aux investigations, naviguer vers le coin supérieur droit de la barre d’outils :
 
 ![Top menu investigation](assets/top-menu-investigation.png)
 
-!!! note "Access restriction"
+!!! note "Restriction d’accès"
 
-    When an investigation is created, it is initially visible only to the creator, allowing them to work on the investigation before deciding to share it. The sharing mechanism is akin to that of dashboards. For further details, refer to the [Access control section](dashboards.md#access-control-section) in the dashboard documentation page.
+    Lorsqu’une investigation est créée, elle n’est initialement visible que par son créateur, lui permettant de travailler dessus avant de décider de la partager. Le mécanisme de partage est similaire à celui des tableaux de bord. Pour plus de détails, consulter la [section Contrôle d’accès](dashboards.md#access-control-section) dans la page de documentation des tableaux de bord.
 
 
-## Perform investigation
+## Réaliser une investigation
 
-### Select / search entity 
-Wehn selecting (or searching) an entity, all the entities that you have selected (or matching your searched), will still be "coloured". The other entities will be overlayed, to emphasis your selection (or search).
-The entity that you are currently seeing in the right panel is the one with the **blue solid line** while the ones with **blue doted line** are the other that you have selected but not viewed in the right panel.
-In addition, the right panel will have now a counter of the amount of selected entities to help you understand the amount of selected (or matching your search). 
+### Sélectionner / rechercher une entité
+Lors de la sélection (ou recherche) d’une entité, toutes les entités sélectionnées (ou correspondant à votre recherche) resteront « colorées ». Les autres entités seront superposées pour mettre en évidence votre sélection (ou recherche).
+L’entité actuellement affichée dans le panneau de droite est celle avec une **ligne bleue continue** tandis que celles avec une **ligne bleue en pointillés** sont les autres entités sélectionnées mais non affichées dans le panneau de droite.
+De plus, le panneau de droite affiche désormais un compteur du nombre d’entités sélectionnées pour aider à comprendre la quantité sélectionnée (ou correspondant à votre recherche).
 
 ![select entities in graph](assets/Select-entities-in-graph.png)
 
 
-### Manipulate entity
+### Manipuler une entité
 
-We can add any existing entity of the platform to your investigation.
+Il est possible d’ajouter toute entité existante de la plateforme à votre investigation.
 
 ![Investigation bottom right menu](assets/investigation-bottom-right-menu.png)
 
-After adding an entity, we can choose the entity and view its details in the panel that appears on the right of the screen.
+Après avoir ajouté une entité, il est possible de la sélectionner et de consulter ses détails dans le panneau qui apparaît à droite de l’écran.
 
-On each node, we'll notice a bullet with a number inside, serving as a visual indication of how many entities are linked to it but not currently displayed in the graph. Keep in mind that this number is an approximation, which is why there's a "+" next to it. If there's no bullet displayed, it means there's nothing to expand from this node.
+Sur chaque nœud, une pastille avec un nombre à l’intérieur sert d’indicateur visuel du nombre d’entités qui y sont liées mais non actuellement affichées dans le graphe. Ce nombre est une approximation, c’est pourquoi il y a un « + » à côté. S’il n’y a pas de pastille affichée, cela signifie qu’il n’y a rien à étendre depuis ce nœud.
 
 ![Investigation workspace](assets/investigation-workspace.png)
 
 ### Expansion
-To incorporate these linked entities into the graph, we just have to expand the nodes. Utilize the button with a 4-arrows logo in the mentioned menu, or double-click on the entity directly. This action opens a new window where we can choose the types of entities and relationships we wish to expand.
+Pour incorporer ces entités liées dans le graphe, il suffit d’étendre les nœuds. Utiliser le bouton avec un logo à 4 flèches dans le menu mentionné, ou double-cliquer directement sur l’entité. Cette action ouvre une nouvelle fenêtre où il est possible de choisir les types d’entités et de relations à étendre.
 
 ![Investigation expand entity](assets/investigation-expand-entity.png)
 
-For instance, in the image above, selecting the target _Malware_ and the relationship _Uses_ implies expanding in my investigation graph all _Malware_ linked to this node with a relationship of type _Uses_.
+Par exemple, dans l’image ci-dessus, sélectionner la cible _Malware_ et la relation _Uses_ implique d’étendre dans le graphe d’investigation tous les _Malware_ liés à ce nœud par une relation de type _Uses_.
 
-### Roll back expansion
+### Annuler une expansion
 
-Expanding a graph can add a lot of entities and relations, making it not only difficult to read but sometimes counterproductive since it brings entities and relations that are not useful to your investigations.
-To solve this problem, there is a button to undo the last expansion.
+Étendre un graphe peut ajouter de nombreuses entités et relations, rendant la lecture difficile, voire contre-productive si cela apporte des entités et relations non utiles à l’investigation.
+Pour résoudre ce problème, un bouton permet d’annuler la dernière expansion.
 
-When clicking on this button, we will retrieve the state in which your graph was before your expansion. As a result, please note that all add or remove actions made since the last expansion will be lost: in other words, if you have expanded your graph, and then have added some entities in your graph, when clicking on rollback button, the entities that you have added will not be in your graph.
+En cliquant sur ce bouton, l’état du graphe avant l’expansion est restauré. À noter que toutes les actions d’ajout ou de suppression effectuées depuis la dernière expansion seront perdues : autrement dit, si le graphe a été étendu, puis des entités ajoutées, en cliquant sur le bouton d’annulation, les entités ajoutées ne seront plus dans le graphe.
 
 ![Investigation rollback popup](assets/investigation-rollback-popup.png)
 
-You can roll back your investigation graph up to the last 10 expand actions.
+Il est possible d’annuler jusqu’aux 10 dernières actions d’expansion du graphe d’investigation.
 
-### Manipulate relationship
+### Manipuler une relation
 
-We can create a relationship between entities directly within our investigation. To achieve this, select multiple entities by clicking on them while holding down the shift key. Subsequently, a button appears at the bottom right to create one (or more, depending on the number of entities selected) relationships.
+Il est possible de créer une relation entre des entités directement dans l’investigation. Pour cela, sélectionner plusieurs entités en cliquant dessus tout en maintenant la touche shift enfoncée. Ensuite, un bouton apparaît en bas à droite pour créer une (ou plusieurs, selon le nombre d’entités sélectionnées) relation(s).
 
 ![Investigation create relationship](assets/investigation-create-relationship.png)
 
-!!! note "Relationship creation"
+!!! note "Création de relation"
 
-    Creating a relationship in the investigation graph will generate the relationship in your knowledge base.
-
-
-## Capitalize on an investigation
+    Créer une relation dans le graphe d’investigation générera la relation dans votre base de connaissances.
 
 
-### Export investigation
+## Valoriser une investigation
 
-Users have the capability to export investigations, providing a way to share, document, or archive their findings.
 
-- PDF and image formats: Users can export investigations in either PDF or image format, offering flexibility in sharing and documentation.
-- STIX bundle: The platform allows the export of the entire content of an investigation graph as a STIX bundle. In the STIX format, all objects within the investigation graph are automatically aggregated into a Report object.
+### Exporter une investigation
+
+Les utilisateurs ont la possibilité d’exporter les investigations, offrant un moyen de partager, documenter ou archiver leurs résultats.
+
+- Formats PDF et image : il est possible d’exporter les investigations au format PDF ou image, offrant de la flexibilité pour le partage et la documentation.
+- STIX bundle : la plateforme permet d’exporter l’intégralité du contenu d’un graphe d’investigation sous forme de STIX bundle. Dans le format STIX, tous les objets du graphe d’investigation sont automatiquement agrégés dans un objet Report.
 
 ![Investigation export](assets/investigation-export.png)
 
 
-### Turn investigation into a container
+### Transformer une investigation en container
 
-Users can efficiently collect and consolidate the findings of an investigation by adding the content into dedicated [containers](containers.md). The contents of an investigation can be imported into various types of containers, including:
+Les utilisateurs peuvent collecter et consolider efficacement les résultats d’une investigation en ajoutant le contenu dans des [containers](containers.md) dédiés. Le contenu d’une investigation peut être importé dans différents types de containers, notamment :
 
 - Grouping
 - Incident Response
@@ -87,12 +87,15 @@ Users can efficiently collect and consolidate the findings of an investigation b
 
 ![investigation-turn-to-report-or-case.png](assets/investigation-turn-to-report-or-case.png)
 
-We have the flexibility to choose between creating a new container on the fly or adding investigation content to an existing container. 
+Il est possible de choisir entre créer un nouveau container à la volée ou ajouter le contenu de l’investigation à un container existant.
 
 ![investigation-turn-to-report-or-case-dialog-new-entity.png](assets/investigation-turn-to-report-or-case-dialog-new-entity.png)
 
 ![investigation-turn-to-report-or-case-dialog-new-entity-form.png](assets/investigation-turn-to-report-or-case-dialog-new-entity-form.png)
 
-After clicking on the `ADD` button, the browser will redirect to the Knowledge tab of the container where we added the content of our investigation. If we added it to multiple containers, the redirection will be to the first of the list.
+Après avoir cliqué sur le bouton `ADD`, le navigateur sera redirigé vers l’onglet Knowledge du container où le contenu de l’investigation a été ajouté. Si le contenu a été ajouté à plusieurs containers, la redirection se fera vers le premier de la liste.
 
 ![investigation-turn-to-report-or-case-success.png](assets/investigation-turn-to-report-or-case-success.png)
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -1,185 +1,185 @@
-# Playbooks Automation
+# Automatisation des Playbooks
 
-!!! tip "Enterprise edition"
+!!! astuce "Édition Entreprise"
 
-    Playbooks automation is available under the "OpenCTI Enterprise Edition" license. Please read the [dedicated page](../administration/enterprise.md) to have all information.
+    L'automatisation des playbooks est disponible sous licence "OpenCTI Enterprise Edition". Veuillez lire la [page dédiée](../administration/enterprise.md) pour obtenir toutes les informations.
 
 
-OpenCTI playbooks are flexible automation scenarios which can be fully customized and enabled by platform administrators to enrich, filter and modify the data created or updated in the platform. 
+Les playbooks OpenCTI sont des scénarios d'automatisation flexibles, entièrement personnalisables et activables par les administrateurs de la plateforme pour enrichir, filtrer et modifier les données créées ou mises à jour dans la plateforme.
 
-Playbook automation is accessible in the user interface under Data > Processing > Automation.
+L'automatisation des playbooks est accessible dans l'interface utilisateur sous Données > Traitement > Automatisation.
 
-!!! note "Right needed"
+!!! note "Droit requis"
 
-    You need the "Manage credentials" [capability](../administration/users.md) to use the Playbooks automation, because you will be able to manipulate data simple users cannot access.
+    Il est nécessaire de disposer de la [capacité](../administration/users.md) "Gérer les identifiants" pour utiliser l'automatisation des playbooks, car vous pourrez manipuler des données auxquelles les utilisateurs simples n'ont pas accès.
 
-You will then be able to:
+Vous pourrez alors :
 
-- add labels depending on enrichment results to be used in threat intelligence-driven detection feeds,
-- create reports and cases based on various criteria,
-- trigger enrichments or webhooks in given conditions,
-- modify attributes such as first_seen and last_seen based on other pieces of knowledge,
+- ajouter des labels en fonction des résultats d'enrichissement pour les utiliser dans des flux de détection pilotés par la cybermenace,
+- créer des rapports et des cas selon divers critères,
+- déclencher des enrichissements ou des webhooks dans certaines conditions,
+- modifier des attributs tels que first_seen et last_seen en fonction d'autres connaissances,
 - etc.
 
-## Playbook philosophy
+## Philosophie des Playbooks
 
-Consider Playbook as a STIX 2.1 bundle pipeline. 
+Considérer un playbook comme un pipeline de bundles STIX 2.1.
 
-Initiating with a component listening to a data stream, each subsequent component in the playbook processes a received STIX bundle. These components have the ability to modify the bundle and subsequently transmit the altered result to connected components.
+En commençant par un composant écoutant un flux de données, chaque composant suivant du playbook traite un bundle STIX reçu. Ces composants ont la capacité de modifier le bundle puis de transmettre le résultat modifié aux composants connectés.
 
-In this paradigm, components can send out the STIX 2.1 bundle to multiple components, enabling the development of multiple branches within your playbook.
+Dans ce paradigme, les composants peuvent envoyer le bundle STIX 2.1 à plusieurs composants, permettant le développement de plusieurs branches dans votre playbook.
 
-A well-designed playbook end with a component executing an action based on the processed information. For instance, this may involve writing the STIX 2.1 bundle in a data stream.
+Un playbook bien conçu se termine par un composant exécutant une action basée sur les informations traitées. Par exemple, cela peut consister à écrire le bundle STIX 2.1 dans un flux de données.
 
-!!! note "Validate ingestion"
+!!! note "Valider l'ingestion"
 
-    The STIX bundle processed by the playbook won't be written in the platform without specifying it using the appropriate component, i.e. "Send for ingestion".
+    Le bundle STIX traité par le playbook ne sera pas écrit dans la plateforme sans l'indiquer explicitement via le composant approprié, c'est-à-dire "Envoyer pour ingestion".
 
-## Create a Playbook
+## Créer un Playbook
 
-It is possible to create as many playbooks as needed which are running independently. You can give a name and description to each playbook.
+Il est possible de créer autant de playbooks que nécessaire, chacun fonctionnant indépendamment. Vous pouvez donner un nom et une description à chaque playbook.
 
-![Create a new playbook](assets/playbook_create.png)
+![Créer un nouveau playbook](assets/playbook_create.png)
 
-The first step to define in the playbook is your event source.
-To do so, click on the grey rectangle in the center of the workspace and select the input component that suits your needs.
+La première étape à définir dans le playbook est votre source d'événement.
+Pour cela, cliquer sur le rectangle gris au centre de l'espace de travail et sélectionner le composant d'entrée adapté à vos besoins.
 
-![Choose input component](assets/playbook_input.png)
+![Choisir le composant d'entrée](assets/playbook_input.png)
 
-### Listen knowledge events
-With this event source, the playbook will be triggered on any knowledge event (create, update or delete) that matches the selected filters.
-Note that you are limited to a subset of filters, available for stream events that contain STIX data objects.
+### Écouter les événements de connaissance
+Avec cette source d'événement, le playbook sera déclenché sur tout événement de connaissance (création, mise à jour ou suppression) correspondant aux filtres sélectionnés.
+Notez que vous êtes limité à un sous-ensemble de filtres, disponibles pour les événements de flux contenant des objets de données STIX.
 
-![Listening creation event for TLP:GREEN IPs and domain names](assets/playbook_listen.png)
+![Écoute d'un événement de création pour les IPs et noms de domaine TLP:GREEN](assets/playbook_listen.png)
 
-### Query knowledge on a regular basis
+### Interroger la connaissance à intervalles réguliers
 
-With such event source, the playbook will query knowledge on a hourly / daily / weekly / monthly basis, according to filters you might have set.
+Avec ce type de source d'événement, le playbook interrogera la connaissance de façon horaire / quotidienne / hebdomadaire / mensuelle, selon les filtres que vous aurez définis.
 
-If you check the option "Only last modified entities after the last run', then the playbook will exclude from each run the entities that have not changed since last run. 
+Si vous cochez l'option "Uniquement les entités modifiées depuis la dernière exécution", alors le playbook exclura à chaque exécution les entités qui n'ont pas changé depuis la dernière exécution.
 
-![Querying last incidents](assets/playbook_query_regular.png)
+![Interroger les derniers incidents](assets/playbook_query_regular.png)
 
-### Available for manual enrollment / trigger
+### Disponible pour l'enrôlement / déclenchement manuel
 
-Use this event source for setting up a playbook that will be triggered manually on specific entities.
-You can configure filters in the component so that this playbook will be suggested for certain entities during the manual enrollment.
-For more details about manual enrollment, see dedicated section below.
+Utiliser cette source d'événement pour configurer un playbook qui sera déclenché manuellement sur des entités spécifiques.
+Vous pouvez configurer des filtres dans le composant afin que ce playbook soit suggéré pour certaines entités lors de l'enrôlement manuel.
+Pour plus de détails sur l'enrôlement manuel, voir la section dédiée ci-dessous.
 
-![Manual enroll important incidents](assets/playbook_manual_source.png)
+![Enrôler manuellement des incidents importants](assets/playbook_manual_source.png)
 
-## Design your workflow
+## Concevoir votre workflow
 
-Then you have flexible choices for the next steps to:
+Vous disposez ensuite de choix flexibles pour les étapes suivantes afin de :
 
-- filter the initial knowledge,
-- enrich data using external sources and internal rules,
-- modify entities and relationships by applying patches,
-- write the data, send notifications, 
+- filtrer la connaissance initiale,
+- enrichir les données via des sources externes et des règles internes,
+- modifier les entités et relations en appliquant des patchs,
+- écrire les données, envoyer des notifications,
 - etc.
 
-... using the various playbook components at your disposal.
+... en utilisant les différents composants de playbook à votre disposition.
 
-By clicking the burger button of a component, you can replace it by another one.
+En cliquant sur le bouton burger d'un composant, vous pouvez le remplacer par un autre.
 
-By clicking on the arrow icon in the bottom right corner of a component, you can develop a new branch at the same level.
+En cliquant sur l'icône flèche en bas à droite d'un composant, vous pouvez développer une nouvelle branche au même niveau.
 
-By clicking the "+" button on a link between components, you can insert a component between the two.
+En cliquant sur le bouton "+" sur un lien entre deux composants, vous pouvez insérer un composant entre les deux.
 
-Do not forget to start your Playbook when ready, with the Start option of the burger button placed near the name of your Playbook.
+Ne pas oublier de démarrer votre playbook lorsque prêt, via l'option Démarrer du bouton burger placé près du nom de votre playbook.
 
-## Components of playbooks
+## Composants des playbooks
 
-![List of current components](assets/playbook_components.png)
+![Liste des composants actuels](assets/playbook_components.png)
 
-#### Log data in standard output
+#### Journaliser les données dans la sortie standard
 
-Will write the received STIX 2.1 bundle in platform logs with configurable log level and then send out the STIX 2.1 bundle unmodified.
+Écrit le bundle STIX 2.1 reçu dans les logs de la plateforme avec un niveau de log configurable, puis transmet le bundle STIX 2.1 non modifié.
 
-#### Send for ingestion
+#### Envoyer pour ingestion
 
-Will pass the STIX 2.1 bundle to be written in the data stream. This component has no output and should end a branch of your playbook.
+Transmet le bundle STIX 2.1 pour qu'il soit écrit dans le flux de données. Ce composant n'a pas de sortie et doit terminer une branche de votre playbook.
 
-#### Filter Knowledge
+#### Filtrer la connaissance
 
-Will allow you to define filter and apply it to the received STIX 2.1 bundle. The component has 2 output, one for data matching the filter and one for the remainder.
+Permet de définir un filtre et de l'appliquer au bundle STIX 2.1 reçu. Le composant a 2 sorties, une pour les données correspondant au filtre et une pour le reste.
 
-By default, filtering is applied to entities having triggered the playbook. You can toggle the corresponding option to apply it to all elements in the bundle (elements that might result from enrichment for example).
+Par défaut, le filtrage s'applique aux entités ayant déclenché le playbook. Vous pouvez basculer l'option correspondante pour l'appliquer à tous les éléments du bundle (éléments pouvant résulter d'un enrichissement par exemple).
 
-#### Enrich through connector
+#### Enrichir via un connector
 
-Will send the received STIX 2.1 bundle to the stated enrichment connector and send out the modified bundle.
-Entities that are passed to this stage must be compatible with the enrichment connector being used, as otherwise the playbook may stop at this stage. The *Reduce Knowledge* component can be used to filter out incompatible entities from being passed to this stage.
+Envoie le bundle STIX 2.1 reçu au connector d'enrichissement indiqué et transmet le bundle modifié.
+Les entités transmises à cette étape doivent être compatibles avec le connector d'enrichissement utilisé, sinon le playbook peut s'arrêter à cette étape. Le composant *Réduire la connaissance* peut être utilisé pour filtrer les entités incompatibles à cette étape.
 
-#### Manipulate knowledge
+#### Manipuler la connaissance
 
-Will add, replace or remove compatible attribute of the entities contains in the received STIX 2.1 bundle and send out the modified bundle.
+Ajoute, remplace ou supprime les attributs compatibles des entités contenues dans le bundle STIX 2.1 reçu et transmet le bundle modifié.
 
-By default, modification is applied to entities having triggered the playbook. You can toggle the corresponding option to apply it to all elements in the bundle (elements that might result from enrichment for example).
+Par défaut, la modification s'applique aux entités ayant déclenché le playbook. Vous pouvez basculer l'option correspondante pour l'appliquer à tous les éléments du bundle (éléments pouvant résulter d'un enrichissement par exemple).
 
 #### Container wrapper
 
-Will modify the received STIX 2.1 bundle to include the entities into an container of the type you configured. 
-By default, wrapping is applied to entities having triggered the playbook. You can toggle the corresponding option to apply it to all elements in the bundle (elements that might result from enrichment for example).
+Modifie le bundle STIX 2.1 reçu pour inclure les entités dans un container du type configuré.
+Par défaut, l'encapsulation s'applique aux entités ayant déclenché le playbook. Vous pouvez basculer l'option correspondante pour l'appliquer à tous les éléments du bundle (éléments pouvant résulter d'un enrichissement par exemple).
 
-#### Share with organizations
+#### Partager avec des organisations
 
-Will share every entity in the received STIX 2.1 bundle with Organizations you configured. Your platform needs to have declared a platform main organization in Settings/Parameters.
+Partage chaque entité du bundle STIX 2.1 reçu avec les organisations configurées. Votre plateforme doit avoir une organisation principale déclarée dans Paramètres/Paramètres.
 
-#### Apply predefined rule
+#### Appliquer une règle prédéfinie
 
-Will apply a complex automation built-in rule. This kind of rule might impact performance. Current rules are:
+Applique une règle d'automatisation complexe intégrée. Ce type de règle peut impacter les performances. Les règles actuelles sont :
 
-- First/Last seen computing extension from report publication date: will populate first seen and last seen date of entities contained in the report based on its publication date,
-- Resolve indicators based on observables (add in bundle): will retrieve all indicators linked to the bundle's observables from the database,
-- Resolve observables an indicator is based on (add in bundle): retrieve all observables linked to the bundle's indicator from the database,
-- Resolve container references (add in bundle): will add to the bundle all the relationships and entities the container contains (if the entity having triggered the playbook is not a container, the output of this component will be empty),
-- Resolve neighbors relations and entities (add in bundle): will add to the bundle all relations of the entity having triggered the playbook, as well as all entities at the end of these relations, i.e. the "first neighbors" (if the entity is a container, the output of this component will be empty).
-
-
-#### Send to notifier
-
-Will generate a Notification each time a STIX 2.1 bundle is received.
-
-#### Promote observable to indicator
-
-Will generate indicator based on observables contained in the received STIX 2.1 bundle. 
-
-By default, it is applied to entities having triggered the playbook. You can toggle the corresponding option to apply it to all observables in the bundle (e.g. observables that might result from predefined rule).
-
-You can also add all indicators and relationships generated by this component in the entity having triggered the playbook, if this entity is a container.
-
-#### Extract observables from indicator  
-
-Will extract observables based on indicators contained in the received STIX 2.1 bundle. 
-
-By default, it is applied to entities having triggered the playbook. You can toggle the corresponding option to apply it to all indicators in the bundle (e.g. indicators that might result from enrichment.
-
-You can also add all observables and relationships generated by this component in the entity having triggered the playbook, if this entity is a container.
-
-#### Reduce Knowledge
-
-Will filter out any entities in the current stage that do not match the filter conditions in the stage. If the original triggering entity is a container, such as a report or case, then the container itself cannot be filtered out, and will be passed to subsequent stages.
-
-## Enroll manually an entity into a playbook
-
-You can enroll individual entities in playbooks by using the action "Enroll in playbook" from the entity details view.
-
-![Enroll entity in playbook](assets/playbook_enroll_entity.png)
-
-This will open a drawer where you can choose the playbook you want to trigger on this entity.
-
-![Enroll entity in playbook](assets/playbook_enroll_select.png)
-
-In this list, you will find:
-
-* active playbooks that have set an "Available for manual enrollment / trigger" event source
-* active playbooks with "Listen knowledge events" event source which filters match the entity
-
-## Monitor playbook activity
-
-At the top right of the interface, you can access execution trace of your playbook and consult the raw data after every step of your playbook execution.
-
-![Steps monitoring](assets/playbook_traces.png)
+- Extension du calcul First/Last seen à partir de la date de publication du rapport : renseigne les dates first seen et last seen des entités contenues dans le rapport à partir de sa date de publication,
+- Résoudre les indicateurs à partir des observables (ajouter dans le bundle) : récupère tous les indicateurs liés aux observables du bundle depuis la base de données,
+- Résoudre les observables sur lesquels un indicator est basé (ajouter dans le bundle) : récupère tous les observables liés à l'indicator du bundle depuis la base de données,
+- Résoudre les références de container (ajouter dans le bundle) : ajoute au bundle toutes les relations et entités que le container contient (si l'entité ayant déclenché le playbook n'est pas un container, la sortie de ce composant sera vide),
+- Résoudre les relations et entités voisines (ajouter dans le bundle) : ajoute au bundle toutes les relations de l'entité ayant déclenché le playbook, ainsi que toutes les entités à l'extrémité de ces relations, c'est-à-dire les "premiers voisins" (si l'entité est un container, la sortie de ce composant sera vide).
 
 
+#### Envoyer au notifier
+
+Génère une notification à chaque fois qu'un bundle STIX 2.1 est reçu.
+
+#### Promouvoir un observable en indicator
+
+Génère un indicator à partir des observables contenus dans le bundle STIX 2.1 reçu.
+
+Par défaut, cela s'applique aux entités ayant déclenché le playbook. Vous pouvez basculer l'option correspondante pour l'appliquer à tous les observables du bundle (par exemple, des observables pouvant résulter d'une règle prédéfinie).
+
+Vous pouvez également ajouter tous les indicators et relations générés par ce composant dans l'entité ayant déclenché le playbook, si cette entité est un container.
+
+#### Extraire les observables d'un indicator
+
+Extrait les observables à partir des indicators contenus dans le bundle STIX 2.1 reçu.
+
+Par défaut, cela s'applique aux entités ayant déclenché le playbook. Vous pouvez basculer l'option correspondante pour l'appliquer à tous les indicators du bundle (par exemple, des indicators pouvant résulter d'un enrichissement).
+
+Vous pouvez également ajouter tous les observables et relations générés par ce composant dans l'entité ayant déclenché le playbook, si cette entité est un container.
+
+#### Réduire la connaissance
+
+Filtre toutes les entités à l'étape courante qui ne correspondent pas aux conditions de filtre de l'étape. Si l'entité d'origine ayant déclenché le playbook est un container, comme un rapport ou un cas, alors le container lui-même ne peut pas être filtré et sera transmis aux étapes suivantes.
+
+## Enrôler manuellement une entité dans un playbook
+
+Il est possible d'enrôler individuellement des entités dans des playbooks via l'action "Enrôler dans un playbook" depuis la vue de détail de l'entité.
+
+![Enrôler une entité dans un playbook](assets/playbook_enroll_entity.png)
+
+Cela ouvrira un tiroir où vous pourrez choisir le playbook à déclencher sur cette entité.
+
+![Enrôler une entité dans un playbook](assets/playbook_enroll_select.png)
+
+Dans cette liste, vous trouverez :
+
+* les playbooks actifs ayant défini une source d'événement "Disponible pour l'enrôlement / déclenchement manuel"
+* les playbooks actifs avec une source d'événement "Écouter les événements de connaissance" dont les filtres correspondent à l'entité
+
+## Surveiller l'activité des playbooks
+
+En haut à droite de l'interface, il est possible d'accéder à la trace d'exécution de votre playbook et de consulter les données brutes après chaque étape de l'exécution du playbook.
+
+![Suivi des étapes](assets/playbook_traces.png)
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

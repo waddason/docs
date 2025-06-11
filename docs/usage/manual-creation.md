@@ -1,100 +1,103 @@
-# Manual creations
+# Créations manuelles
 
-Manual data creation in OpenCTI is an intuitive process that occurs throughout the platform. This page provides guidance on two key aspects of manual creation: Entity creation and Relationship creation.
+La création manuelle de données dans OpenCTI est un processus intuitif qui se déroule dans l'ensemble de la plateforme. Cette page fournit des conseils sur deux aspects clés de la création manuelle : la création d'entités et la création de relations.
 
-## Entity creation
+## Création d'entité
 
-### Simple creation
+### Création simple
 
-To create an entity:
+Pour créer une entité :
 
-1. Navigate to the section of the platform related to the object type you want to create (for example Reports).
-2. Click on the "+" button located at the bottom right of the window.
+1. Naviguer vers la section de la plateforme correspondant au type d'objet à créer (par exemple Reports).
+2. Cliquer sur le bouton "+" situé en bas à droite de la fenêtre.
 
 ![New report](assets/new-report.png)
 
-3. A form on the right side of the window will appear. Fill in specific fields of the entity. Certain fields are inherently obligatory, and administrators have the option to designate additional mandatory fields ([See here](../administration/entities.md#attributes-section) for more information).
-4. Once you've filled in the desired fields, click on "Create" button to initiate the entity creation process.
+3. Un formulaire apparaîtra sur le côté droit de la fenêtre. Remplir les champs spécifiques de l'entité. Certains champs sont obligatoires par défaut, et les administrateurs peuvent désigner des champs supplémentaires comme obligatoires ([Voir ici](../administration/entities.md#attributes-section) pour plus d'informations).
+4. Une fois les champs souhaités remplis, cliquer sur le bouton "Create" pour lancer le processus de création de l'entité.
 
 ![Create report](assets/create-report.png)
 
-### Bulk creation
+### Création en masse
 
-You also have the possibility to create multiple entities by filling the form only one time.
+Il est également possible de créer plusieurs entités en remplissant le formulaire une seule fois.
 
-> Note that bulk creation is not available for all entities for now. For example you cannot create Reports in bulk. So for our example we will use Malwares.
+> À noter que la création en masse n'est pas disponible pour toutes les entités pour le moment. Par exemple, il n'est pas possible de créer des Reports en masse. Nous utiliserons donc l'exemple des Malwares.
 
-1. Navigate to the section of the platform related to the object type you want to create in bulk.
-2. Click on the "+" button located at the bottom right of the window.
+1. Naviguer vers la section de la plateforme correspondant au type d'objet à créer en masse.
+2. Cliquer sur le bouton "+" situé en bas à droite de la fenêtre.
 
 ![New malware](assets/new-malware.png)
 
-3. Click on the top-right "Create multiple entities" button.
-4. A modal opens with a textarea input. You can fill multiple lines, each line will be an entity to create. In the example below, we will create four malwares with respectively names: Malware #1, Malware #2, Malware #3 and Malware #4.
-5. Validate the different names (it will not submit the form yet).
+3. Cliquer sur le bouton "Create multiple entities" en haut à droite.
+4. Une fenêtre modale s'ouvre avec un champ textarea. Remplir plusieurs lignes, chaque ligne correspondant à une entité à créer. Dans l'exemple ci-dessous, nous allons créer quatre malwares avec respectivement les noms : Malware #1, Malware #2, Malware #3 et Malware #4.
+5. Valider les différents noms (cela ne soumettra pas encore le formulaire).
 
 ![Create malware bulk](assets/create-malware-bulk.png)
 
-6. You can see the different values filled in the input _Name_.
+6. Les différentes valeurs saisies apparaissent dans le champ _Name_.
 
 ![Bulk input](assets/bulk-input.png)
 
-7. Fill other fields if necessary. Pay attention that for others fields than _Name_, all the created entities will have the same values. For example if I set a _Marking_ to TLP:GREEN, all four malwares will have this marking.
+7. Remplir les autres champs si nécessaire. Attention, pour les autres champs que _Name_, toutes les entités créées auront les mêmes valeurs. Par exemple, si un _Marking_ est défini sur TLP:GREEN, les quatre malwares auront ce marquage.
 
-8. Submit the form by clicking on "Create" button.
+8. Soumettre le formulaire en cliquant sur le bouton "Create".
 
 ![Create malware bulk submit](assets/create-malware-bulk-submit.png)
 
-9. A progress bar opens to show how many entities have been created. When the process is finished, you can close it.
+9. Une barre de progression s'affiche pour indiquer combien d'entités ont été créées. Lorsque le processus est terminé, il est possible de la fermer.
 
 ![Create malware bulk progress bar](assets/create-malware-bulk-progressbar.png)
 
-## Relationship creation
+## Création de relation
 
-Before delving into the creation of relationships between objects in OpenCTI, it's crucial to grasp some foundational concepts. Here are key points to understand:
+Avant d'aborder la création de relations entre objets dans OpenCTI, il est essentiel de comprendre certains concepts fondamentaux. Voici les points clés à retenir :
 
-- On several aspects, including relationships, two categories of objects must be differentiated: [containers](containers.md) (e.g., Reports, Groupings, and Cases) and others. **Containers aren't related to but contains objects**.
-- Relationships, like all other entities, are objects. They possess fields, can be linked, and share characteristics identical to other entities.
-- Relationships are inherently directional, comprising a "from" entity and a "to" entity. Understanding this directionality is essential for accurate relationship creation.
-- OpenCTI supports various relationship types, and their usage depends on the entity types being linked. For example, a "target" relationship might link malware to an organization, while linking malware to an intrusion set might involve a different relationship type.
+- Sur plusieurs aspects, y compris les relations, il convient de différencier deux catégories d'objets : [containers](containers.md) (par exemple Reports, Groupings et Cases) et les autres. **Les containers ne sont pas liés à des objets mais les contiennent**.
+- Les relations, comme toutes les autres entités, sont des objets. Elles possèdent des champs, peuvent être liées et partagent les mêmes caractéristiques que les autres entités.
+- Les relations sont intrinsèquement directionnelles, comprenant une entité "from" et une entité "to". Comprendre cette directionnalité est essentiel pour une création de relation correcte.
+- OpenCTI prend en charge différents types de relations, et leur utilisation dépend des types d'entités à relier. Par exemple, une relation "target" peut lier un malware à une organisation, tandis que lier un malware à un intrusion set peut nécessiter un autre type de relation.
 
-Now, let’s explore the process of creating relationships. To do this, we will differentiate the case of containers from the others.
+Explorons maintenant le processus de création de relations. Pour cela, nous différencierons le cas des containers des autres.
 
-### For container
+### Pour un container
 
-When it comes to creating relationships within containers in OpenCTI, the process is straightforward. Follow these steps to attach objects to a container:
+La création de relations au sein des containers dans OpenCTI est simple. Suivre ces étapes pour attacher des objets à un container :
 
-1. Navigate to the container: Go to the specific container to which you want to attach an object. This could be a Report, Grouping, or Cases.
-2. Access the "Entities" tab: Within the container, locate and access the "Entities" tab.
-3. Click on the "+" icon: Find the "+" icon located at the bottom right of the window. ![New relation with container](assets/relation-with-container.png)
-4. Search for entities: A side window will appear. Search for the entities you want to add to the container.
-5. Add entities to the container: Click on the desired entities. They will be added directly to the container.
+1. Naviguer vers le container : Aller sur le container spécifique auquel ajouter un objet. Il peut s'agir d'un Report, Grouping ou Cases.
+2. Accéder à l'onglet "Entities" : Dans le container, localiser et accéder à l'onglet "Entities".
+3. Cliquer sur l'icône "+" : Trouver l'icône "+" située en bas à droite de la fenêtre. ![New relation with container](assets/relation-with-container.png)
+4. Rechercher des entités : Une fenêtre latérale apparaît. Rechercher les entités à ajouter au container.
+5. Ajouter des entités au container : Cliquer sur les entités souhaitées. Elles seront ajoutées directement au container.
 
-### For other
+### Pour les autres
 
-When creating relationships not involving a container, the creation method is distinct. Follow these steps to create relationships between entities:
+Pour créer des relations n'impliquant pas un container, la méthode de création est différente. Suivre ces étapes pour créer des relations entre entités :
 
-1. Navigate to one of the entities: Go to one of the entities you wish to link. Please be aware that the entity from which you create the relationship will be designated as the "from" entity for that relationship. So the decision of which entity to choose for creating the relationship should be considered, as it will impact the outcome.
-2. Access the "Knowledge" tab: Within the entity, go to the "Knowledge" tab.
-3. Select the relevant categories: In the right banner, navigate to the categories that correspond to the object to be linked. The available categories depend on the type of entity you are currently on. For example, if you are on malware and want to link to a sector, choose "victimology."
-4. Click on the "+" icon: Find the "+" icon located at the bottom right of the window. ![New relationhip](assets/new-relationship.png)
-5. Search for entities: A side window will appear. Search for the entities you want to link.
-6. Add entities and click on "Continue": Click on the entities you wish to link. Multiple entities can be selected. Then click on "Continue" at the bottom right. ![Entities to link](assets/entities-to-link.png)
-7. Fill in the relationship form: As relationships are objects, a creation form similar to creating an entity will appear.
-8. Click on "Create": Once you've filled in the desired fields, click on "create" to initiate the relationship creation process.
+1. Naviguer vers l'une des entités : Aller sur l'une des entités à relier. Attention, l'entité depuis laquelle la relation est créée sera désignée comme entité "from" pour cette relation. Le choix de l'entité à partir de laquelle créer la relation doit donc être réfléchi, car il aura un impact sur le résultat.
+2. Accéder à l'onglet "Knowledge" : Dans l'entité, aller dans l'onglet "Knowledge".
+3. Sélectionner les catégories pertinentes : Dans la bannière de droite, naviguer vers les catégories correspondant à l'objet à lier. Les catégories disponibles dépendent du type d'entité sélectionné. Par exemple, si vous êtes sur un malware et souhaitez le lier à un sector, choisir "victimology".
+4. Cliquer sur l'icône "+" : Trouver l'icône "+" située en bas à droite de la fenêtre. ![New relationhip](assets/new-relationship.png)
+5. Rechercher des entités : Une fenêtre latérale apparaît. Rechercher les entités à lier.
+6. Ajouter des entités et cliquer sur "Continue" : Cliquer sur les entités à lier. Plusieurs entités peuvent être sélectionnées. Puis cliquer sur "Continue" en bas à droite. ![Entities to link](assets/entities-to-link.png)
+7. Remplir le formulaire de relation : Comme les relations sont des objets, un formulaire de création similaire à celui d'une entité apparaît.
+8. Cliquer sur "Create" : Une fois les champs souhaités remplis, cliquer sur "create" pour lancer la création de la relation.
 
 ![Create relationship](assets/create-relationship.png)
 
-## Additional methods
+## Méthodes supplémentaires
 
-While the aforementioned methods are primary for creating entities and relationships, OpenCTI offers versatility, allowing users to create objects in various locations within the platform. Here's a non-exhaustive list of additional places that facilitate on-the-fly creation:
+Bien que les méthodes précédentes soient les principales pour créer des entités et des relations, OpenCTI offre de la flexibilité, permettant de créer des objets à différents endroits de la plateforme. Voici une liste non exhaustive d'autres emplacements facilitant la création à la volée :
 
-- Creating entities during relationship creation: During the "Search for entities" phase (see above) of the relationship creation process, click on the "+" icon to create a new entity directly.
-- Knowledge graph: Within the knowledge graph - found in the knowledge tab of the containers or in the [investigation functionality](pivoting.md) - users can seamlessly create entities or relationships.
-- Inside a workbench: [The workbench](workbench.md) serves as another interactive space where users can create entities and relationships efficiently.
+- Création d'entités lors de la création d'une relation : Pendant la phase "Search for entities" (voir ci-dessus) du processus de création de relation, cliquer sur l'icône "+" pour créer une nouvelle entité directement.
+- Knowledge graph : Dans le knowledge graph - accessible dans l'onglet knowledge des containers ou dans la [fonctionnalité d'investigation](pivoting.md) - il est possible de créer facilement des entités ou des relations.
+- À l'intérieur d'un workbench : [Le workbench](workbench.md) constitue un autre espace interactif où il est possible de créer efficacement des entités et des relations.
 
-These supplementary methods offer users flexibility and convenience, allowing them to adapt their workflow to various contexts within the OpenCTI platform. As users explore the platform, they will naturally discover additional means of creating entities and relationships.
+Ces méthodes complémentaires offrent flexibilité et praticité, permettant d'adapter le flux de travail à différents contextes dans la plateforme OpenCTI. En explorant la plateforme, les utilisateurs découvriront naturellement d'autres moyens de créer des entités et des relations.
 
-!!! note "Max confidence level"
+!!! note "Niveau de confiance maximal"
 
-When creating knowledge in the platform, the maximum confidence level of the users is used. Please navigate to this [page](reliability-confidence.md) to understand this concept and the impact it can have on the knowledge creation.
+Lors de la création de connaissances dans la plateforme, le niveau de confiance maximal des utilisateurs est utilisé. Veuillez consulter cette [page](reliability-confidence.md) pour comprendre ce concept et son impact sur la création de connaissances.
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

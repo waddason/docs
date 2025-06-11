@@ -1,44 +1,45 @@
-# Analyst workbench
+# Espace de travail analyste
 
-Workbenches serve as dedicated workspaces for manipulating data before it is officially imported into the platform. 
+Les espaces de travail servent de zones dédiées à la manipulation des données avant leur importation officielle dans la plateforme.
 
+## Emplacement d’utilisation
 
-## Location of use
+Les espaces de travail se trouvent à différents endroits au sein de la plateforme :
 
-The workbenches are located at various places within the platform:
+### Fenêtre d’import de données et des espaces de travail analyste
 
-### Data import and analyst workbenches window
-
-This window encompasses all the necessary tools for importing a file. Files imported through this interface will subsequently be processed by the import connectors, resulting in the creation of workbenches. Additionally, analysts can manually create a workbench by clicking on the "+" icon at the bottom right of the window.
+Cette fenêtre regroupe tous les outils nécessaires pour importer un fichier. Les fichiers importés via cette interface seront ensuite traités par les connecteurs d’import, ce qui entraînera la création d’espaces de travail. De plus, les analystes peuvent créer manuellement un espace de travail en cliquant sur l’icône « + » en bas à droite de la fenêtre.
 
 ![Data import and workbenches panel](assets/data-import-and-workbenches.png)
 
-### Data tabs of all entities
+### Onglets « Données » de toutes les entités
 
-Workbenches are also accessible through the "Data" tabs of entities, providing convenient access to import data associated with the entity.
+Les espaces de travail sont également accessibles via les onglets « Données » des entités, offrant un accès pratique aux données importées associées à l’entité.
 
 ![Workbench in "Data" tab](assets/workbench-in-data-tab.png)
 
+## Fonctionnement
 
-## Operation
-
-Workbenches are automatically generated upon the import of a file through an import connector. When an import connector is initiated, it scans files for recognizable entities and subsequently creates a workbench. All identified entities are placed within this workbench for analyst reviews.
-Alternatively, analysts have the option to manually create a workbench by clicking on the "+" icon at the bottom right of the "Data import and analyst workbenches" window.
+Les espaces de travail sont générés automatiquement lors de l’import d’un fichier via un connecteur d’import. Lorsqu’un connecteur d’import est lancé, il analyse les fichiers à la recherche d’entités reconnaissables et crée ensuite un espace de travail. Toutes les entités identifiées sont placées dans cet espace de travail pour révision par les analystes.
+Alternativement, les analystes ont la possibilité de créer manuellement un espace de travail en cliquant sur l’icône « + » en bas à droite de la fenêtre « Import de données et espaces de travail analyste ».
 
 ![Overview of workbench](assets/overview-of-workbench.png)
 
-The workbench being a draft space, the analysts use it to review connector proposals before finalizing them for import. Within the workbench, analysts have the flexibility to add, delete, or modify entities to meet specific requirements.
+L’espace de travail étant un espace de brouillon, les analystes l’utilisent pour examiner les propositions des connecteurs avant de les valider pour l’import. À l’intérieur de l’espace de travail, les analystes peuvent ajouter, supprimer ou modifier des entités selon les besoins spécifiques.
 
 ![Workbench data manipulation](assets/workbench-data-manipulation.png)
 
-Once the content within the workbench is deemed acceptable, the analyst must initiate the ingestion process by clicking on `Validate this workbench`. This action signifies writing the data in the knowledge base.
+Une fois le contenu de l’espace de travail jugé satisfaisant, l’analyste doit lancer le processus d’ingestion en cliquant sur `Validate this workbench`. Cette action permet d’écrire les données dans la base de connaissances.
 
-!!! note "Workbenches are drafting spaces"
+!!! note "Les espaces de travail sont des espaces de brouillon"
 
-    Until the workbench is validated, the contained data remains in draft form and is not recorded in the knowledge base. This ensures that only reviewed and approved data is officially integrated into the platform.
+    Tant que l’espace de travail n’est pas validé, les données qu’il contient restent à l’état de brouillon et ne sont pas enregistrées dans la base de connaissances. Cela garantit que seules les données vérifiées et approuvées sont officiellement intégrées à la plateforme.
 
-For more information on importing files, refer to the [Import from files](import-files.md) documentation page.
+Pour plus d’informations sur l’import de fichiers, consulter la page de documentation [Import from files](import-files.md).
 
-**Confidence level of created knowledge through workbench**
+**Niveau de confiance des connaissances créées via l’espace de travail**
 
-The confidence level of knowledge created through workbench is affected by the confidence level of the user. Please navigate to this [page](reliability-confidence.md) to understand in more details.
+Le niveau de confiance des connaissances créées via l’espace de travail dépend du niveau de confiance de l’utilisateur. Veuillez consulter cette [page](reliability-confidence.md) pour plus de détails.
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

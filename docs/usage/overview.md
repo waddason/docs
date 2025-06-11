@@ -1,16 +1,16 @@
-# Overview
+# Vue d'ensemble
 
 ## Introduction
 
-The following chapter aims at giving the reader a step-by-step description of what is available on the platform and the meaning of the different tabs and entries.
+Ce chapitre vise à fournir au lecteur une description pas à pas de ce qui est disponible sur la plateforme et la signification des différents onglets et entrées.
 
-When the user connects to the platform, the home page is the `Dashboard`. This `Dashboard` contains several visuals summarizing the types and quantity of data recently imported into the platform.
+Lorsque l'utilisateur se connecte à la plateforme, la page d'accueil est le `Dashboard`. Ce `Dashboard` contient plusieurs visuels résumant les types et la quantité de données récemment importées dans la plateforme.
 
-!!! note "Dashboard"
-    
-    To get more information about the components of the default dashboard, you can consult the [Getting started](getting-started.md#dashboard-section).
+!!! note "Tableau de bord"
+  
+  Pour obtenir plus d'informations sur les composants du tableau de bord par défaut, consulter la page [Getting started](getting-started.md#dashboard-section).
 
-The left side panel allows the user to navigate through different windows and access different views and categories of knowledge.
+Le panneau latéral gauche permet à l'utilisateur de naviguer entre différentes fenêtres et d'accéder à différentes vues et catégories de connaissances.
 
 <figure markdown>
   ![Menu](assets/menu.png)
@@ -18,201 +18,205 @@ The left side panel allows the user to navigate through different windows and ac
 
 ## Structure
 
-### The "hot knowledge"
+### La "hot knowledge"
 
-The first part of the platform in the left menu is dedicated to what we call the "hot knowledge", which means this is the entities and relationships which are added on a daily basis in the platform and which generally require work / analysis from the users.
+La première partie de la plateforme dans le menu de gauche est dédiée à ce que nous appelons la "hot knowledge", c'est-à-dire les entités et relations ajoutées quotidiennement dans la plateforme et qui nécessitent généralement un travail ou une analyse de la part des utilisateurs.
 
-* `Analyses`: all containers which convey relevant knowledge such as reports, groupings and malware analyses.
-* `Cases`: all types of case like incident responses, requests for information, for takedown, etc.
-* `Events`: all incidents & alerts coming from operational systems as well as sightings.
-* `Observations`: all technical data in the platform such as observables, artifacts and indicators.
+* `Analyses` : tous les conteneurs qui véhiculent des connaissances pertinentes telles que rapports, groupements et analyses de malware.
+* `Cases` : tous les types de cas comme les réponses à incident, demandes d'information, de retrait, etc.
+* `Events` : tous les incidents et alertes provenant des systèmes opérationnels ainsi que les sightings.
+* `Observations` : toutes les données techniques dans la plateforme telles que observables, artifacts et indicators.
 
-### The "cold knowledge"
+### La "cold knowledge"
 
-The second part of the platform in the left menu is dedicated to the "cold knowledge", which means this is the entities and relationships used in the hot knowledge. You can see this as the "encyclopedia" of all pieces of knowledge you need to get context: threats, countries, sectors, etc.
+La seconde partie de la plateforme dans le menu de gauche est dédiée à la "cold knowledge", c'est-à-dire les entités et relations utilisées dans la hot knowledge. Vous pouvez voir cela comme "l'encyclopédie" de toutes les connaissances nécessaires pour obtenir du contexte : menaces, pays, secteurs, etc.
 
-* `Threats`: all threats entities from campaigns to threat actors, including intrusion sets.
-* `Arsenal`: all tools and pieces of malware used and/or targeted by threats, including vulnerabilities.
-* `Techniques`: all objects related to tactics and techniques used by threats (TTPs, etc.).
-* `Entities`: all non-geographical contextual information such as sectors, events, organizations, etc.
-* `Locations`: all geographical contextual information, from cities to regions, including precise positions.
+* `Threats` : toutes les entités de menaces, des campagnes aux threat actors, y compris les intrusion sets.
+* `Arsenal` : tous les outils et malwares utilisés et/ou ciblés par les menaces, y compris les vulnérabilités.
+* `Techniques` : tous les objets liés aux tactiques et techniques utilisées par les menaces (TTPs, etc.).
+* `Entities` : toutes les informations contextuelles non géographiques telles que secteurs, événements, organisations, etc.
+* `Locations` : toutes les informations contextuelles géographiques, des villes aux régions, y compris les positions précises.
 
-### Hide categories
+### Masquer des catégories
 
-You can customize the experience in the platform by hiding some categories in the left menu, whether globally or for a specific role.
+Il est possible de personnaliser l'expérience sur la plateforme en masquant certaines catégories dans le menu de gauche, soit globalement, soit pour un rôle spécifique.
 
-#### Hide categories globally
+#### Masquer des catégories globalement
 
-In the `Settings > Parameters`, it is possible for the platform administrator to hide categories in the platform for all users.
+Dans `Settings > Parameters`, il est possible pour l'administrateur de la plateforme de masquer des catégories pour tous les utilisateurs.
 
-![Hide categories globally](assets/hide-global.png)
+![Masquer des catégories globalement](assets/hide-global.png)
 
-#### Hide categories in roles
+#### Masquer des catégories dans les rôles
 
-In OpenCTI, the different roles are highly customizable. It is possible to defined default dashboards, triggers, etc. but also be able to hide categories in the roles:
+Dans OpenCTI, les différents rôles sont hautement personnalisables. Il est possible de définir des dashboards par défaut, des triggers, etc., mais aussi de masquer des catégories dans les rôles :
 
-![Hide categories in roles](assets/hide-roles.png)
+![Masquer des catégories dans les rôles](assets/hide-roles.png)
 
-### Entities lists
+### Listes d'entités
 
-In each knowledge category, you can view, order, filter, modify the list of the entities of the category.
-![Reports list](assets/reports-list.png)
+Dans chaque catégorie de connaissance, il est possible de visualiser, trier, filtrer, modifier la liste des entités de la catégorie.
+![Liste des rapports](assets/reports-list.png)
 
-Several actions can be performed from there:
+Plusieurs actions peuvent être réalisées à partir de là :
 
-- Click on a line to display a specific entity information,
-- Click on a column name to order the list by this column,
+- Cliquer sur une ligne pour afficher les informations d'une entité spécifique,
+- Cliquer sur le nom d'une colonne pour trier la liste selon cette colonne,
 
-!!! note "Sortable columns"
+!!! note "Colonnes triables"
 
-    Some columns are always sortable (like dates or names columns).
-    Some are never sortable (like labels).
+  Certaines colonnes sont toujours triables (comme les dates ou les noms).
+  D'autres ne le sont jamais (comme les labels).
 
-    Some columns are only sortable if runtime mapping is enabled, i.e. if the platform is with Elastic v >= 7.12 (not working with OpenSearch for instance). It is the case for columns whose content is calculated at runtime and not stored in the database: author, creator, observable value, markings, kill chain phases, assignee, participant, place of birth, ethnicity.
-    Indeed all those fields are not stored in the database and requires a resolution to fetch additional information useful for the sorting (like the creator name) from an id.
+  Certaines colonnes ne sont triables que si le mapping runtime est activé, c'est-à-dire si la plateforme utilise Elastic v >= 7.12 (non compatible avec OpenSearch par exemple). C'est le cas pour les colonnes dont le contenu est calculé à la volée et non stocké en base de données : author, creator, observable value, markings, kill chain phases, assignee, participant, place of birth, ethnicity.
+  En effet, tous ces champs ne sont pas stockés en base et nécessitent une résolution pour récupérer des informations supplémentaires utiles au tri (comme le nom du creator) à partir d'un id.
 
-- Modify filters to display entities corresponding to given criteria,
-- Select entities via the checkboxes to perform specific actions on them (merge, update, delete, enrich, share entities).
+- Modifier les filtres pour afficher les entités correspondant à certains critères,
+- Sélectionner des entités via les cases à cocher pour effectuer des actions spécifiques (fusionner, mettre à jour, supprimer, enrichir, partager des entités).
 
 
-## Presentation of a typical entity page in OpenCTI
+## Présentation d'une page type d'entité dans OpenCTI
 
-While OpenCTI features numerous entities and tabs, many of them share similarities, with only minor differences arising from specific characteristics. These differences may involve the inclusion or exclusion of certain fields, depending on the nature of the entity.
+Bien qu'OpenCTI propose de nombreuses entités et onglets, beaucoup d'entre eux partagent des similitudes, avec seulement de légères différences dues à des caractéristiques spécifiques. Ces différences peuvent concerner l'inclusion ou l'exclusion de certains champs, selon la nature de l'entité.
 
-In this part will only be detailed a general outline of a "typical" OpenCTI page. The specifies of the different entities will be detailed in the corresponding pages below (Activities and Knowledge).
+Dans cette partie, seul un aperçu général d'une page "type" d'OpenCTI sera détaillé. Les spécificités des différentes entités seront détaillées dans les pages correspondantes ci-dessous (Activités et Connaissance).
 
 <figure markdown>
-  ![Top menu of an entity](assets/top-menu.png)
+  ![Menu supérieur d'une entité](assets/top-menu.png)
 </figure>
 
 
 <a id="overview-section"></a>
-### Overview
+### Vue d'ensemble
 
-In the `Overview` tab on the entity, you will find all properties of the entity as well as the recent activities.
+Dans l'onglet `Overview` de l'entité, vous trouverez toutes les propriétés de l'entité ainsi que les activités récentes.
 
-First, you will find the `Details` section, where are displayed all properties specific to the type of entity you are looking at, an example below with a piece of malware:
+Tout d'abord, vous trouverez la section `Details`, où sont affichées toutes les propriétés spécifiques au type d'entité consulté, exemple ci-dessous avec un malware :
 
-![Details](assets/details.png)
+![Détails](assets/details.png)
 
-Thus, in the `Basic information` section, are displayed all common properties to all objects in OpenCTI, such as the marking definition, the author, the labels (i.e. tags), etc.
+Ainsi, dans la section `Basic information`, sont affichées toutes les propriétés communes à tous les objets dans OpenCTI, telles que la marking definition, l'auteur, les labels (tags), etc.
 
-![Basic information](assets/basic.png)
+![Informations de base](assets/basic.png)
 
-Below these two sections, you will find latest modifications in the Knowledge base related to the Entity:
+Sous ces deux sections, vous trouverez les dernières modifications dans la base de connaissances liées à l'entité :
 
-- `Latest created relationships`: display the latest relationships that have been created <u>from</u> or <u>to</u> this Entity. For example, latest Indicators of Compromise and associated Threat Actor of a Malware.
-- `latest containers about the object`: display all the Cases and Analyses that contains this Entity. For example, the latest Reports about a Malware.
-- `External references`: display all the external sources associated with the Entity. You will often find here links to external reports or webpages from where Entity's information came from.
-- `History`: display the latest chronological modifications of the Entity and its relationships that occurred in the platform, in order to traceback any alteration.
+- `Latest created relationships` : affiche les dernières relations créées <u>depuis</u> ou <u>vers</u> cette entité. Par exemple, les derniers Indicators of Compromise et le Threat Actor associé à un malware.
+- `latest containers about the object` : affiche tous les Cases et Analyses contenant cette entité. Par exemple, les derniers rapports concernant un malware.
+- `External references` : affiche toutes les sources externes associées à l'entité. Vous trouverez souvent ici des liens vers des rapports ou pages web externes d'où proviennent les informations de l'entité.
+- `History` : affiche les dernières modifications chronologiques de l'entité et de ses relations survenues dans la plateforme, afin de retracer toute altération.
 
-![Latest relations and containers](assets/latest_additions.png)
-![References and History](assets/ref_and_history.png)
+![Dernières relations et conteneurs](assets/latest_additions.png)
+![Références et historique](assets/ref_and_history.png)
 
-Last, all Notes written by users of the platform about this Entity are displayed in order to access unstructured analysis comments.
+Enfin, toutes les Notes rédigées par les utilisateurs de la plateforme concernant cette entité sont affichées afin d'accéder à des commentaires d'analyse non structurés.
 
 
 <a id="knowledge-section"></a>
-### Knowledge
+### Connaissance
 
-In the `Knowledge` tab, which is the central part of the entity, you will find all the Knowledge related to the current entity. The `Knowledge` tab is different for Analyses (`Report`, `Groupings`) and Cases (`Incident response`, `Request for Information`, `Request for Takedown`) entities than for all the other entity types.
+Dans l'onglet `Knowledge`, qui est la partie centrale de l'entité, vous trouverez toutes les connaissances liées à l'entité courante. L'onglet `Knowledge` est différent pour les Analyses (`Report`, `Groupings`) et les Cases (`Incident response`, `Request for Information`, `Request for Takedown`) par rapport aux autres types d'entités.
 
-- The `Knowledge` tab of those entities (who represents Analyses or Cases that can contains a collection of Objects) is the place to integrate and link together entities. For more information on how to integrate information in OpenCTI using the knowledge tab of a report, please refer to the part [Manual creation](manual-creation.md).
-- The `Knowledge` tabs of any other entity (that does not aim to contain a collection of Objects) gather all the entities which have been at some point linked to the entity the user is looking at. For instance, as shown in the following capture, the `Knowledge` tab of Intrusion set APT29, gives access to the list of all entities APT29 is attributed to, all victims the intrusion set has targeted, all its campaigns, TTPs, malware etc. For entities to appear in these tabs under `Knowledge`, they need to have been linked to the entity directly or have been computed with the inference engine.
-- When consulting an `Incident`, `Infrastructure`, `Threat Actor (group)`, `Threat Actor (individual)`, `Intrusion Set`,  `Malware`, `Channel` or `Tool` entity in OpenCTI, you may consult its auto-populated `Diamond` model from the `Knowledge` tab. The `Diamond` model illustrates the relationships that exist between the viewed entity and other entities in OpenCTI and automatically maps them to one of the four relevant quadrants: Adversary (e.g. Threat Actors), Infrastructure (e.g. Observables), Victimology (e.g. Sectors) and Capabilities (e.g. Attack Patterns). Each Diamond quadrant is interactive and can be clicked on to navigate to a full list (or only a subset) of its relevant entities.
+- L'onglet `Knowledge` de ces entités (qui représentent des Analyses ou Cases pouvant contenir une collection d'objets) est l'endroit pour intégrer et lier des entités. Pour plus d'informations sur l'intégration d'informations dans OpenCTI via l'onglet knowledge d'un rapport, se référer à la partie [Manual creation](manual-creation.md).
+- Les onglets `Knowledge` des autres entités (qui n'ont pas vocation à contenir une collection d'objets) rassemblent toutes les entités qui ont été à un moment liées à l'entité consultée. Par exemple, comme illustré dans la capture suivante, l'onglet `Knowledge` de l'Intrusion set APT29 donne accès à la liste de toutes les entités attribuées à APT29, toutes les victimes ciblées par l'intrusion set, toutes ses campagnes, TTPs, malwares, etc. Pour que des entités apparaissent dans ces onglets sous `Knowledge`, elles doivent avoir été liées directement à l'entité ou avoir été calculées par le moteur d'inférence.
+- Lors de la consultation d'une entité `Incident`, `Infrastructure`, `Threat Actor (group)`, `Threat Actor (individual)`, `Intrusion Set`,  `Malware`, `Channel` ou `Tool` dans OpenCTI, il est possible de consulter son modèle `Diamond` auto-rempli depuis l'onglet `Knowledge`. Le modèle `Diamond` illustre les relations existant entre l'entité consultée et d'autres entités dans OpenCTI et les cartographie automatiquement dans l'un des quatre quadrants pertinents : Adversary (ex : Threat Actors), Infrastructure (ex : Observables), Victimology (ex : Sectors) et Capabilities (ex : Attack Patterns). Chaque quadrant du Diamond est interactif et peut être cliqué pour naviguer vers une liste complète (ou seulement un sous-ensemble) de ses entités associées.
 
-![The Intrusion Set's Knowledge tab](assets/apt41_knowledge_view.png)
+![L'onglet Knowledge de l'Intrusion Set](assets/apt41_knowledge_view.png)
 
 
-#### Focus on Indicators and Observables
+#### Focus sur les Indicators et Observables
 
-The `Indicators` and `Observables` section offers 3 display modes:
-- The `entities view`, which displays the indicators/observables linked to the entity.
-- The `relationship view`, which displays the various relationships between the indicators/observables linked to the entity and the entity itself.
-- The `contextual view`, which displays the indicators/observables contained in the cases and analyses that contain the entity.
+La section `Indicators` et `Observables` propose 3 modes d'affichage :
+- La `entities view`, qui affiche les indicators/observables liés à l'entité.
+- La `relationship view`, qui affiche les différentes relations entre les indicators/observables liés à l'entité et l'entité elle-même.
+- La `contextual view`, qui affiche les indicators/observables contenus dans les cases et analyses contenant l'entité.
 
-![The Knowledge Focus on Indicators and Observables views](assets/knowledge_focus_indicators_observable_views.png)
+![Les vues Focus sur Indicators et Observables dans Knowledge](assets/knowledge_focus_indicators_observable_views.png)
 
 
 <a id="content-section"></a>
-### Content
+### Contenu
 
-The `Content` tab is available for all entities. It allows for uploading and creating outcomes documents related to the content of the current entity (in PDF, text, HTML or markdown files). This specific tab enable to previzualize, manage and write deliverable associated with the entity. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc.
+L'onglet `Content` est disponible pour toutes les entités. Il permet de téléverser et créer des documents de résultats liés au contenu de l'entité courante (en PDF, texte, HTML ou fichiers markdown). Cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à l'entité. Par exemple, un rapport analytique à partager avec d'autres équipes, un fichier markdown pour alimenter un wiki collaboratif, etc.
 
-The `Content mapping view` and the `Suggested mapping view`  are available for a subset of entities: `Report`, `Grouping`, `Incident`, `Incident response`, `Request for Information`, and `Request for Takedown`.
+La `Content mapping view` et la `Suggested mapping view` sont disponibles pour un sous-ensemble d'entités : `Report`, `Grouping`, `Incident`, `Incident response`, `Request for Information`, et `Request for Takedown`.
 
 
-![The Content tab of a Malware](assets/entity-content-tab.png)
+![L'onglet Content d'un Malware](assets/entity-content-tab.png)
 
 #### Content mapping view
 
-![Content mapping view of a Case](assets/case-content-mapping.png)
+![Content mapping view d'un Case](assets/case-content-mapping.png)
 
-The `Content mapping view` displays the mappable content of your container on the left (Description and Content), and the objects contained in the container on the right.
+La `Content mapping view` affiche le contenu mappable de votre container à gauche (Description et Content), et les objets contenus dans le container à droite.
 
-This view allows you to map readable content to existing or new Objects by selecting text on the left. Mapping an object will add it to your container, and the object will then be displayed on the right.
-You can clear all mappings that you added by clicking on the `Clear mappings` button. This action will only remove the mapping: the objects will still be contained in your container.
+Cette vue permet d'associer du contenu lisible à des objets existants ou nouveaux en sélectionnant du texte à gauche. Mapper un objet l'ajoutera à votre container, et l'objet sera alors affiché à droite.
+Il est possible de supprimer tous les mappings ajoutés en cliquant sur le bouton `Clear mappings`. Cette action ne supprimera que le mapping : les objets resteront contenus dans votre container.
 
-This allows you to quickly append structured Knowledge in your Case before refining it with relationships and details, and makes it a great place to see the continuum between unstructured and structured Knowledge.
+Cela permet d'ajouter rapidement de la connaissance structurée dans votre Case avant de la compléter avec des relations et des détails, et en fait un excellent endroit pour visualiser le continuum entre connaissance non structurée et structurée.
 
 #### Suggested mapping view
 
-![Suggested mapping view of a Report](assets/suggested-mapping.png)
+![Suggested mapping view d'un Report](assets/suggested-mapping.png)
 
-The `Suggested mapping view` displays the mappable content of your container on the left (Description and Content), and the suggested entity mapping on the right.
+La `Suggested mapping view` affiche le contenu mappable de votre container à gauche (Description et Content), et la suggestion de mapping d'entités à droite.
 
-This view allows you to get a suggestion list of existing Objects based on your mappable content by clicking on `Suggest new mapping`. 
-To be able to get a suggestion, you need to have at least one analysis connector of type `INTERNAL_ANALYSIS` configured. 
-Once the suggestion has been computed by the connector, it will be available on the right.
-You can the remove the suggestion that you are not interested in, and click on the `Validate` button to add the mapped objects to your container.
+Cette vue permet d'obtenir une liste de suggestions d'objets existants basée sur votre contenu mappable en cliquant sur `Suggest new mapping`. 
+Pour pouvoir obtenir une suggestion, il faut avoir au moins un analysis connector de type `INTERNAL_ANALYSIS` configuré. 
+Une fois la suggestion calculée par le connector, elle sera disponible à droite.
+Il est alors possible de supprimer les suggestions non pertinentes, puis de cliquer sur le bouton `Validate` pour ajouter les objets mappés à votre container.
 
-This allows you to quickly fill your Container with the data that you need, without having to manually map every related Objects.
+Cela permet de remplir rapidement votre Container avec les données nécessaires, sans avoir à mapper manuellement chaque objet lié.
 
 <a id="analyses-section"></a>
 ### Analyses
 
-The `Analyses` tab contains the list of all Analyses (`Report`, `Groupings`) and Cases (`Incident response`, `Request for Information`, `Request for Takedown`) in which the entity has been identified.
+L'onglet `Analyses` contient la liste de toutes les Analyses (`Report`, `Groupings`) et Cases (`Incident response`, `Request for Information`, `Request for Takedown`) dans lesquelles l'entité a été identifiée.
 
-![Example of the list of reports in which the attack pattern "data obfuscation" has been identified.](assets/entity_analysis-tab.png)
+![Exemple de liste de rapports dans lesquels le pattern d'attaque "data obfuscation" a été identifié.](assets/entity_analysis-tab.png)
 
-By default, this tab display the list, but you can also display the content of all the listed Analyses on a graph, allowing you to explore all their Knowledge and have a glance of the context around the Entity.
+Par défaut, cet onglet affiche la liste, mais il est aussi possible d'afficher le contenu de toutes les Analyses listées sous forme de graphe, permettant d'explorer toutes leurs connaissances et d'avoir un aperçu du contexte autour de l'entité.
 
-![Graph view of all the Knowledge contained in the listed analyses](assets/analyses-graphview.png)
+![Vue graphe de toutes les connaissances contenues dans les analyses listées](assets/analyses-graphview.png)
 
 
 <a id="data-section"></a>
-### Data
+### Données
 
-The `Data` tab contains documents that are associated to the object and were either:
+L'onglet `Data` contient les documents associés à l'objet et qui ont été soit :
 
-- Uploaded to the platform : for instance the PDF document containing the text of the report
-- Generated from the platform to be downloaded : a JSON or CSV file containing information on the object and generated by the user.
-- associated to an external reference
+- Téléversés sur la plateforme : par exemple le document PDF contenant le texte du rapport
+- Générés depuis la plateforme pour être téléchargés : un fichier JSON ou CSV contenant des informations sur l'objet et généré par l'utilisateur.
+- associés à une référence externe
 
-[Analyst Workbench](workbench.md) can also be created from here. They will contain the entity by default.
+[Analyst Workbench](workbench.md) peut également être créé à partir d'ici. Il contiendra l'entité par défaut.
 
-![The Data tab of a Threat Actor](assets/entity-data-tab.png)
+![L'onglet Data d'un Threat Actor](assets/entity-data-tab.png)
 
-In addition, the `Data` tab of `Threat actors (group)`, `Threat actors (individual)`, `Intrusions sets`, `Organizations`, `Individuals` have an extra panel:
+De plus, l'onglet `Data` des `Threat actors (group)`, `Threat actors (individual)`, `Intrusions sets`, `Organizations`, `Individuals` dispose d'un panneau supplémentaire :
 
-- Pictures Management: allows to manage the profile pictures attached to the entity.
+- Pictures Management : permet de gérer les photos de profil attachées à l'entité.
 
-![Profile pictures panel](assets/profile_pictures_panel.png)
-![Profile pictures of a Threat Actor](assets/profile_pictures_of_TA.png)
+![Panneau de gestion des photos de profil](assets/profile_pictures_panel.png)
+![Photos de profil d'un Threat Actor](assets/profile_pictures_of_TA.png)
 
 
 <a id="history-section"></a>
-### History
+### Historique
 
-The `History` tab displays the history of change of the Entity, update of attributes, creation of relations, ...
+L'onglet `History` affiche l'historique des modifications de l'entité, mise à jour des attributs, création de relations, ...
 
-Because of the volumes of information the history is written in a specific index that consume the redis stream to rebuild the history for the UI.
-![History tab of a Malware](assets/history.png)
+En raison du volume d'informations, l'historique est écrit dans un index spécifique qui consomme le flux redis pour reconstruire l'historique pour l'interface.
+![Onglet History d'un Malware](assets/history.png)
 
 
-### Less frequent tabs
+### Onglets moins fréquents
 
-- The `Observables` tab (for Reports and Observed data): A table containing all SCO (Stix Cyber Observable) contained in the Report or the Observed data, with search and filters available. It also displays if the SCO has been added directly or through [inferences with the reasoning engine](inferences.md)
-- the `Entities` tab (for Reports and Observed data): A table containing all SDO (Stix Domain Objects) contained in the Report or the Observed data, with search and filters available. It also displays if the SDO has been added directly or through [inferences with the reasoning engine](inferences.md)
-- Observables:
-- the `Sightings` tab (for Indicators and Observables): A table containing all `Sightings` relationships corresponding to events in which `Indicators` (IP, domain name, URL, etc.) are detected by or within an information system, an individual or an organization. Most often, this corresponds to a security event transmitted by a SIEM or EDR.
+- L'onglet `Observables` (pour Reports et Observed data) : un tableau contenant tous les SCO (Stix Cyber Observable) contenus dans le Report ou l'Observed data, avec recherche et filtres disponibles. Il affiche également si le SCO a été ajouté directement ou via [inférences avec le reasoning engine](inferences.md)
+- l'onglet `Entities` (pour Reports et Observed data) : un tableau contenant tous les SDO (Stix Domain Objects) contenus dans le Report ou l'Observed data, avec recherche et filtres disponibles. Il affiche également si le SDO a été ajouté directement ou via [inférences avec le reasoning engine](inferences.md)
+- Observables :
+- l'onglet `Sightings` (pour Indicators et Observables) : un tableau contenant toutes les relations `Sightings` correspondant à des événements où des `Indicators` (IP, nom de domaine, URL, etc.) sont détectés par ou dans un système d'information, un individu ou une organisation. Le plus souvent, cela correspond à un événement de sécurité transmis par un SIEM ou un EDR.
+
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -1,106 +1,104 @@
-# Custom dashboards
+# Tableaux de bord personnalisés
 
-OpenCTI provides an adaptable and entirely customizable dashboard functionality. The flexibility of OpenCTI's dashboard ensures a tailored and insightful visualization of data, fostering a comprehensive understanding of the platform's knowledge, relationships, and activities.
+OpenCTI propose une fonctionnalité de tableau de bord entièrement adaptable et personnalisable. La flexibilité du tableau de bord d’OpenCTI garantit une visualisation des données adaptée et pertinente, favorisant une compréhension approfondie des connaissances, des relations et des activités de la plateforme.
 
-## List of custom dashboards page
+## Page de liste des tableaux de bord personnalisés
 
-From the left menu, you can choose the custom dashboards option to see all the custom dashboards you have created, as well as those you have access to (for example, 'can view,' 'can edit,' or 'can manage').
+Depuis le menu de gauche, il est possible de choisir l’option tableaux de bord personnalisés pour voir tous les tableaux de bord que vous avez créés, ainsi que ceux auxquels vous avez accès (par exemple, « peut voir », « peut modifier » ou « peut gérer »).
 
 ![List of custom dashboards](assets/list_custom_dashboards.png)
 
-**Actions panel**
+**Panneau d’actions**
 
-You can realise actions on a dashboard  using the button located at the end of each line::
+Il est possible de réaliser des actions sur un tableau de bord à l’aide du bouton situé à la fin de chaque ligne :
 
-- view associated public dashboards
-- update
-- delete
-- duplicate
-- export
+- voir les tableaux de bord publics associés
+- mettre à jour
+- supprimer
+- dupliquer
+- exporter
 
+**Suppression massive**
 
-**Massive operations delete**
+Il est possible d’effectuer des opérations de suppression massive à l’aide de la case à cocher :
 
-You can do mass deletion operations using the checkbox:
+- Sélectionner un à un les tableaux de bord personnalisés à supprimer
+- Sélectionner tous les tableaux de bord personnalisés affichés sur la page à supprimer
 
-- Selecting one by one the custom dashboard to delete
-- Selecting All the custom dashboards displayed on the page to delete
+## Aperçu du tableau de bord
 
+Vous avez la possibilité d’adapter l’agencement des [widgets](widgets.md) sur votre tableau de bord, afin d’optimiser l’organisation et l’efficacité du flux de travail. Les widgets peuvent être placés intuitivement pour mettre en avant les informations clés. De plus, il est possible de redimensionner les widgets depuis le coin inférieur droit en fonction de l’importance de l’information, permettant ainsi une adaptation aux besoins analytiques spécifiques. Cette flexibilité technique garantit une expérience utilisateur fluide et visuellement optimisée.
 
-## Dashboard overview
-
-You have the flexibility to tailor the arrangement of [widgets](widgets.md) on your dashboard, optimizing organization and workflow efficiency. Widgets can be intuitively placed to highlight key information. Additionally, you can resize widgets from the bottom right corner based on the importance of the information, enabling adaptation to specific analytical needs. This technical flexibility ensures a fluid, visually optimized user experience.
-
-Moreover, the top banner of the dashboard offers a convenient feature to configure the timeframe for displayed data. This can be accomplished through the selection of a relative time period, such as "Last 7 days", or by specifying fixed "Start" and "End" dates, allowing users to precisely control the temporal scope of the displayed information.
+Par ailleurs, la bannière supérieure du tableau de bord offre une fonctionnalité pratique pour configurer la période temporelle des données affichées. Cela peut être réalisé en sélectionnant une période relative, telle que « 7 derniers jours », ou en spécifiant des dates fixes de « Début » et de « Fin », permettant aux utilisateurs de contrôler précisément la portée temporelle des informations affichées.
 
 ![Dashboard overview](assets/dashboard-overview.png)
 
 <a id="access-control-section"></a>
-## Access control
+## Contrôle d’accès
 
-In OpenCTI, the power to create custom dashboards comes with a flexible access control system, allowing users to tailor visibility and rights according to their collaborative needs.
+Dans OpenCTI, la création de tableaux de bord personnalisés s’accompagne d’un système de contrôle d’accès flexible, permettant aux utilisateurs d’adapter la visibilité et les droits selon leurs besoins collaboratifs.
 
-When a user crafts a personalized dashboard, by default, it remains visible only to the dashboard creator. At this stage, the creator holds administrative access rights. However, they can extend access and rights to others using the "Manage access" button, denoted by a locker icon, located at the top right of the dashboard page.
+Lorsqu’un utilisateur crée un tableau de bord personnalisé, celui-ci n’est visible que par son créateur par défaut. À ce stade, le créateur détient les droits d’accès administrateur. Cependant, il peut étendre l’accès et les droits à d’autres utilisateurs via le bouton « Gérer l’accès », représenté par une icône de cadenas, situé en haut à droite de la page du tableau de bord.
 
 ![Manage access button](assets/manage-access-button.png)
 
-**Levels of access:**
+**Niveaux d’accès :**
 
-- View: Access to view the dashboard. 
-- Edit: View + Permission to modify and update the dashboard and its widgets. 
-- Manage: Edit + Ability to delete the dashboard and to control user access and rights.
+- Voir : Accès à la visualisation du tableau de bord.
+- Modifier : Voir + Permission de modifier et mettre à jour le tableau de bord et ses widgets.
+- Gérer : Modifier + Possibilité de supprimer le tableau de bord et de contrôler l’accès et les droits des utilisateurs.
 
-It's crucial to emphasize that at least one user must retain admin access to ensure ongoing management capabilities for the dashboard.
+Il est essentiel de souligner qu’au moins un utilisateur doit conserver l’accès administrateur afin d’assurer la gestion continue du tableau de bord.
 
 ![Manage access dialog](assets/manage-access-dialog.png) 
 
-!!! note "Knowledge access restriction"
+!!! note "Restriction d’accès aux connaissances"
 
-    The platform's data access restrictions also apply to dashboards. The data displayed in the widgets is subject to the user's access rights within the platform. Therefore, an admin user will not see the same results in the widgets as a user with limited access, such as viewing only TLP:CLEAR data (assuming the platform contains data beyond TLP:CLEAR). 
+  Les restrictions d’accès aux données de la plateforme s’appliquent également aux tableaux de bord. Les données affichées dans les widgets dépendent des droits d’accès de l’utilisateur sur la plateforme. Ainsi, un utilisateur administrateur ne verra pas les mêmes résultats dans les widgets qu’un utilisateur avec un accès limité, tel que la visualisation des seules données TLP:CLEAR (en supposant que la plateforme contienne des données au-delà de TLP:CLEAR).
 
 
-## Share dashboard and widget configurations
+## Partager les configurations de tableaux de bord et de widgets
 
-OpenCTI provides functionality for exporting, importing and duplicating dashboard and widget configurations, facilitating the seamless transfer of customized dashboard setups between instances or users.
+OpenCTI propose des fonctionnalités d’export, d’import et de duplication des configurations de tableaux de bord et de widgets, facilitant le transfert des configurations personnalisées entre différentes instances ou utilisateurs.
 
-### Export
+### Exporter
 
-Dashboards can be exported from either the custom dashboards list or the dashboard view. 
+Les tableaux de bord peuvent être exportés depuis la liste des tableaux de bord personnalisés ou depuis la vue du tableau de bord.
 
-To export a dashboard configuration from the custom dashboards list:
+Pour exporter la configuration d’un tableau de bord depuis la liste des tableaux de bord personnalisés :
 
-1. Click on the burger menu button at the end of the dashboard line.
-2. Select `Export`.
+1. Cliquer sur le bouton menu burger à la fin de la ligne du tableau de bord.
+2. Sélectionner `Exporter`.
 
 ![Export dashboard option](assets/custom_dashboard_export.png)
 
-To export a widget, the same mechanism is used, but from the burger menu button in the upper right-hand corner of the widget.
+Pour exporter un widget, le même mécanisme est utilisé, mais depuis le bouton menu burger situé dans le coin supérieur droit du widget.
 
 ![Export widget option](assets/export-widget-option.png)
 
-To export a dashboard configuration from the dashboard view:
+Pour exporter la configuration d’un tableau de bord depuis la vue du tableau de bord :
 
-1. Navigate to the desired dashboard.
-2. Click on the `Export` button (file with an arrow pointing to the top right corner) located in the top-right corner of the dashboard.
+1. Accéder au tableau de bord souhaité.
+2. Cliquer sur le bouton `Exporter` (icône de fichier avec une flèche pointant vers le coin supérieur droit) situé en haut à droite du tableau de bord.
 
 ![Export JSON button](assets/export-json-button.png)
 
-#### Configuration file
+#### Fichier de configuration
 
-The dashboard configuration will be saved as a JSON file, with the title formatted as `[YYYYMMDD]_octi_dashboard_[dashboard title]`. The expected configuration file content is as follows:
+La configuration du tableau de bord sera enregistrée sous forme de fichier JSON, avec un titre au format `[YYYYMMDD]_octi_dashboard_[dashboard title]`. Le contenu attendu du fichier de configuration est le suivant :
 
 ```JSON
 {
   "openCTI_version": "5.12.0",
   "type": "dashboard",
   "configuration": {
-    "name": "My dashboard title",
-    "manifest": "eyJ3aWRn(...)uZmlnIjp7fX0="
+  "name": "My dashboard title",
+  "manifest": "eyJ3aWRn(...)uZmlnIjp7fX0="
   }
 }
 ```
 
-The widget configuration will be saved as a JSON file, with the title formatted as `[YYYYMMDD]_octi_widget_[widget view]`. The expected configuration file content is as follows:
+La configuration du widget sera enregistrée sous forme de fichier JSON, avec un titre au format `[YYYYMMDD]_octi_widget_[widget view]`. Le contenu attendu du fichier de configuration est le suivant :
 
 ```JSON
 {
@@ -110,57 +108,58 @@ The widget configuration will be saved as a JSON file, with the title formatted 
 }
 ```
 
-!!! warning "Source platform-related filters"
+!!! warning "Filtres liés à la plateforme source"
 
-    When exporting a dashboard or widget configuration, all filters will be exported as is. Filters on objects that do not exist in the receiving platform will need manual deletion after import. Filters to be deleted can be identified by their "delete" barred value.
+  Lors de l’export d’une configuration de tableau de bord ou de widget, tous les filtres seront exportés tels quels. Les filtres portant sur des objets inexistants sur la plateforme de destination devront être supprimés manuellement après l’import. Les filtres à supprimer sont identifiables par leur valeur barrée « supprimer ».
 
 ![Filter to delete](assets/filter-to-delete.png)
 
 
-### Import
+### Importer
 
-Dashboards can be imported from the custom dashboards list:
+Les tableaux de bord peuvent être importés depuis la liste des tableaux de bord personnalisés :
 
-1. Click on the `Import dashboard` button in the right top corner
-2. Select your file.
+1. Cliquer sur le bouton `Importer un tableau de bord` en haut à droite.
+2. Sélectionner votre fichier.
 
 ![Import dashboard option](assets/import_dashboard.png)
 
-To import a widget from a dashboard view,
-1- Hover over the Add button (+) in the right bottom corner.
-2- Click on the Import a widget button (cloud with an upward arrow).
-3- Select your file.
+Pour importer un widget depuis la vue d’un tableau de bord :
+1- Survoler le bouton Ajouter (+) dans le coin inférieur droit.
+2- Cliquer sur le bouton Importer un widget (nuage avec une flèche vers le haut).
+3- Sélectionner votre fichier.
 
 ![Import widget option](assets/import_widget.png)
 
-!!! warning "Configuration compatibility"
+!!! warning "Compatibilité des configurations"
 
-    Only JSON files with the required properties will be accepted, including "openCTI_version: [5.12.0 and above]", "type: [dashboard|widget]", and a "configuration". This applies to both dashboards and widgets configurations.
+  Seuls les fichiers JSON comportant les propriétés requises seront acceptés, notamment « openCTI_version: [5.12.0 et supérieur] », « type: [dashboard|widget] » et une « configuration ». Ceci s’applique aussi bien aux configurations de tableaux de bord qu’à celles des widgets.
 
 
-### Duplicate
+### Dupliquer
 
-Dashboards can be duplicated from either the custom dashboards list or the dashboard view.
+Les tableaux de bord peuvent être dupliqués depuis la liste des tableaux de bord personnalisés ou depuis la vue du tableau de bord.
 
-To duplicate a dashboard from the custom dashboards list:
+Pour dupliquer un tableau de bord depuis la liste des tableaux de bord personnalisés :
 
-1. Click on the button at the end of the dashboard line.
-2. Select `Duplicate`.
+1. Cliquer sur le bouton à la fin de la ligne du tableau de bord.
+2. Sélectionner `Dupliquer`.
 
-To duplicate a widget, the same mechanism is used, but from the burger menu button in the upper right-hand corner of the widget.
+Pour dupliquer un widget, le même mécanisme est utilisé, mais depuis le bouton menu burger situé dans le coin supérieur droit du widget.
 
-To duplicate a dashboard from the dashboard view:
+Pour dupliquer un tableau de bord depuis la vue du tableau de bord :
 
-1. Navigate to the desired dashboard.
-2. Click on the `Duplicate the dashboard` button (two stacked sheets) located in the top-right corner of the dashboard.
+1. Accéder au tableau de bord souhaité.
+2. Cliquer sur le bouton `Dupliquer le tableau de bord` (deux feuilles superposées) situé en haut à droite du tableau de bord.
 
 ![Duplicate dashboard button](assets/duplicate_dashboard_button.png)
 
-Upon successful duplication, a confirmation message is displayed for a short duration, accompanied by a link for easy access to the new dashboard view. Nevertheless, the new dashboard can still be found in the dashboards list.
+Après duplication, un message de confirmation s’affiche brièvement, accompagné d’un lien pour accéder facilement à la nouvelle vue du tableau de bord. Néanmoins, le nouveau tableau de bord reste accessible dans la liste des tableaux de bord.
 
 ![duplicate-dashboard-success-message](assets/duplicate_custom.png)
 
-!!! note "Dashboard access"
+!!! note "Accès au tableau de bord"
 
-    The user importing or duplicating a dashboard becomes the only one with access to it. Then, access can be managed as usual.
+  L’utilisateur important ou dupliquant un tableau de bord devient le seul à y avoir accès. L’accès peut ensuite être géré comme d’habitude.
 
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

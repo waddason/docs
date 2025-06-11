@@ -1,48 +1,46 @@
-# Case management
+# Gestion des cas
 
-## Why Case management?
+## Pourquoi la gestion des cas ?
 
-Compiling CTI data in one place, deduplicate and correlate to transform it into Intelligence is very important. **But ultimately, you need to act based on this Intelligence**. Some situations will need to be taken care of, like cybersecurity incidents, requests for information or requests for takedown. Some actions will then need to be traced, to be coordinated and oversaw. Some actions will include feedback and content delivery.
+Compiler les données CTI en un seul endroit, les dédupliquer et les corréler pour les transformer en Intelligence est très important. **Mais au final, il faut agir sur la base de cette Intelligence**. Certaines situations nécessitent une prise en charge, comme des incidents de cybersécurité, des demandes d'information ou des demandes de retrait. Certaines actions devront alors être tracées, coordonnées et supervisées. Certaines actions incluront des retours et la livraison de contenu.
 
-OpenCTI includes [Cases](exploring-cases.md) to allow organizations to manage situations and organize their team's work. Better, **by doing Case management in OpenCTI, you handle your cases with all the context and Intelligence you need, at hand.**
+OpenCTI inclut les [Cases](exploring-cases.md) pour permettre aux organisations de gérer les situations et d'organiser le travail de leur équipe. Mieux encore, **en réalisant la gestion des cas dans OpenCTI, vous traitez vos cas avec tout le contexte et l'Intelligence nécessaires, à portée de main.**
 
-## How to manage your Case in OpenCTI?
+## Comment gérer un Case dans OpenCTI ?
 
-Multiple situations can be modelize in OpenCTI as a Case, either an Incident Response, a Request for Takedown or a Request for Information.
+De multiples situations peuvent être modélisées dans OpenCTI comme un Case, qu'il s'agisse d'une Incident Response, d'une Request for Takedown ou d'une Request for Information.
 
 ![Incident Responses' list](assets/cases-list.png)
 
-All Cases can contain any entities and relationships you need to represent the Intelligence context related to the situation. At the beginning of your case, you may find yourself with only some Observables sighted in a system. At the end, you may have Indicators, Threat Actor, impacted systems, attack patterns. All representing your findings, ready to be presented and exported as graph, pdf report, timeline, etc.
+Tous les Cases peuvent contenir toutes les entités et relations nécessaires pour représenter le contexte d'Intelligence lié à la situation. Au début de votre case, vous pouvez n'avoir que quelques Observables détectés dans un système. À la fin, vous pouvez avoir des Indicators, des Threat Actor, des systèmes impactés, des attack patterns. Tous représentent vos découvertes, prêtes à être présentées et exportées sous forme de graphe, rapport PDF, chronologie, etc.
 
 ![Incident Responses' list](assets/cases-observables.png)
 
-Some Cases may need some collaborative work and specific Tasks to be performed by people that have relevant skillsets. OpenCTI allows you to associate `Tasks` in your Cases and assign them to users in the platform. As some type of situation may need the same tasks to be done, it is also possible to pre-define lists of tasks to be applied on your case. You can define these lists by accessing the Settings/Taxonomies/Case templates panel. Then you just need to add it from the overview of your desire Case.
+Certains Cases peuvent nécessiter un travail collaboratif et des Tasks spécifiques à réaliser par des personnes ayant les compétences requises. OpenCTI permet d'associer des `Tasks` à vos Cases et de les assigner à des utilisateurs de la plateforme. Comme certains types de situations peuvent nécessiter les mêmes tâches, il est également possible de pré-définir des listes de tâches à appliquer à votre case. Vous pouvez définir ces listes en accédant au panneau Settings/Taxonomies/Case templates. Il suffit ensuite de les ajouter depuis l’aperçu du Case souhaité.
 
-Tip: A user can have a custom dashboard showing him all the tasks that have been assigned to him.
+Astuce : Un utilisateur peut avoir un tableau de bord personnalisé affichant toutes les tasks qui lui ont été assignées.
 
 ![Incident Responses' list](assets/case-applying-template.png)
 
-As with other objects in OpenCTI, you can also leverage the `Notes` to add some investigation and analysis related comments, helping you shaping up the content of your case with unstructured data and trace all the work that have been done.
+Comme pour les autres objets dans OpenCTI, il est aussi possible d'utiliser les `Notes` pour ajouter des commentaires d'investigation et d'analyse, afin d'enrichir le contenu de votre case avec des données non structurées et de tracer tout le travail effectué.
 
-You can also use `Opinions` to collect how the Case has been handled, helping you to build Lessons Learned.
+Vous pouvez également utiliser les `Opinions` pour recueillir des retours sur la gestion du Case, ce qui aide à construire des retours d'expérience (Lessons Learned).
 
 ![Incident Responses' list](assets/case-opinion.png)
 
-To trace the evolution of your Case and define specific resolution worflows, you can use the `Status` (that can be define in Settings/Taxonomies/Status templates).
+Pour tracer l’évolution de votre Case et définir des workflows de résolution spécifiques, il est possible d’utiliser le `Status` (qui peut être défini dans Settings/Taxonomies/Status templates).
 
-At the end of your Case, you will certainly want to report on what has been done. OpenCTI allows you to export the content of the Case in a simple but customizable PDF (currently in refactor). But of course, your company has its own documents' templates, right? With OpenCTI, you will be able to include some nice graphics in it. For example, a Matrix view of the attacker attack pattern or even a graph display of how things are connected. 
+À la fin de votre Case, vous voudrez certainement faire un rapport sur ce qui a été réalisé. OpenCTI permet d’exporter le contenu du Case dans un PDF simple mais personnalisable (actuellement en refonte). Mais bien sûr, votre entreprise possède ses propres modèles de documents, n’est-ce pas ? Avec OpenCTI, il est possible d’y inclure de beaux graphiques. Par exemple, une vue Matrix des attack pattern de l’attaquant ou même un affichage graphique des connexions entre les éléments.
 
-Also, we are currently working a more meaningfull Timeline view that will be possible to export too.
+Nous travaillons également sur une vue Timeline plus pertinente, qui pourra aussi être exportée.
 
-## Use case example: A suspicious observable is sighted by a defense system. Is it important?
+## Exemple d’usage : Un observable suspect est détecté par un système de défense. Est-ce important ?
 
-- Daily, your SIEM and EDR are fed Indicators of Compromise from your OpenCTI instance. 
-- Today, your SIEM has sighted the domain name "bad.com" matching one of them. Its alert has been transfered to OpenCTI and has created a `Sighting` relationship between your System "SIEM permiter A" and the Observable "bad.com". 
-- You are alerted immediatly, because you have activated the inference rule creating a corresponding `Incident` in this situation, and you have created an alert based on new Incident that sends you email `notification` and Teams message (webhook).
-- In OpenCTI, you can clearly see the link between the alerting System, the sighted Observable and the corresponding Indicator. Better, you can also see all the context of the Indicator. It is linked to a notorious and recent phishing `campaign` targeting your activity `sector`. "bad.com" is clearly something to investigate ASAP.
-- You quickly select all the context you have found, and add it to a new `Incident response`case. You position the priority to High, regarding the context, and the severity to Low, as you don't know yet if someone really interacted with "bad.com".
-- You also assign the case to one of your colleagues, on duty for investigative work. To guide him, you also create a `Task` in your case for verifying if an actual interaction happened with "bad.com".
+- Quotidiennement, votre SIEM et EDR sont alimentés en Indicators of Compromise depuis votre instance OpenCTI.
+- Aujourd’hui, votre SIEM a détecté le nom de domaine "bad.com" correspondant à l’un d’eux. Son alerte a été transférée à OpenCTI et a créé une relation `Sighting` entre votre système "SIEM permiter A" et l’Observable "bad.com".
+- Vous êtes alerté immédiatement, car vous avez activé la règle d’inférence créant un `Incident` correspondant dans cette situation, et vous avez créé une alerte basée sur le nouvel Incident qui vous envoie une `notification` par email et un message Teams (webhook).
+- Dans OpenCTI, il est possible de voir clairement le lien entre le système d’alerte, l’Observable détecté et l’Indicator correspondant. Mieux encore, tout le contexte de l’Indicator est visible. Il est lié à une `campaign` de phishing notoire et récente ciblant votre `sector` d’activité. "bad.com" est clairement un élément à investiguer rapidement.
+- Vous sélectionnez rapidement tout le contexte trouvé et l’ajoutez à un nouveau `Incident response` case. Vous positionnez la priorité sur High, au vu du contexte, et la sévérité sur Low, car il n’est pas encore certain qu’une interaction ait eu lieu avec "bad.com".
+- Vous assignez également le case à un de vos collègues, en charge de l’investigation. Pour le guider, vous créez aussi une `Task` dans votre case afin de vérifier si une interaction réelle a eu lieu avec "bad.com".
 
-
-
-
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

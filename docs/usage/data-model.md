@@ -1,50 +1,51 @@
-# Data model
+# Modèle de données
 
 ## Introduction
 
-The OpenCTI core design relies on the concept of a [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph), where you have two different kinds of object:
+La conception principale d’OpenCTI repose sur le concept de [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph), où il existe deux types d’objets différents :
 
-1. **Nodes** are used to describe `entities`, which have some `properties` or `attributes`.
-2. **Edges** are used to describe `relationships`, which are created between two `entity` nodes and have some `properties` or `attributes`.
+1. **Nœuds** utilisés pour décrire des `entities`, qui possèdent des `properties` ou `attributes`.
+2. **Arêtes** utilisées pour décrire des `relationships`, créées entre deux nœuds `entity` et possédant également des `properties` ou `attributes`.
 
-!!! note "Example"
+!!! note "Exemple"
     
-    An example would be that the entity `APT28` has a relationship `uses` to the malware entity `Drovorub`.
+    Un exemple serait que l’entity `APT28` possède une relationship `uses` vers l’entity malware `Drovorub`.
 
 ## Standard
 
 <a id="stix-model-section"></a>
-### The STIX model
+### Le modèle STIX
 
-To enable a unified approach in the description of threat intelligence knowledge as well as importing and exporting data, the OpenCTI data model is based on the [STIX 2.1 standard](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html). Thus we highly recommend to take a look to the [STIX Introductory Walkthrough](https://oasis-open.github.io/cti-documentation/stix/walkthrough) and to the [different kinds of STIX relationships](https://oasis-open.github.io/cti-documentation/examples/visualized-sdo-relationships) to get a better understanding of how OpenCTI works.
+Pour permettre une approche unifiée dans la description des connaissances en threat intelligence ainsi que pour l’import et l’export de données, le modèle de données OpenCTI est basé sur le [standard STIX 2.1](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html). Il est donc fortement recommandé de consulter le [STIX Introductory Walkthrough](https://oasis-open.github.io/cti-documentation/stix/walkthrough) ainsi que les [différents types de relationships STIX](https://oasis-open.github.io/cti-documentation/examples/visualized-sdo-relationships) pour mieux comprendre le fonctionnement d’OpenCTI.
 
-Some more important STIX naming shortcuts are:
+Quelques abréviations importantes de STIX :
 
-- **STIX Domain Objects (SDO)**: Attack Patterns, Malware, Threat Actors, etc.
-- **STIX Cyber Observable (SCO)**: IP Addresses, domain names, hashes, etc.
-- **STIX Relationship Object (SRO)**: Relationships, Sightings
+- **STIX Domain Objects (SDO)** : Attack Patterns, Malware, Threat Actors, etc.
+- **STIX Cyber Observable (SCO)** : IP Addresses, domain names, hashes, etc.
+- **STIX Relationship Object (SRO)** : Relationships, Sightings
 
 ![STIX meta model](assets/stix.png)
 
 ### Extensions
 
-In some cases, the model has been extended to be able to:
+Dans certains cas, le modèle a été étendu afin de :
 
-* Support more types of SCOs to modelize information systems such as cryptocurrency wallets, user agents, etc.
-* Support more types of SDOs to modelize disinformation and cybercrime such as channels, events, narrative, etc.
-* Support more types of SROs to extend the new SDOs such as`amplifies`, `publishes`, etc.
+* Prendre en charge davantage de types de SCOs pour modéliser des systèmes d’information tels que des portefeuilles de cryptomonnaie, user agents, etc.
+* Prendre en charge davantage de types de SDOs pour modéliser la désinformation et la cybercriminalité, tels que channels, events, narrative, etc.
+* Prendre en charge davantage de types de SROs pour étendre les nouveaux SDOs, tels que `amplifies`, `publishes`, etc.
 
-## Implementation in the platform
+## Implémentation dans la plateforme
 
-### Diagram of types
+### Diagramme des types
 
-You can find below the digram of all types of entities and relationships available in OpenCTI.
+Vous trouverez ci-dessous le diagramme de tous les types d’entities et de relationships disponibles dans OpenCTI.
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FSrp4IQ9xAnzaS043epUZuJ%2FOpenCTI---Models%3Ftype%3Dwhiteboard%26node-id%3D0%253A1%26t%3DDeOZVWsFdJ13c05f-1" allowfullscreen></iframe>
 
-### Attributes and properties
+### Attributs et propriétés
 
-To get a comprehensive list of available properties for a given type of entity or relationship, you can use the GraphQL playground schema available in your "Profile > Playground". Then you can click on the Documentation button on the left. You can for instance search for the keyword `IntrusionSet`:
+Pour obtenir une liste complète des propriétés disponibles pour un type donné d’entity ou de relationship, utiliser le schéma GraphQL playground disponible dans "Profile > Playground". Ensuite, cliquer sur le bouton Documentation à gauche. Par exemple, rechercher le mot-clé `IntrusionSet` :
 
 ![STIX meta model](assets/schema.png)
 
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -1,48 +1,52 @@
-# Getting started
+# Bien démarrer
 
-This guide aims to give you a full overview of the OpenCTI features and workflows. The platform can be used in various contexts to handle threats management use cases from a technical to a more strategic level. OpenCTI has been designed as a knowledge graph, taking inputs (threat intelligence feeds, sightings & alerts, vulnerabilities, assets, artifacts, etc.) and generating outputs based on built-in capabilities and / or connectors.
+Ce guide vise à fournir une vue d'ensemble complète des fonctionnalités et des workflows d'OpenCTI. La plateforme peut être utilisée dans divers contextes pour gérer des cas d'usage de gestion des menaces, du niveau technique à un niveau plus stratégique. OpenCTI a été conçu comme un graphe de connaissances, prenant en entrée des flux de threat intelligence, des sightings & alerts, des vulnérabilités, des assets, des artifacts, etc., et générant des sorties basées sur des capacités intégrées et/ou des connectors.
 
-Here are some examples of use cases:
+Voici quelques exemples de cas d'usage :
 
-* Cyber Threat Intelligence knowledge base
-* Detection as code feeds for XDR, EDR, SIEMs, firewalls, proxies, etc.
-* Incident response artifacts & cases management
-* Vulnerabilities management
-* Reporting, alerting and dashboarding on a subset of data
+* Base de connaissances Cyber Threat Intelligence
+* Flux detection as code pour XDR, EDR, SIEMs, firewalls, proxies, etc.
+* Gestion des artifacts & cas d'incident response
+* Gestion des vulnérabilités
+* Reporting, alerting et dashboarding sur un sous-ensemble de données
 
 ![Use Cases](assets/use-cases.png)
 
 <a id="dashboard-section"></a>
-## Welcome dashboard
 
-The welcome page gives any visitor on the OpenCTI platform an overview of what's happening on the platform. It can be replaced by a [custom dashboard](dashboards.md), created by a user (or the default dashboard set up in a role, a group or an organization).
+## Tableau de bord d'accueil
+
+La page d'accueil offre à tout visiteur de la plateforme OpenCTI une vue d'ensemble de l'activité sur la plateforme. Elle peut être remplacée par un [tableau de bord personnalisé](dashboards.md), créé par un utilisateur (ou le tableau de bord par défaut défini dans un rôle, un groupe ou une organisation).
 
 ![Dashboard](assets/dashboard.png)
 
-### Indicators in the dashboard
+### Indicateurs dans le tableau de bord
 
-#### Numbers
+#### Chiffres
 
-| Component      | Description                      |
-|:---------------|:---------------------------------|
-| Intrusion sets | Number of intrusion sets       . |
-| Malware        | Number of malware.               |
-| Reports        | Number of reports.               |
-| Indicators     | Number of indicators.            |
+| Composant      | Description                          |
+|:---------------|:-------------------------------------|
+| Intrusion sets | Nombre d'intrusion sets.             |
+| Malware        | Nombre de malware.                   |
+| Reports        | Nombre de reports.                   |
+| Indicators     | Nombre d'indicators.                 |
 
-#### Charts & lists
+#### Graphiques & listes
 
-| Component                                   | Description                                                                                                                                                |
-|:--------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Most active threats (3 last months)         | Top active threats (threat actor, intrusion set and campaign) during the last 3 months.                                                                    |
-| Most targeted victims (3 last months)       | Intensity of the targeting tied to the number of relations `targets` for a given entities (organization, sector, location, etc.) during the last 3 months. |
-| Relationships created                       | Volume of relationships created over the past 12 months.                                                                                                   |
-| Most active malware (3 last months)         | Top active malware during the last 3 months.                                                                                                               |
-| Most active vulnerabilities (3 last months) | List of the vulnerabilities with the greatest number of relations over the last 3 months.                                                                  |
-| Targeted countries (3 last months)          | Intensity of the targeting tied to the number of relations `targets` for a given country over the past 3 months.                                           |
-| Latest reports                              | Last reports ingested in the platform.                                                                                                                     |
-| Most active labels (3 last months)          | Top labels given to entities during the last 3 months.                                                                                                     |
+| Composant                                   | Description                                                                                                                                         |
+|:--------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Menaces les plus actives (3 derniers mois)  | Principales menaces actives (threat actor, intrusion set et campaign) durant les 3 derniers mois.                                                   |
+| Victimes les plus ciblées (3 derniers mois) | Intensité du ciblage liée au nombre de relations `targets` pour une entité donnée (organization, sector, location, etc.) sur les 3 derniers mois.   |
+| Relations créées                            | Volume de relations créées au cours des 12 derniers mois.                                                                                           |
+| Malware les plus actifs (3 derniers mois)   | Principaux malware actifs durant les 3 derniers mois.                                                                                               |
+| Vulnérabilités les plus actives (3 derniers mois) | Liste des vulnérabilités ayant le plus grand nombre de relations sur les 3 derniers mois.                                                    |
+| Pays ciblés (3 derniers mois)               | Intensité du ciblage liée au nombre de relations `targets` pour un pays donné sur les 3 derniers mois.                                              |
+| Derniers reports                            | Derniers reports ingérés dans la plateforme.                                                                                                        |
+| Labels les plus actifs (3 derniers mois)    | Principaux labels attribués aux entités durant les 3 derniers mois.                                                                                 |
 
-!!! info "Explore the platform"
+!!! info "Explorer la plateforme"
 
-    To start exploring the platform and understand how information is structured, we recommend starting with the [overview documentation page](overview.md).
+    Pour commencer à explorer la plateforme et comprendre comment l'information est structurée, il est recommandé de débuter par la [page de documentation d'ensemble](overview.md).
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

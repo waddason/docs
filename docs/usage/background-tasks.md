@@ -1,35 +1,37 @@
-# Background tasks
+# Tâches en arrière-plan
 
-Three types of tasks are done in the background:
+Trois types de tâches sont effectuées en arrière-plan :
 
-- rule tasks,
-- knowledge tasks,
-- user tasks.
+- tâches de règles,
+- tâches de knowledge,
+- tâches utilisateur.
 
-Rule tasks can be seen and activated in Settings > Customization > Rules engine.
-Knowledge and user tasks can be seen and managed in Data > Background Tasks. The scope of each task is indicated.
+Les tâches de règles peuvent être consultées et activées dans Paramètres > Personnalisation > Rules engine.
+Les tâches de knowledge et les tâches utilisateur peuvent être consultées et gérées dans Données > Tâches en arrière-plan. Le périmètre de chaque tâche est indiqué.
 
 ![Background_tasks](assets/background-tasks.png)
 
-## Rule tasks
+## Tâches de règles
 
-If a rule task is enabled, it leads to the scan of the whole platform data and the creation of entities or relationships in case a configuration corresponds to the tasks rules. The created data are called 'inferred data'. Each time an event occurs in the platform, the rule engine checks if inferred data should be updated/created/deleted.
+Si une tâche de règle est activée, elle entraîne l’analyse de l’ensemble des données de la plateforme et la création d’entités ou de relations si une configuration correspond aux règles de la tâche. Les données créées sont appelées « inferred data ». À chaque événement sur la plateforme, le rules engine vérifie si les inferred data doivent être mises à jour, créées ou supprimées.
 
-## Knowledge tasks
+## Tâches de knowledge
 
-Knowledge tasks are background tasks updating or deleting entities and correspond to mass operations on these data. To create one, select entities via the checkboxes in an entity list, and choose the action to perform via the toolbar.
+Les tâches de knowledge sont des tâches en arrière-plan qui mettent à jour ou suppriment des entités et correspondent à des opérations de masse sur ces données. Pour en créer une, sélectionner des entités via les cases à cocher dans une liste d’entités, puis choisir l’action à effectuer via la barre d’outils.
 
-### Rights
+### Droits
 
-- To create a knowledge task, the user should have the capability to Update Knowledge (or the capability to delete knowledge if the task action is a deletion).
-- To see a knowledge task in the Background task section, the user should be the creator of the task, or have the KNOWLEDGE capability.
-- To delete a knowledge task from the Background task section, the user should be the creator of the task, or have the KNOWLEDGE_UPDATE capability.
+- Pour créer une tâche de knowledge, l’utilisateur doit avoir la capacité Update Knowledge (ou la capacité de supprimer la knowledge si l’action de la tâche est une suppression).
+- Pour voir une tâche de knowledge dans la section Tâches en arrière-plan, l’utilisateur doit être le créateur de la tâche ou avoir la capacité KNOWLEDGE.
+- Pour supprimer une tâche de knowledge depuis la section Tâches en arrière-plan, l’utilisateur doit être le créateur de la tâche ou avoir la capacité KNOWLEDGE_UPDATE.
 
-## User tasks
+## Tâches utilisateur
 
-User tasks are background tasks updating or deleting notifications. It can be done from the Notification section, by selecting several notifications via the checkboxes, and choosing an action via the toolbar.
+Les tâches utilisateur sont des tâches en arrière-plan qui mettent à jour ou suppriment des notifications. Cela peut être fait depuis la section Notifications, en sélectionnant plusieurs notifications via les cases à cocher, puis en choisissant une action via la barre d’outils.
 
-### Rights
+### Droits
 
-- A user can create a user task on its own notifications only.
-- To see or delete a user task, the user should be the creator of the task or have the SET_ACCESS capability.
+- Un utilisateur peut créer une tâche utilisateur uniquement sur ses propres notifications.
+- Pour voir ou supprimer une tâche utilisateur, l’utilisateur doit être le créateur de la tâche ou avoir la capacité SET_ACCESS.
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -1,102 +1,105 @@
 # Techniques
 
-When you click on "Techniques" in the left-side bar, you access all the "Techniques" tabs, visible on the top bar on the left. By default, the user directly access the "Attack pattern" tab, but can navigate to the other tabs as well.
+En cliquant sur "Techniques" dans la barre latérale gauche, vous accédez à tous les onglets "Techniques", visibles sur la barre supérieure à gauche. Par défaut, l'utilisateur accède directement à l'onglet "Attack pattern", mais peut également naviguer vers les autres onglets.
 
-From the `Techniques` section, users can access the following tabs:
+Depuis la section `Techniques`, les utilisateurs peuvent accéder aux onglets suivants :
 
-- `Attack pattern`: attacks pattern used by the threat actors to perform their attacks. By default, OpenCTI is provisionned with attack patterns from MITRE ATT&CK matrices (for CTI) and DISARM matrix (for FIMI).
-- `Narratives`: In OpenCTI, narratives used by threat actors can be represented and linked to other Objects. Narratives are mainly used in the context of disinformation campaigns where it is important to trace which narratives have been and are still used by threat actors.
-- `Courses of action`: A Course of Action is an action taken either to prevent an attack or to respond to an attack that is in progress. It may describe technical, automatable responses (applying patches, reconfiguring firewalls) but can also describe higher level actions like employee training or policy changes. For example, a course of action to mitigate a vulnerability could describe applying the patch that fixes it.
-- `Data sources`: Data sources represent the various subjects/topics of information that can be collected by sensors/logs. Data sources also include data components, 
-- `Data components`: Data components identify specific properties/values of a data source relevant to detecting a given ATT&CK technique or sub-technique.
+- `Attack pattern` : attaques utilisées par les threat actors pour mener leurs attaques. Par défaut, OpenCTI est fourni avec les attack patterns des matrices MITRE ATT&CK (pour CTI) et DISARM (pour FIMI).
+- `Narratives` : dans OpenCTI, les narratives utilisées par les threat actors peuvent être représentées et liées à d'autres objets. Les narratives sont principalement utilisées dans le contexte des campagnes de désinformation où il est important de tracer quelles narratives ont été et sont encore utilisées par les threat actors.
+- `Courses of action` : un Course of Action est une action entreprise soit pour prévenir une attaque, soit pour répondre à une attaque en cours. Il peut décrire des réponses techniques et automatisables (application de correctifs, reconfiguration de firewalls) mais aussi des actions de plus haut niveau comme la formation des employés ou des changements de politique. Par exemple, un course of action pour atténuer une vulnérabilité pourrait décrire l'application du correctif qui la corrige.
+- `Data sources` : les data sources représentent les différents sujets/thèmes d'information pouvant être collectés par des capteurs/logs. Les data sources incluent également les data components,
+- `Data components` : les data components identifient des propriétés/valeurs spécifiques d'une data source pertinentes pour détecter une technique ou sous-technique ATT&CK donnée.
 
 ## Attack pattern
 
-### General presentation
+### Présentation générale
 
-Attacks pattern used by the threat actors to perform their attacks. By default, OpenCTI is provisionned with attack patterns from MITRE ATT&CK matrices and CAPEC (for CTI) and DISARM matrix (for FIMI).
+Attack patterns utilisés par les threat actors pour mener leurs attaques. Par défaut, OpenCTI est fourni avec les attack patterns des matrices MITRE ATT&CK et CAPEC (pour CTI) et de la matrice DISARM (pour FIMI).
 
-In the MITRE STIX 2.1 documentation, an `Attack pattern` is defined as such :
+Dans la documentation MITRE STIX 2.1, un `Attack pattern` est défini comme suit :
 
-> Attack Patterns are a type of TTP that describe ways that adversaries attempt to compromise targets. Attack Patterns are used to help categorize attacks, generalize specific attacks to the patterns that they follow, and provide detailed information about how attacks are performed. An example of an attack pattern is "spear phishing": a common type of attack where an attacker sends a carefully crafted e-mail message to a party with the intent of getting them to click a link or open an attachment to deliver malware. Attack Patterns can also be more specific; spear phishing as practiced by a particular threat actor (e.g., they might generally say that the target won a contest) can also be an Attack Pattern.
+> Les Attack Patterns sont un type de TTP qui décrivent les façons dont les adversaires tentent de compromettre des cibles. Les Attack Patterns servent à catégoriser les attaques, à généraliser des attaques spécifiques selon les patterns qu'elles suivent, et à fournir des informations détaillées sur la manière dont les attaques sont réalisées. Un exemple d'attack pattern est le "spear phishing" : un type d'attaque courant où un attaquant envoie un e-mail soigneusement conçu à une cible dans le but de la faire cliquer sur un lien ou ouvrir une pièce jointe pour délivrer un malware. Les Attack Patterns peuvent aussi être plus spécifiques ; le spear phishing tel que pratiqué par un threat actor particulier (par exemple, il peut généralement prétendre que la cible a gagné un concours) peut aussi être un Attack Pattern.
 
-When clicking on the Attack pattern tab at the top left, you access the list of all the attack pattern you have access too, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes of attack patterns.
+En cliquant sur l'onglet Attack pattern en haut à gauche, vous accédez à la liste de tous les attack patterns auxquels vous avez accès, en fonction de vos [allowed marking definitions](../administration/users.md). Vous pouvez ensuite rechercher et filtrer selon certains attributs communs et spécifiques des attack patterns.
 
-### Visualizing Knowledge associated with an Attack pattern
+### Visualiser la connaissance associée à un Attack pattern
 
-When clicking on an Attack pattern, you land on its Overview tab. For an Attack pattern, the following tabs are accessible:
+En cliquant sur un Attack pattern, vous arrivez sur son onglet Overview. Pour un Attack pattern, les onglets suivants sont accessibles :
 
-- Overview: Overview of Attack pattern is a bit different as the usual described [here](overview.md). The "Details" box is more structured and contains information about:
+- Overview : l'overview d'un Attack pattern est un peu différente de celle décrite [ici](overview.md). Le bloc "Details" est plus structuré et contient des informations sur :
 
-   - parent or subtechniques (as in the MITRE ATT&CK matrices), 
-   - related kill chain phases
-   - Platform on which the Attack pattern is usable,
-   - permission required to apply it
-   - Related detection technique
-   - Courses of action to mitigate the Attack pattern
-   - Data components in which find data to detect the usage of the Attack pattern
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Attack pattern. Different thematic views are proposed to easily see Threat Actors and Intrusion Sets using this techniques, linked incidents, etc.
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Attack pattern. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md).
-- Data: as described [here](overview.md).
-- History: as described [here](overview.md).
+   - parent ou subtechniques (comme dans les matrices MITRE ATT&CK),
+   - phases du kill chain associées
+   - Plateforme sur laquelle l'Attack pattern est utilisable,
+   - permission requise pour l'appliquer
+   - Technique de détection associée
+   - Courses of action pour atténuer l'Attack pattern
+   - Data components dans lesquels trouver des données pour détecter l'utilisation de l'Attack pattern
+- Knowledge : un onglet complexe qui regroupe toute la connaissance structurée liée à l'Attack pattern. Différentes vues thématiques sont proposées pour visualiser facilement les Threat Actors et Intrusion Sets utilisant ces techniques, les incidents liés, etc.
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à l'Attack pattern. Par exemple, un rapport analytique à partager avec d'autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md).
+- Data : comme décrit [ici](overview.md).
+- History : comme décrit [ici](overview.md).
 
 ## Narratives
 
-### General presentation
+### Présentation générale
 
-In OpenCTI, narratives used by threat actors can be represented and linked to other Objects. Narratives are mainly used in the context of disinformation campaigns where it is important to trace which narratives have been and are still used by threat actors.
+Dans OpenCTI, les narratives utilisées par les threat actors peuvent être représentées et liées à d'autres objets. Les narratives sont principalement utilisées dans le contexte des campagnes de désinformation où il est important de tracer quelles narratives ont été et sont encore utilisées par les threat actors.
 
-An example of Narrative can be "The country A is weak and corrupted" or "The ongoing operation aims to free people". 
+Un exemple de Narrative peut être "Le pays A est faible et corrompu" ou "L'opération en cours vise à libérer le peuple".
 
-Narrative can be a mean in the context of a more broad attack or the goal of the operation, a vision to impose.
+Une Narrative peut être un moyen dans le cadre d'une attaque plus large ou l'objectif de l'opération, une vision à imposer.
 
-When clicking on the Narrative tab at the top left, you access the list of all the Narratives you have access too, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes of narratives.
+En cliquant sur l'onglet Narrative en haut à gauche, vous accédez à la liste de toutes les Narratives auxquelles vous avez accès, en fonction de vos [allowed marking definitions](../administration/users.md). Vous pouvez ensuite rechercher et filtrer selon certains attributs communs et spécifiques des narratives.
 
-### Visualizing Knowledge associated with a Narrative
+### Visualiser la connaissance associée à une Narrative
 
-When clicking on a Narrative, you land on its Overview tab. For a Narrative, the following tabs are accessible:
+En cliquant sur une Narrative, vous arrivez sur son onglet Overview. Pour une Narrative, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Narratives. Different thematic views are proposed to easily see the Threat actors and Intrusion Set using the Narrative, etc. 
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the technique. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md).
-- Data: as described [here](overview.md).
-- History: as described [here](overview.md).
+- Overview : comme décrit [ici](overview.md).
+- Knowledge : un onglet complexe qui regroupe toute la connaissance structurée liée aux Narratives. Différentes vues thématiques sont proposées pour visualiser facilement les Threat actors et Intrusion Set utilisant la Narrative, etc.
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à la technique. Par exemple, un rapport analytique à partager avec d'autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md).
+- Data : comme décrit [ici](overview.md).
+- History : comme décrit [ici](overview.md).
 
 ## Courses of action
 
-### General presentation
+### Présentation générale
 
-In the MITRE STIX 2.1 documentation, an `Course of action` is defined as such :
+Dans la documentation MITRE STIX 2.1, un `Course of action` est défini comme suit :
 
-> A Course of Action is an action taken either to prevent an attack or to respond to an attack that is in progress. It may describe technical, automatable responses (applying patches, reconfiguring firewalls) but can also describe higher level actions like employee training or policy changes. For example, a course of action to mitigate a vulnerability could describe applying the patch that fixes it.
+> Un Course of Action est une action entreprise soit pour prévenir une attaque, soit pour répondre à une attaque en cours. Il peut décrire des réponses techniques et automatisables (application de correctifs, reconfiguration de firewalls) mais aussi des actions de plus haut niveau comme la formation des employés ou des changements de politique. Par exemple, un course of action pour atténuer une vulnérabilité pourrait décrire l'application du correctif qui la corrige.
 
-When clicking on the `Courses of action` tab at the top left, you access the list of all the Courses of action you have access too, in respect with your [allowed marking definitions](../administration/users.md). You can then search and filter on some common and specific attributes of course of action.
+En cliquant sur l'onglet `Courses of action` en haut à gauche, vous accédez à la liste de tous les Courses of action auxquels vous avez accès, en fonction de vos [allowed marking definitions](../administration/users.md). Vous pouvez ensuite rechercher et filtrer selon certains attributs communs et spécifiques des courses of action.
 
-### Visualizing Knowledge associated with a Course of action
+### Visualiser la connaissance associée à un Course of action
 
-When clicking on a `Course of Action`, you land on its Overview tab. For a Course of action, the following tabs are accessible:
+En cliquant sur un `Course of Action`, vous arrivez sur son onglet Overview. Pour un Course of action, les onglets suivants sont accessibles :
 
-- Overview: Overview of Course of action is a bit different as the usual described [here](overview.md). In "Details" box, mitigated attack pattern are listed.
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Narratives. Different thematic views are proposed to easily see the Threat actors and Intrusion Set using the Narrative, etc. 
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Course of action. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md).
-- Data: as described [here](overview.md).
-- History: as described [here](overview.md).
+- Overview : l'overview d'un Course of action est un peu différente de celle décrite [ici](overview.md). Dans le bloc "Details", les attack patterns atténués sont listés.
+- Knowledge : un onglet complexe qui regroupe toute la connaissance structurée liée aux Narratives. Différentes vues thématiques sont proposées pour visualiser facilement les Threat actors et Intrusion Set utilisant la Narrative, etc.
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés au Course of action. Par exemple, un rapport analytique à partager avec d'autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md).
+- Data : comme décrit [ici](overview.md).
+- History : comme décrit [ici](overview.md).
 
 ## Data sources & Data components
 
-### General presentation
+### Présentation générale
 
-In the MITRE ATT&CK documentation, `Data sources` are defined as such :
+Dans la documentation MITRE ATT&CK, les `Data sources` sont définies comme suit :
 
-> Data sources represent the various subjects/topics of information that can be collected by sensors/logs. Data sources also include data components, which identify specific properties/values of a data source relevant to detecting a given ATT&CK technique or sub-technique.
+> Les data sources représentent les différents sujets/thèmes d'information pouvant être collectés par des capteurs/logs. Les data sources incluent également les data components, qui identifient des propriétés/valeurs spécifiques d'une data source pertinentes pour détecter une technique ou sous-technique ATT&CK donnée.
 
-### Visualizing Knowledge associated with a Data source or a Data components
+### Visualiser la connaissance associée à une Data source ou un Data component
 
-When clicking on a `Data source` or a `Data component`, you land on its Overview tab. For a Course of action, the following tabs are accessible:
+En cliquant sur une `Data source` ou un `Data component`, vous arrivez sur son onglet Overview. Pour un Course of action, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md).
-- Data: as described [here](overview.md).
-- History: as described [here](overview.md).
+- Overview : comme décrit [ici](overview.md).
+- Data : comme décrit [ici](overview.md).
+- History : comme décrit [ici](overview.md).
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

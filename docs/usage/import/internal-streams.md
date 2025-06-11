@@ -1,37 +1,39 @@
-# Internal streams
+# Flux internes
 
-Live Streams enable users to consume data from another OpenCTI platform, fostering collaborative intelligence sharing.
+Les flux Live Streams permettent aux utilisateurs de consommer des données provenant d'une autre plateforme OpenCTI, favorisant ainsi le partage collaboratif de renseignements.
 
 <a id="best-practices-section"></a>
-## Best practices
+## Bonnes pratiques
 
-In OpenCTI, the "Data > Ingestion" section provides users with built-in functions for automated data import. These functions are designed for specific purposes and can be configured to seamlessly ingest data into the platform. Here, we'll explore the configuration process for the five built-in functions: Live Streams, TAXII Feeds, TAXII Push, RSS Feeds, and CSV/JSON Feeds.
+Dans OpenCTI, la section "Data > Ingestion" offre aux utilisateurs des fonctions intégrées pour l'importation automatisée de données. Ces fonctions sont conçues pour des usages spécifiques et peuvent être configurées afin d'ingérer les données de manière transparente dans la plateforme. Nous allons ici explorer le processus de configuration des cinq fonctions intégrées : Live Streams, TAXII Feeds, TAXII Push, RSS Feeds et CSV/JSON Feeds.
 
-Ensuring a secure and well-organized environment is paramount in OpenCTI. Here are two recommended best practices to enhance security, traceability, and overall organizational clarity:
+Assurer un environnement sécurisé et bien organisé est primordial dans OpenCTI. Voici deux bonnes pratiques recommandées pour renforcer la sécurité, la traçabilité et la clarté organisationnelle :
 
-1. Create a dedicated user for each source: Generate a user specifically for feed import, following the convention `[F] Source name` for clear identification. Assign the user to the "Connectors" group to streamline user management and permission related to data creation. Please [see here](../../deployment/connectors.md#connector-token-section) for more information on this good practice.
-2. Establish a dedicated Organization for the source: Create an organization named after the data source for clear identification. Assign the newly created organization to the "Default author" field in feed import configuration if available.
+1. Créer un utilisateur dédié pour chaque source : Générer un utilisateur spécifiquement pour l'import de flux, en suivant la convention `[F] Nom de la source` pour une identification claire. Assigner cet utilisateur au groupe "Connectors" afin de faciliter la gestion des utilisateurs et des droits liés à la création de données. Veuillez [voir ici](../../deployment/connectors.md#connector-token-section) pour plus d'informations sur cette bonne pratique.
+2. Créer une Organisation dédiée pour la source : Créer une organisation portant le nom de la source de données pour une identification claire. Assigner la nouvelle organisation au champ "Default author" dans la configuration de l'import de flux si disponible.
 
-By adhering to these best practices, you ensure independence in managing rights for each import source through dedicated user and organization structures. In addition, you enable clear traceability to the entity's creator, facilitating source evaluation, dashboard creation, data filtering and other administrative tasks.
+En respectant ces bonnes pratiques, il est possible de garantir l'indépendance dans la gestion des droits pour chaque source d'import via des structures d'utilisateur et d'organisation dédiées. De plus, cela permet une traçabilité claire du créateur de l'entité, facilitant l'évaluation des sources, la création de tableaux de bord, le filtrage des données et d'autres tâches administratives.
 
 ## Configuration
 
-Live Streams enable users to consume data from another OpenCTI platform, fostering collaborative intelligence sharing. Here's a step-by-step guide to configure Live streams synchroniser:
+Les flux Live Streams permettent aux utilisateurs de consommer des données provenant d'une autre plateforme OpenCTI, favorisant ainsi le partage collaboratif de renseignements. Voici un guide étape par étape pour configurer le synchroniseur de Live streams :
 
-1. Remote OpenCTI URL: Provide the URL of the remote OpenCTI platform (e.g., `https://[domain]`; don't include the path).
-2. Remote OpenCTI token: Provide the user token. An administrator from the remote platform must supply this token, and the associated user must have the "Access data sharing" privilege.
-3. After filling in the URL and user token, validate the configuration.
-4. Once validated, select a live stream to which you have access.
+1. URL OpenCTI distante : Indiquer l'URL de la plateforme OpenCTI distante (par exemple, `https://[domain]`; ne pas inclure le chemin).
+2. Jeton OpenCTI distant : Fournir le jeton utilisateur. Un administrateur de la plateforme distante doit fournir ce jeton, et l'utilisateur associé doit disposer du privilège "Access data sharing".
+3. Après avoir renseigné l'URL et le jeton utilisateur, valider la configuration.
+4. Une fois validée, sélectionner un flux live auquel vous avez accès.
 
 ![Live stream configuration](../assets/live-stream-configuration.png)
 
-Additional configuration options:
+Options de configuration supplémentaires :
 
-- User responsible for data creation: Define the user responsible for creating data received from this stream. Best practice is to dedicate one user per source for organizational clarity. Please [see the section "Best practices" below](import-automated.md#best-practices-section) for more information.
-- Starting synchronization: Specify the date of the oldest data to retrieve. Leave the field empty to import everything.
-- Take deletions into account: Enable this option to delete data from your platform if it was deleted on the providing stream. (Note: Data won't be deleted if another source has imported it previously.)
-- Verify SSL certificate: Check the validity of the certificate of the domain hosting the remote platform.
-- Avoid dependencies resolution: Import only entities without their relationships. For instance, if the stream shares malware, all the malware's relationships will be retrieved by default. This option enables you to choose not to recover them.
-- Use perfect synchronization: This option is specifically for synchronizing two platforms. If an imported entity already exists on the platform, the one from the stream will overwrite it.
+- Utilisateur responsable de la création des données : Définir l'utilisateur responsable de la création des données reçues depuis ce flux. La bonne pratique consiste à dédier un utilisateur par source pour une meilleure clarté organisationnelle. Veuillez [voir la section "Bonnes pratiques" ci-dessous](import-automated.md#best-practices-section) pour plus d'informations.
+- Démarrer la synchronisation : Spécifier la date des données les plus anciennes à récupérer. Laisser le champ vide pour tout importer.
+- Prendre en compte les suppressions : Activer cette option pour supprimer les données de votre plateforme si elles ont été supprimées sur le flux source. (Remarque : les données ne seront pas supprimées si une autre source les a déjà importées.)
+- Vérifier le certificat SSL : Vérifier la validité du certificat du domaine hébergeant la plateforme distante.
+- Éviter la résolution des dépendances : Importer uniquement les entités sans leurs relations. Par exemple, si le flux partage un malware, toutes les relations du malware seront récupérées par défaut. Cette option permet de choisir de ne pas les récupérer.
+- Utiliser la synchronisation parfaite : Cette option est spécifiquement destinée à la synchronisation de deux plateformes. Si une entité importée existe déjà sur la plateforme, celle provenant du flux l'écrasera.
 
 ![Live stream additional configuration](../assets/live-stream-additional-configuration.png)
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

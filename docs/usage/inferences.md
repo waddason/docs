@@ -1,46 +1,44 @@
-# Inferences and reasoning
+# Inférences et raisonnement
 
-## Overview
+## Vue d’ensemble
 
-OpenCTI’s inferences and reasoning capability is a robust engine that automates the process of relationship creation within your threat intelligence data. This capability, situated at the core of OpenCTI, allows logical rules to be applied to existing relationships, resulting in the automatic generation of new, pertinent connections.
+La capacité d’inférences et de raisonnement d’OpenCTI est un moteur robuste qui automatise la création de relations au sein de vos données de cybermenace. Cette fonctionnalité, située au cœur d’OpenCTI, permet d’appliquer des règles logiques aux relations existantes, générant ainsi automatiquement de nouvelles connexions pertinentes.
 
+## Comprendre les inférences et le raisonnement
 
-## Understanding inferences and reasoning
+Les inférences et le raisonnement servent de moteur intelligent à OpenCTI. Ils interprètent vos données de manière logique. En activant des règles prédéfinies spécifiques (il en existe une vingtaine), OpenCTI peut déduire de nouvelles relations à partir de celles déjà existantes. Par exemple, s’il existe une connexion indiquant qu’un Intrusion Set cible un pays spécifique, et une autre relation précisant que ce pays fait partie d’une région plus vaste, OpenCTI peut automatiquement en déduire que l’Intrusion Set cible également la région entière.
 
-Inferences and reasoning serve as OpenCTI’s intelligent engine. It interprets your data logically. By activating specific predefined rules (of which there are around twenty), OpenCTI can deduce new relationships from the existing ones. For instance, if there's a connection indicating an Intrusion Set targets a specific country, and another relationship stating that this country is part of a larger region, OpenCTI can automatically infer that the Intrusion Set also targets the broader region.
+## Principaux avantages
 
+- Efficacité : Réduit la charge de travail manuelle en automatisant la création de relations, ce qui permet de gagner un temps précieux pour les analystes.
+- Exhaustivité : Comble les lacunes relationnelles, garantissant une base de données de cybermenace complète et interconnectée.
+- Précision : Minimise les erreurs de saisie manuelle en déduisant les relations à partir d’une logique prédéfinie et fiable.
 
-## Key benefits
+## Fonctionnement
 
-- Efficiency: Reduces manual workload by automating relationship creation, saving valuable analyst time.
-- Completeness: Fills relationship gaps, ensuring a comprehensive and interconnected threat intelligence database.
-- Accuracy: Minimizes manual input errors by deriving relationships from predefined, accurate logic.
+Lorsque vous activez une règle d’inférence, OpenCTI analyse en continu vos relations existantes et applique les règles logiques définies. Ces règles sont des énoncés logiques qui définissent les conditions de création de nouvelles relations. Lorsque l’ensemble des conditions est rempli, OpenCTI crée automatiquement la relation correspondante.
 
+Par exemple, si vous activez une règle comme suit :
 
-## How it operates
+SI [Entité A cible Identité B] ET [Identité B fait partie de Identité C]
+ALORS [Entité A cible Identité C]
 
-When you activate an inference rule, OpenCTI continuously analyzes your existing relationships and applies the defined logical rules. These rules are logical statements that define conditions for new relationships. When the set of conditions is met, the OpenCTI creates the corresponding relationship automatically.
+OpenCTI appliquera cette règle aux données existantes. S’il trouve un Intrusion Set (« Entité A ») ciblant un pays spécifique (« Identité B ») et que ce pays fait partie d’une région plus vaste (« Identité C »), la plateforme établira automatiquement une relation entre l’Intrusion Set et la région.
 
-For example, if you activate a rule as follows:
+## Identifier les relations inférées
 
-IF [Entity A targets Identity B] AND [Identity B is part of Identity C]
-THEN [Entity A targets Identity C]
-
-OpenCTI will apply this rule to existing data. If it finds an Intrusion Set ("Entity A") targeting a specific country ("Identity B") and that country is part of a larger region ("Identity C"), the platform will automatically establish a relationship between the Intrusion Set and the region.
-
-
-## Identifying inferred relationships
-
-**In the knowledge graphs:** Inferred relationships are represented by dotted lines of a different color, distinguishing them from non-inferred relations.
+**Dans les graphes de connaissances :** Les relations inférées sont représentées par des lignes pointillées d’une couleur différente, ce qui les distingue des relations non inférées.
 
 ![Inferred_relationships_in_graph](assets/inferred-rel-in-graph.png)
 
-**In the lists:** In a relationship list, a magic wand icon at the end of the line indicates relationship created by inference.
+**Dans les listes :** Dans une liste de relations, une icône de baguette magique à la fin de la ligne indique une relation créée par inférence.
 
 ![Inferred_relationships_in_list](assets/inferred-rel-in-list.png)
 
+## Ressources supplémentaires
 
-## Additional resources
+- **Administration :** Pour consulter les règles d’inférence existantes et les activer/désactiver, se référer à la page [Rules engine](../administration/reasoning.md) dans la section Administration de la documentation.
+- **Playbooks :** Les [OpenCTI playbooks](automation.md) sont des scénarios d’automatisation hautement personnalisables. Cette intégration transparente permet d’automatiser davantage, rendant vos processus de cybermenace encore plus efficaces et adaptés à vos besoins spécifiques. Plus d’informations dans notre [article de blog](https://blog.filigran.io/introducing-threat-intelligence-automation-and-playbooks-in-opencti-b9e2f9483aba).
 
-- **Administration:** To find out about existing inference rules and enable/disable them, refer to the [Rules engine](../administration/reasoning.md) page in the Administration section of the documentation.
-- **Playbooks:** [OpenCTI playbooks](automation.md) are highly customizable automation scenarios. This seamless integration allows for further automation, making your threat intelligence processes even more efficient and tailored to your specific needs. More information in our [blog post](https://blog.filigran.io/introducing-threat-intelligence-automation-and-playbooks-in-opencti-b9e2f9483aba).
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

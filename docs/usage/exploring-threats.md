@@ -1,100 +1,102 @@
-# Threats 
+# Menaces
 
-When you click on "Threats" in the left-side bar, you access all the "Threats" tabs, visible on the top bar on the left. By default, the user directly access the "Threat Actor (Group)" tab, but can navigate to the other tabs as well.
+En cliquant sur "Menaces" dans la barre latérale gauche, vous accédez à tous les onglets "Menaces", visibles en haut à gauche. Par défaut, l'utilisateur accède directement à l'onglet "Threat Actor (Group)", mais peut naviguer vers les autres onglets.
 
-From the `Threats` section, users can access the following tabs:
+Depuis la section `Menaces`, les utilisateurs peuvent accéder aux onglets suivants :
 
-- `Threat actors (Group)`: Threat actor (Group) represents a physical group of attackers operating an Intrusion set, using malware and attack infrastructure, etc.
-- `Threat actors (Indvidual)`: Threat actor (Individual) represents a real attacker that can be described by physical and personal attributes and motivations. Threat actor (Individual) operates Intrusion set, uses malware and infrastructure, etc.
-- `Intrusion sets`: Intrusion set is an important concept in Cyber Threat Intelligence field. It is a consistent set of technical and non-technical elements corresponding of what, how and why a Threat actor acts. it is particularly useful for associating multiple attacks and malicious actions to a defined Threat, even without sufficient information regarding who did them. Often, with you understanding of the threat growing, you will link an Intrusion set to a Threat actor (either a Group or an Individual).
-- `Campaigns`: Campaign represents a series of attacks taking place in a certain period of time and/or targeting a consistent subset of Organization/Individual.
+- `Threat actors (Group)` : Threat actor (Group) représente un groupe physique d'attaquants opérant un Intrusion set, utilisant des malwares et une infrastructure d'attaque, etc.
+- `Threat actors (Indvidual)` : Threat actor (Individual) représente un véritable attaquant pouvant être décrit par des attributs physiques et personnels ainsi que des motivations. Threat actor (Individual) opère un Intrusion set, utilise des malwares et une infrastructure, etc.
+- `Intrusion sets` : Intrusion set est un concept important dans le domaine de la Cyber Threat Intelligence. Il s'agit d'un ensemble cohérent d'éléments techniques et non techniques correspondant à ce que fait, comment et pourquoi agit un Threat actor. Il est particulièrement utile pour associer plusieurs attaques et actions malveillantes à une menace définie, même sans information suffisante sur l'identité de l'auteur. Souvent, avec l'évolution de la compréhension de la menace, il est possible de lier un Intrusion set à un Threat actor (groupe ou individu).
+- `Campaigns` : Campaign représente une série d'attaques ayant lieu sur une certaine période et/ou ciblant un sous-ensemble cohérent d'organisations/individus.
 
 ## Threat actors (Group and Individual)
 
-### General presentation
+### Présentation générale
 
-Threat actors are the humans who are building, deploying and operating intrusion sets. A threat actor can be an single individual or a group of attackers (who may be composed of individuals). A group of attackers may be a state-nation, a state-sponsored group, a corporation, a group of hacktivists, etc. 
+Les Threat actors sont les humains qui construisent, déploient et opèrent les intrusion sets. Un Threat actor peut être un individu seul ou un groupe d'attaquants (qui peut être composé d'individus). Un groupe d'attaquants peut être un État-nation, un groupe soutenu par un État, une entreprise, un groupe de hacktivistes, etc.
 
-Beware, groups of attackers might be modelled as "Intrusion sets" in feeds, as there is sometimes a misunderstanding in the industry between group of people and the technical/operational intrusion set they operate.
+Attention, les groupes d'attaquants peuvent être modélisés comme "Intrusion sets" dans certains flux, car il existe parfois une confusion dans l'industrie entre le groupe de personnes et l'intrusion set technique/opérationnel qu'ils opèrent.
 
 ![The Threat actor (Group) cards](assets/cards-threat-group.png)
 
-When clicking on the Threat actor (Group or Individual) tabs at the top left, you see the list of all the groups of Threat actors or Individual Threat actors you have access to, in respect with your [allowed marking definitions](../administration/users.md). These groups or individual are displayed as **Cards** where you can find a summary of the important Knowledge associated with each of them: description, aliases, malware they used, countries and industries they target, labels. You can then search and filter on some common and specific attributes of Threat actors.
+En cliquant sur les onglets Threat actor (Group ou Individual) en haut à gauche, il est possible de voir la liste de tous les groupes de Threat actors ou Threat actors individuels auxquels vous avez accès, selon vos [marquages autorisés](../administration/users.md). Ces groupes ou individus sont affichés sous forme de **Cartes** où un résumé des connaissances importantes associées à chacun est présenté : description, alias, malwares utilisés, pays et industries ciblés, labels. Il est alors possible de rechercher et filtrer selon des attributs communs ou spécifiques aux Threat actors.
 
-At the top right of each Card, you can click the star icon to put it as favorite. It will pin the card on top of the list. You will also be able to display all your favorite easily in your [Custom Dashboards](dashboards.md).
+En haut à droite de chaque carte, cliquer sur l'icône étoile permet de la mettre en favori. Cela épinglera la carte en haut de la liste. Il sera également possible d'afficher facilement tous vos favoris dans vos [Tableaux de bord personnalisés](dashboards.md).
 
-### Demographic and Biographic Information
+### Informations démographiques et biographiques
 
-Individual Threat actors have unique properties to represent demographic and biographic information. Currently tracked demographics include their countries of residence, citizenships, date of birth, gender, and more.
+Les Threat actors individuels disposent de propriétés uniques pour représenter des informations démographiques et biographiques. Les données démographiques actuellement suivies incluent les pays de résidence, citoyennetés, date de naissance, genre, etc.
 
 ![Threat Actor (Individual) Demographics](assets/threat-actor-individual-demographics.png)
 
-Biographic information includes their eye and hair color, as well as known heights and weights.
+Les informations biographiques incluent la couleur des yeux et des cheveux, ainsi que la taille et le poids connus.
 
 ![Threat Actor (Individual) Biographics](assets/threat-actor-individual-biographics.png)
 
-An Individual Threat actor can also be tracked as employed by an Organization or a Threat Actor group. This relationship can be set under the knowledge tab.
+Un Threat actor individuel peut également être suivi comme employé par une organisation ou un groupe de Threat actors. Cette relation peut être définie dans l'onglet knowledge.
 
-### Visualizing Knowledge associated with a Threat actor
+### Visualiser les connaissances associées à un Threat actor
 
-When clicking on a Threat actor Card, you land on its Overview tab. For a Threat actor, the following tabs are accessible:
+En cliquant sur une carte Threat actor, vous accédez à son onglet Overview. Pour un Threat actor, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Threat actor. Different thematic views are proposed to easily see the victimology, arsenal and techniques used by the Threat actor, etc. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Threat actor. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées au Threat actor. Différentes vues thématiques sont proposées pour visualiser facilement la victimologie, l’arsenal et les techniques utilisées par le Threat actor, etc. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés au Threat actor. Par exemple, un rapport analytique à partager avec d'autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ## Intrusion Sets
 
-An intrusion set is a consistent group of technical elements such as "tactics, technics and procedures" (TTP), tools, malware and infrastructure used by a threat actor against one or a number of victims who are usually sharing some characteristics (field of activity, country or region) to reach a similar goal whoever the victim is. The intrusion set may be deployed once or several times and may evolve with time.
-Several intrusion sets may be linked to one threat actor. All the entities described below may be linked to one intrusion set. There are many debates in the Threat Intelligence community on how to define an intrusion set and how to distinguish several intrusion sets with regards to:
+Un intrusion set est un ensemble cohérent d'éléments techniques tels que "tactiques, techniques et procédures" (TTP), outils, malwares et infrastructures utilisés par un Threat actor contre une ou plusieurs victimes partageant généralement certaines caractéristiques (secteur d'activité, pays ou région) pour atteindre un objectif similaire, quel que soit la victime. L'intrusion set peut être déployé une ou plusieurs fois et peut évoluer dans le temps.
+Plusieurs intrusion sets peuvent être liés à un Threat actor. Toutes les entités décrites ci-dessous peuvent être liées à un intrusion set. Il existe de nombreux débats dans la communauté Threat Intelligence sur la façon de définir un intrusion set et de distinguer plusieurs intrusion sets en fonction de :
 
-- their differences
-- their evolutions
-- the possible reuse
-- "false flag" type of attacks
+- leurs différences
+- leurs évolutions
+- la possible réutilisation
+- les attaques de type "false flag"
 
-As OpenCTI is very customizable, each organization or individual may use these categories as they wish. Instead, it is also possible to use the import feed for the choice of categories.
+Comme OpenCTI est très personnalisable, chaque organisation ou individu peut utiliser ces catégories comme il le souhaite. Il est également possible d'utiliser le flux d'importation pour le choix des catégories.
 
 ![Intrusion set Cards](assets/instrusion-set-cards.png)
 
-When clicking on the Intrusion set tab on the top left, you see the list of all the Intrusion sets you have access to, in respect with your [allowed marking definitions](../administration/users.md). These intrusion sets are displayed as **Cards** where you can find a summary of the important Knowledge associated with each of them: description, aliases, malware they used, countries and industries they target, labels. You can then search and filter on some common and specific attributes of Intrusion set.
+En cliquant sur l'onglet Intrusion set en haut à gauche, il est possible de voir la liste de tous les intrusion sets auxquels vous avez accès, selon vos [marquages autorisés](../administration/users.md). Ces intrusion sets sont affichés sous forme de **Cartes** où un résumé des connaissances importantes associées à chacun est présenté : description, alias, malwares utilisés, pays et industries ciblés, labels. Il est alors possible de rechercher et filtrer selon des attributs communs ou spécifiques à l'Intrusion set.
 
-At the top right of each Card, you can click the star icon to put it as favorite. It will pin the card on top of the list. You will also be able to display all your favorite easily in your [Custom Dashboards](dashboards.md).
+En haut à droite de chaque carte, cliquer sur l'icône étoile permet de la mettre en favori. Cela épinglera la carte en haut de la liste. Il sera également possible d'afficher facilement tous vos favoris dans vos [Tableaux de bord personnalisés](dashboards.md).
 
-### Visualizing Knowledge associated with an Intrusion set
+### Visualiser les connaissances associées à un Intrusion set
 
-When clicking on an Intrusion set Card, you land on its Overview tab. The following tabs are accessible:
+En cliquant sur une carte Intrusion set, vous accédez à son onglet Overview. Les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Intrusion Set. Different thematic views are proposed to easily see the victimology, arsenal and techniques used by the Intrusion Set, etc. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Intrusion set. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
-
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à l'Intrusion Set. Différentes vues thématiques sont proposées pour visualiser facilement la victimologie, l’arsenal et les techniques utilisées par l'Intrusion Set, etc. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à l'Intrusion set. Par exemple, un rapport analytique à partager avec d'autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ## Campaigns
 
-A campaign can be defined as "a series of malicious activities or attacks (sometimes called a "wave of attacks") taking place within a limited period of time, against a defined group of victims, associated to a similar intrusion set and characterized by the use of one or several identical malware towards the various victims and common TTPs".
-However, a campaign is an investigation element and may not be widely recognized. Thus, a provider might define a series of attacks as a campaign and another as an intrusion set.
-Campaigns can be attributed to an Intrusion set.
+Une campaign peut être définie comme "une série d'activités ou d'attaques malveillantes (parfois appelées 'vague d'attaques') ayant lieu sur une période limitée, contre un groupe défini de victimes, associée à un intrusion set similaire et caractérisée par l'utilisation d'un ou plusieurs malwares identiques envers les différentes victimes et des TTPs communs".
+Cependant, une campaign est un élément d'investigation et peut ne pas être largement reconnue. Ainsi, un fournisseur peut définir une série d'attaques comme une campaign et un autre comme un intrusion set.
+Les campaigns peuvent être attribuées à un Intrusion set.
 
 ![Campaigns cards](assets/campaigns-cards.png)
 
-When clicking on the Campaign tab on the top left, you see the list of all the Campaigns you have access to, in respect with your [allowed marking definitions](../administration/users.md). These campaigns are displayed as **Cards** where you can find a summary of the important Knowledge associated with each of them: description, aliases, malware used, countries and industries they target, labels. You can then search and filter on some common and specific attributes of Campaigns.
+En cliquant sur l'onglet Campaign en haut à gauche, il est possible de voir la liste de toutes les campaigns auxquelles vous avez accès, selon vos [marquages autorisés](../administration/users.md). Ces campaigns sont affichées sous forme de **Cartes** où un résumé des connaissances importantes associées à chacune est présenté : description, alias, malwares utilisés, pays et industries ciblés, labels. Il est alors possible de rechercher et filtrer selon des attributs communs ou spécifiques aux Campaigns.
 
-At the top right of each Card, you can click the star icon to put it as favorite. It will pin the card on top of the list. You will also be able to display all your favorite easily in your [Custom Dashboards](dashboards.md).
+En haut à droite de chaque carte, cliquer sur l'icône étoile permet de la mettre en favori. Cela épinglera la carte en haut de la liste. Il sera également possible d'afficher facilement tous vos favoris dans vos [Tableaux de bord personnalisés](dashboards.md).
 
-### Visualizing Knowledge associated with a Campaign
+### Visualiser les connaissances associées à une Campaign
 
-When clicking on an Campaign Card, you land on its Overview tab. The following tabs are accessible:
+En cliquant sur une carte Campaign, vous accédez à son onglet Overview. Les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Campaign. Different thematic views are proposed to easily see the victimology, arsenal and techniques used in the context of the Campaign. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Campaign. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à la Campaign. Différentes vues thématiques sont proposées pour visualiser facilement la victimologie, l’arsenal et les techniques utilisées dans le contexte de la Campaign. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à la Campaign. Par exemple, un rapport analytique à partager avec d'autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

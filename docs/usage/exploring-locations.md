@@ -1,128 +1,131 @@
-# Location
+# Localisation
 
-OpenCTI's Locations objects provides a comprehensive framework for representing various geographic entities within your threat intelligence data. With five distinct Location object types, you can precisely define regions, countries, areas, cities, and specific positions. This robust classification empowers you to contextualize threats geographically, enhancing the depth and accuracy of your analysis.
+Les objets Locations d’OpenCTI offrent un cadre complet pour représenter diverses entités géographiques au sein de vos données de cybermenace. Avec cinq types distincts d’objets Location, il est possible de définir précisément des régions, pays, zones, villes et positions spécifiques. Cette classification robuste permet de contextualiser géographiquement les menaces, améliorant ainsi la profondeur et la précision de l’analyse.
 
-When you click on "Locations" in the left-side bar, you access all the "Locations" tabs, visible on the top bar on the left. By default, the user directly access the "Regions" tab, but can navigate to the other tabs as well.
+En cliquant sur "Locations" dans la barre latérale gauche, il est possible d’accéder à tous les onglets "Locations", visibles en haut à gauche. Par défaut, l’utilisateur accède directement à l’onglet "Regions", mais peut naviguer vers les autres onglets.
 
-From the `Locations` section, users can access the following tabs:
+Depuis la section `Locations`, il est possible d’accéder aux onglets suivants :
 
-- `Regions`: very large geographical territories, such as a continent.
-- `Countries`: the world's countries.
-- `Areas`: more or less extensive geographical areas and often not having a very defined limit
-- `Cities`: the world's cities.
-- `Positions`: very precise positions on the globe.
+- `Regions` : très grands territoires géographiques, comme un continent.
+- `Countries` : les pays du monde.
+- `Areas` : zones géographiques plus ou moins étendues, souvent sans limite très définie.
+- `Cities` : les villes du monde.
+- `Positions` : positions très précises sur le globe.
 
 
 ## Regions
 
-### General presentation
+### Présentation générale
 
-Regions encapsulate broader geographical territories, often representing continents or significant parts of continents. Examples include EMEA (Europe, Middle East, and Africa), Asia, Western Europe, and North America. Utilize regions to categorize large geopolitical areas and gain macro-level insights into threat patterns.
+Les régions englobent de vastes territoires géographiques, représentant souvent des continents ou des parties significatives de continents. Exemples : EMEA (Europe, Moyen-Orient et Afrique), Asie, Europe de l’Ouest, Amérique du Nord. Utiliser les régions pour catégoriser de grandes zones géopolitiques et obtenir une vision macro des schémas de menace.
 
-When clicking on the Regions tab at the top left, you see the list of all the Regions you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Regions en haut à gauche, la liste de toutes les régions accessibles s’affiche, selon vos [définitions de marquage autorisées](../administration/users.md).
 
 ![Regions list](assets/regions_list_view.png)
 
-### Visualizing Knowledge associated with a Region
+### Visualiser la connaissance associée à une région
 
-When clicking on a `Region` in the list, you land on its Overview tab. For a Region, the following tabs are accessible:
+En cliquant sur une `Region` dans la liste, l’utilisateur arrive sur l’onglet Overview. Pour une région, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section), with the particularity of not having a `Details` section but a map locating the Region.
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Region. Different thematic views are proposed to easily see the related entities, the threats, the incidents, etc. linked to the Region. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Location. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in a Region.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section), avec la particularité de ne pas avoir de section `Details` mais une carte localisant la région.
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à la région. Différentes vues thématiques sont proposées pour visualiser facilement les entités, menaces, incidents, etc. liés à la région. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à la région. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé dans une région.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ![Region Overview](assets/region_overview.png)
 
 ## Countries
 
-### General presentation
+### Présentation générale
 
-Countries represent individual nations across the world. With this object type, you can specify detailed information about a particular country, enabling precise localization of threat intelligence data. Countries are fundamental entities in geopolitical analysis, offering a focused view of activities within national borders.
+Les pays représentent les nations individuelles à travers le monde. Avec ce type d’objet, il est possible de spécifier des informations détaillées sur un pays particulier, permettant une localisation précise des données de cybermenace. Les pays sont des entités fondamentales dans l’analyse géopolitique, offrant une vue ciblée des activités à l’intérieur des frontières nationales.
 
-When clicking on the Countries tab at the top left, you see the list of all the Countries you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Countries en haut à gauche, la liste de tous les pays accessibles s’affiche, selon vos [définitions de marquage autorisées](../administration/users.md).
 
 ![Countries list](assets/countries_list_view.png)
 
-### Visualizing Knowledge associated with a Country
+### Visualiser la connaissance associée à un pays
 
-When clicking on a `Country` in the list, you land on its Overview tab. For a Country, the following tabs are accessible:
+En cliquant sur un `Country` dans la liste, l’utilisateur arrive sur l’onglet Overview. Pour un pays, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section), with the particularity of not having a `Details` section but a map locating the Country.
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Country. Different thematic views are proposed to easily see the related entities, the threats, the incidents, etc. linked to the Country. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Country. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in a Country.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section), avec la particularité de ne pas avoir de section `Details` mais une carte localisant le pays.
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées au pays. Différentes vues thématiques sont proposées pour visualiser facilement les entités, menaces, incidents, etc. liés au pays. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés au pays. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé dans un pays.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ## Areas
 
-### General presentation
+### Présentation générale
 
-Areas define specific geographical regions of interest, such as the Persian Gulf, the Balkans, or the Caucasus. Use areas to identify unique zones with distinct geopolitical, cultural, or strategic significance. This object type facilitates nuanced analysis of threats within defined geographic contexts.
+Les zones (Areas) définissent des régions géographiques spécifiques d’intérêt, telles que le Golfe Persique, les Balkans ou le Caucase. Utiliser les zones pour identifier des espaces uniques présentant une importance géopolitique, culturelle ou stratégique. Ce type d’objet facilite l’analyse fine des menaces dans des contextes géographiques définis.
 
-When clicking on the Areas tab at the top left, you see the list of all the Areas you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Areas en haut à gauche, la liste de toutes les zones accessibles s’affiche, selon vos [définitions de marquage autorisées](../administration/users.md).
 
 ![Areas list](assets/areas_list_view.png)
 
-### Visualizing Knowledge associated with an Area
+### Visualiser la connaissance associée à une zone
 
-When clicking on an `Area` in the list, you land on its Overview tab. For an Area, the following tabs are accessible:
+En cliquant sur une `Area` dans la liste, l’utilisateur arrive sur l’onglet Overview. Pour une zone, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section), with the particularity of not having a `Details` section but a map locating the Area.
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Area. Different thematic views are proposed to easily see the related entities, the threats, the incidents, etc. linked to the Area. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Area. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in an Area.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section), avec la particularité de ne pas avoir de section `Details` mais une carte localisant la zone.
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à la zone. Différentes vues thématiques sont proposées pour visualiser facilement les entités, menaces, incidents, etc. liés à la zone. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à la zone. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé dans une zone.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 
 ## Cities
 
-### General presentation
+### Présentation générale
 
-Cities provide granular information about urban centers worldwide. From major metropolises to smaller towns, cities are crucial in understanding localized threat activities. With this object type, you can pinpoint threats at the urban level, aiding in tactical threat assessments and response planning.
+Les villes fournissent des informations détaillées sur les centres urbains du monde entier. Des grandes métropoles aux petites villes, les villes sont essentielles pour comprendre les activités de menace localisées. Ce type d’objet permet de cibler les menaces au niveau urbain, facilitant les évaluations tactiques et la planification de la réponse.
 
-When clicking on the Cities tab at the top left, you see the list of all the Cities you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Cities en haut à gauche, la liste de toutes les villes accessibles s’affiche, selon vos [définitions de marquage autorisées](../administration/users.md).
 
 ![Cities list](assets/cities_list_view.png)
 
-### Visualizing Knowledge associated with a City
+### Visualiser la connaissance associée à une ville
 
-When clicking on a `City` in the list, you land on its Overview tab. For a City, the following tabs are accessible:
+En cliquant sur une `City` dans la liste, l’utilisateur arrive sur l’onglet Overview. Pour une ville, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section), with the particularity of not having a `Details` section but a map locating the City.
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the City. Different thematic views are proposed to easily see the related entities, the threats, the incidents, etc. linked to the City. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the City. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in a City.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section), avec la particularité de ne pas avoir de section `Details` mais une carte localisant la ville.
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à la ville. Différentes vues thématiques sont proposées pour visualiser facilement les entités, menaces, incidents, etc. liés à la ville. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à la ville. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé dans une ville.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 
 ## Positions
 
-### General presentation
+### Présentation générale
 
-Positions represent highly precise geographical points, such as monuments, buildings, or specific event locations. This object type allows you to define exact coordinates, enabling accurate mapping of events or incidents. Positions enhance the granularity of your threat intelligence data, facilitating precise geospatial analysis.
+Les positions représentent des points géographiques très précis, tels que des monuments, bâtiments ou lieux d’événements spécifiques. Ce type d’objet permet de définir des coordonnées exactes, facilitant la cartographie précise d’événements ou d’incidents. Les positions améliorent la granularité des données de cybermenace, permettant une analyse géospatiale fine.
 
-When clicking on the Positions tab at the top left, you see the list of all the Positions you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Positions en haut à gauche, la liste de toutes les positions accessibles s’affiche, selon vos [définitions de marquage autorisées](../administration/users.md).
 
 ![Positions list](assets/positions_list_view.png)
 
-### Visualizing Knowledge associated with a Position
+### Visualiser la connaissance associée à une position
 
-When clicking on a `Position` in the list, you land on its Overview tab. For a Position, the following tabs are accessible:
+En cliquant sur une `Position` dans la liste, l’utilisateur arrive sur l’onglet Overview. Pour une position, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section), with the particularity to display a map locating the Position.
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Position. Different thematic views are proposed to easily see the related entities, the threats, the incidents, etc. linked to the Position. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Position. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted at a Position.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section), avec la particularité d’afficher une carte localisant la position.
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à la position. Différentes vues thématiques sont proposées pour visualiser facilement les entités, menaces, incidents, etc. liés à la position. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à la position. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé à une position.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

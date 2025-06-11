@@ -1,128 +1,130 @@
-# Ask AI
+# Demander à l'IA
 
-!!! tip "Enterprise edition"
+!!! astuce "Édition Entreprise"
 
-    Ask AI is available under the "OpenCTI Enterprise Edition" license.
+  Demander à l'IA est disponible sous la licence "OpenCTI Enterprise Edition".
 
-    [Please read the dedicated page to have all information](../administration/enterprise.md)
-    
+  [Veuillez lire la page dédiée pour obtenir toutes les informations](../administration/enterprise.md)
+  
 
-## Prerequisites for using Ask AI
+## Prérequis pour utiliser Demander à l'IA
 
-There are several possibilities for Enterprise Edition customers to use OpenCTI AI endpoints:
+Plusieurs possibilités existent pour les clients de l'Édition Entreprise afin d'utiliser les points de terminaison IA d'OpenCTI :
 
-- Use the Filigran AI Service leveraging our custom AI model using the token given by the support team.
-- Use OpenAI, MistralAI or AzureAI cloud endpoints using your own tokens.
-- Deploy or use local AI endpoints (Filigran can provide you with the custom model).
+- Utiliser le service Filigran AI en exploitant notre modèle IA personnalisé avec le jeton fourni par l'équipe support.
+- Utiliser les points de terminaison cloud OpenAI, MistralAI ou AzureAI avec vos propres jetons.
+- Déployer ou utiliser des points de terminaison IA locaux (Filigran peut vous fournir le modèle personnalisé).
 
-[Please read the configuration documentation](../deployment/configuration.md)
+[Veuillez lire la documentation de configuration](../deployment/configuration.md)
 
-!!! info "Beta Feature"
-    
-    Ask AI is a beta feature as we are currently fine-tuning our models. Consider checking important information.
+!!! info "Fonctionnalité Bêta"
+  
+  Demander à l'IA est une fonctionnalité bêta car nous sommes en train d'affiner nos modèles. Considérer la vérification des informations importantes.
 
-## How it works
+## Fonctionnement
 
-Even if in the future, we would like to leverage AI to do [RAG](https://blogs.nvidia.com/blog/what-is-retrieval-augmented-generation/), for the moment we are mostly using AI to analyze and produce texts or images, based on data directly sent into the prompt.
+Même si à l'avenir, nous souhaitons exploiter l'IA pour faire du [RAG](https://blogs.nvidia.com/blog/what-is-retrieval-augmented-generation/), pour le moment nous utilisons principalement l'IA pour analyser et produire des textes ou des images, à partir des données directement envoyées dans l'invite.
 
-This means that if you are using Filigran AI endpoint or a local one, your data is never used to re-train or adapt the model and everything relies on a pre-trained and fixed model. When using the `Ask AI` button in the platform, a prompt is generated with the proper instruction to generate the expected result and use it in the context of the button (in forms, rich text editor etc.).
+Cela signifie que si vous utilisez le point de terminaison Filigran AI ou un point local, vos données ne sont jamais utilisées pour réentraîner ou adapter le modèle et tout repose sur un modèle pré-entraîné et figé. Lors de l'utilisation du bouton `Demander à l'IA` dans la plateforme, une invite est générée avec l'instruction appropriée pour générer le résultat attendu et l'utiliser dans le contexte du bouton (dans les formulaires, l'éditeur de texte enrichi, etc.).
 
-### Filigran custom model
+### Modèle personnalisé Filigran
 
-We are hosting a scalable AI endpoint for all SaaS or On-Prem enterprise edition customers, this endpoint is based on MistralAI with a model that will be adapted over time to be more effective when processing threat intelligence related contents.
+Nous hébergeons un point de terminaison IA évolutif pour tous les clients SaaS ou On-Prem de l'édition entreprise. Ce point de terminaison est basé sur MistralAI avec un modèle qui sera adapté au fil du temps pour être plus efficace lors du traitement de contenus liés à la threat intelligence.
 
-The model, which is still in beta version, will be adapted in the upcoming months to reach maturity at the end of 2024. It can be shared with on-prem enterprise edition customers under NDA.
+Le modèle, encore en version bêta, sera adapté dans les prochains mois pour atteindre sa maturité à la fin de 2024. Il peut être partagé avec les clients On-Prem de l'édition entreprise sous NDA.
 
-## Functionalities of Ask AI
+## Fonctionnalités de Demander à l'IA
 
-Ask AI is represented by a dedicated icon wherever on of its functionalities is available to use.
+Demander à l'IA est représenté par une icône dédiée partout où l'une de ses fonctionnalités est disponible.
 
-![Create a new playbook](assets/askai_icon.png)
+![Créer un nouveau playbook](assets/askai_icon.png)
 
-### Assistance for writing meaningful content 
+### Assistance à la rédaction de contenu pertinent
 
-Ask AI can assist you for writing better textual content, for example better title, name, description and detailed content of Objects.
+Demander à l'IA peut vous aider à rédiger un meilleur contenu textuel, par exemple un meilleur titre, nom, description et contenu détaillé des Objets.
 
-- Fix spelling & grammar: try to improve the text from a formulation and grammar perspective.  
-- Make it shorter/longer: try to shorten or lengthen the text.
-- Change tone: try to change the tone of the text. You can select if you want the text to be written for Strategic (Management, decision makers), Tactical (for team leaders) or Operational (for technical CTI analysts) audiences.
-- Summarize: try to summarize the text in bullet points.
-- Explain: try to explain the context of the subject's text based on what is available to the LLM.
+- Corriger l'orthographe & la grammaire : essayer d'améliorer le texte du point de vue de la formulation et de la grammaire.  
+- Raccourcir/allonger : essayer de raccourcir ou d'allonger le texte.
+- Changer le ton : essayer de changer le ton du texte. Il est possible de sélectionner si le texte doit être rédigé pour un public Stratégique (Management, décideurs), Tactique (chefs d'équipe) ou Opérationnel (analystes CTI techniques).
+- Résumer : essayer de résumer le texte sous forme de points clés.
+- Expliquer : essayer d'expliquer le contexte du texte du sujet en fonction de ce qui est disponible pour le LLM.
 
-### Assistance for importing data from documents
+### Assistance à l'importation de données depuis des documents
 
-Fom the Content tab of a Container (Reports, Groupings and Cases), Ask AI can also assist you for importing data contained in uploaded documents into OpenCTI for further exploitation.
+Depuis l'onglet Content d'un Container (Reports, Groupings et Cases), Demander à l'IA peut également vous aider à importer les données contenues dans les documents téléchargés dans OpenCTI pour une exploitation ultérieure.
 
-- Generate report document: Generate a text report based on the knowledge graph (entities and relationships) of this container.
-- Summarize associated files: Generate a summary of the selected files (or all files associated to this container).
-- Try to convert the selected files (or all files associated to this container) in a STIX 2.1 bundle you will then be able to use at your convenience (for example importing it into the platform).
+- Générer un rapport : Générer un rapport texte basé sur le knowledge graph (entités et relations) de ce container.
+- Résumer les fichiers associés : Générer un résumé des fichiers sélectionnés (ou de tous les fichiers associés à ce container).
+- Essayer de convertir les fichiers sélectionnés (ou tous les fichiers associés à ce container) en un bundle STIX 2.1 que vous pourrez ensuite utiliser à votre convenance (par exemple l'importer dans la plateforme).
 
-![Generating report with Ask AI](assets/askai_generatereport.png)
+![Génération d'un rapport avec Demander à l'IA](assets/askai_generatereport.png)
 
-![Example of a generated content](assets/askai_generatedcontent.png)
+![Exemple de contenu généré](assets/askai_generatedcontent.png)
 
-A short video on the FiligranHQ YouTube channel presents tha capabilities of AskAI: https://www.youtube.com/watch?v=lsP3VVsk5ds.
+Une courte vidéo sur la chaîne YouTube FiligranHQ présente les capacités de AskAI : https://www.youtube.com/watch?v=lsP3VVsk5ds.
 
 <a id="nlq-section"></a>
-### Assistance for finding specific entities (Natural Language Query)
+### Assistance à la recherche d'entités spécifiques (Natural Language Query)
 
-An Ask AI button is available in the top search bar. It enables to switch the search bar in NLQ mode where you can write questions or assertions in natural language.
-![Ask AI button in the top search bar](assets/nlq-button.png)
+Un bouton Demander à l'IA est disponible dans la barre de recherche supérieure. Il permet de passer la barre de recherche en mode NLQ où il est possible de rédiger des questions ou assertions en langage naturel.
+![Bouton Demander à l'IA dans la barre de recherche supérieure](assets/nlq-button.png)
 
-The system uses a Large Language Model (LLM) to generate corresponding filters based on your question. The model constructs filters in the OpenCTI filters format with empty ``filterGroups``. Thus, filters are currently limited to one level of imbrication: a list of filters separated by a single and/or mode.
-The LLM constructs the filters with:
+Le système utilise un Large Language Model (LLM) pour générer les filtres correspondants à partir de votre question. Le modèle construit les filtres au format OpenCTI filters avec des ``filterGroups`` vides. Ainsi, les filtres sont actuellement limités à un seul niveau d'imbrication : une liste de filtres séparés par un mode and/or unique.
+Le LLM construit les filtres avec :
 
-- existing filter keys (attributes, relations input names and some special filter keys),
-- the available operators (equals, greater than, etc.),
-- existing entity and relationship types for the possible values of entity types filters.
+- les clés de filtre existantes (attributs, noms d'entrée de relations et certaines clés de filtre spéciales),
+- les opérateurs disponibles (equals, greater than, etc.),
+- les types d'entités et de relations existants pour les valeurs possibles des filtres de type d'entité.
 
-The NLQ filters result is then used to display the list of matching entities.
-![Example of results with NLQ](assets/nlq-example.png)
+Le résultat des filtres NLQ est ensuite utilisé pour afficher la liste des entités correspondantes.
+![Exemple de résultats avec NLQ](assets/nlq-example.png)
 
-If the question is not understood or out of the OpenCTI cyber context, no filters may be found.
-![Example of results with NLQ with no result](assets/nlq-no-result.png)
+Si la question n'est pas comprise ou hors du contexte cyber d'OpenCTI, aucun filtre ne pourra être trouvé.
+![Exemple de résultats avec NLQ sans résultat](assets/nlq-no-result.png)
 
 
-!!! warning "Token usage and cost notice"
+!!! avertissement "Notice sur l'utilisation des jetons et les coûts"
 
-    The Natural Language Query feature relies on heavy prompts sent to the language model to describe the filters structure and provide examples. These complex queries may generate significant token usage.
-    When using a custom API endpoint (e.g., OpenAI, Mistral, AzureAI) with your own API key, this may result in increased costs. We recommend checking your provider's pricing documentation to estimate costs accurately.    
-    For our SaaS customers, queries are routed through our hosted model instance and do not incur additional costs.
+  La fonctionnalité Natural Language Query repose sur des prompts complexes envoyés au modèle de langage pour décrire la structure des filtres et fournir des exemples. Ces requêtes complexes peuvent générer une utilisation significative de jetons.
+  Lors de l'utilisation d'un point de terminaison API personnalisé (par exemple, OpenAI, Mistral, AzureAI) avec votre propre clé API, cela peut entraîner une augmentation des coûts. Il est recommandé de consulter la documentation tarifaire de votre fournisseur pour estimer précisément les coûts.    
+  Pour nos clients SaaS, les requêtes sont routées via notre instance de modèle hébergée et n'entraînent pas de coûts supplémentaires.
 
-#### NLQ results involving an entity
+#### Résultats NLQ impliquant une entité
 
-If your question includes a term detected as a term representing an entity, a search will be triggered across multiple fields (name, value, aliases, etc.) to resolve it.
-- If a match is found, its ID will be used in the generated filters.
-  ![Example of results with NLQ and a found entity](assets/nlq-result-found-entity.png)
+Si votre question inclut un terme détecté comme représentant une entité, une recherche sera déclenchée sur plusieurs champs (nom, valeur, alias, etc.) pour la résoudre.
+- Si une correspondance est trouvée, son ID sera utilisé dans les filtres générés.
+  ![Exemple de résultats avec NLQ et une entité trouvée](assets/nlq-result-found-entity.png)
 
-- If no match is found, the part of the filters involving the entity will be skipped.
-  ![Example of results with NLQ and a not found entity](assets/nlq-result-not-found-entity.png)
+- Si aucune correspondance n'est trouvée, la partie des filtres impliquant l'entité sera ignorée.
+  ![Exemple de résultats avec NLQ et une entité non trouvée](assets/nlq-result-not-found-entity.png)
 
-#### Actual NLQ model limitations
+#### Limitations actuelles du modèle NLQ
 
-This is the first version of an NLQ model. It is still in development and may not yet handle all use cases.
+Il s'agit de la première version d'un modèle NLQ. Il est encore en développement et peut ne pas encore gérer tous les cas d'usage.
 
-In particular, here are some limitations:
+En particulier, voici quelques limitations :
 
-- It is not possible to search among relationships (only entities).
+- Il n'est pas possible de rechercher parmi les relations (uniquement les entités).
 
-  Example: ``List the relationships involving Paradise Ransomware.``
+  Exemple : ``Lister les relations impliquant Paradise Ransomware.``
 
-- The model is not built to handle dates yet.
+- Le modèle n'est pas encore conçu pour gérer les dates.
 
-  Example: ``List the reports published after January.``
+  Exemple : ``Lister les rapports publiés après janvier.``
 
-- The model cannot filter on properties of related entities (second level information).
+- Le modèle ne peut pas filtrer sur les propriétés des entités liées (informations de second niveau).
 
-  Example: ``List the indicators related to a malwares located in Europe.``
+  Exemple : ``Lister les indicateurs liés à des malwares situés en Europe.``
 
-- No Multi-level logic combinations yet, queries requiring embedded filters combinations (e.g., mixing AND/OR modes between different filters) are not yet supported.
+- Pas encore de combinaisons logiques multi-niveaux, les requêtes nécessitant des combinaisons de filtres imbriqués (par exemple, mélange des modes AND/OR entre différents filtres) ne sont pas encore prises en charge.
   
-  Example: ``What are the malwares created by admin or having label 'test'?`` 
+  Exemple : ``Quels sont les malwares créés par admin ou ayant le label 'test' ?`` 
 
 
-## Improving generated elements of Ask AI
+## Améliorer les éléments générés par Demander à l'IA
 
-Be aware that the text quality is highly dependent on the capabilities of the associated LLM.
+Il faut garder à l'esprit que la qualité du texte dépend fortement des capacités du LLM associé.
 
-That is why every generated text by Ask AI is provided in a dedicated panel, allowing you to verify and rectify any error the LLM could have made.
+C'est pourquoi chaque texte généré par Demander à l'IA est fourni dans un panneau dédié, permettant de vérifier et de corriger toute erreur que le LLM pourrait avoir commise.
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

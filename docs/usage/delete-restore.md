@@ -1,77 +1,78 @@
-# Delete and restore knowledge
+# Supprimer et restaurer des connaissances
 
-Knowledge can be deleted from OpenCTI either in an overview of an object or using [background tasks](background-tasks.md).
-When an object is deleted, all its relationships and references to other objects are also deleted. 
+Les connaissances peuvent être supprimées d’OpenCTI soit depuis la vue d’ensemble d’un objet, soit en utilisant les [tâches en arrière-plan](background-tasks.md).
+Lorsqu’un objet est supprimé, toutes ses relations et références vers d’autres objets sont également supprimées.
 
-The deletion event is written to the [stream](../reference/streaming.md), to trigger automated [playbooks](./automation.md) or synchronize another platform.
+L’événement de suppression est écrit dans le [flux](../reference/streaming.md), afin de déclencher des [playbooks](./automation.md) automatisés ou de synchroniser une autre plateforme.
 
-Since OpenCTI 6.1, a record of the deleted objects is kept for a given period of a time, allowing to restore them on demand. This does not impact the stream events or other side effect of the deletion: the object is still _deleted_.
+Depuis OpenCTI 6.1, un enregistrement des objets supprimés est conservé pendant une période donnée, permettant de les restaurer à la demande. Cela n’impacte pas les événements du flux ni les autres effets secondaires de la suppression : l’objet reste _supprimé_.
 
 
-## Trash
+## Corbeille
 
-A view called "Trash" displays all "delete" operations, entities and relationships alike.
+Une vue appelée « Corbeille » affiche toutes les opérations de suppression, qu’il s’agisse d’entités ou de relations.
 
 ![Trash](assets/trash.png)
 
-A delete operation contains not only the entity or relationship that has been deleted, but also all the relationships and references from (to) this main object to (from) other elements in the platform.
+Une opération de suppression contient non seulement l’entité ou la relation supprimée, mais aussi toutes les relations et références depuis (vers) cet objet principal vers (depuis) d’autres éléments de la plateforme.
 
-You can sort, filter or search this table using the usual UI controls. You are limited to the type of object, their representation (most of the time, the _name_ of the object), the user who deleted the object, the date and time of deletion and the marking of the object.
+Il est possible de trier, filtrer ou rechercher dans ce tableau en utilisant les contrôles habituels de l’interface. Les critères disponibles sont le type d’objet, leur représentation (le plus souvent, le _nom_ de l’objet), l’utilisateur ayant supprimé l’objet, la date et l’heure de la suppression, ainsi que le marquage de l’objet.
 
-Note that the delete operations (i.e. the entries in this table view) inherit the marking of the main entity that was deleted, and thus follow the same access restriction as the object that was deleted.
+À noter que les opérations de suppression (c’est-à-dire les entrées de cette vue) héritent du marquage de l’entité principale supprimée, et suivent donc les mêmes restrictions d’accès que l’objet supprimé.
 
-You can individually restore or permanently delete an object from the trash view using the burger menu at the end of the line.
+Il est possible de restaurer ou de supprimer définitivement un objet individuellement depuis la vue Corbeille, en utilisant le menu burger à la fin de la ligne.
 
 ![Trash actions](assets/trash-actions.png)
 
-Alternatively, you can use the checkboxes at the start of the line to select a subset of deleted objects, and trigger a background task to restore or permanently delete them by batch.
+Il est également possible d’utiliser les cases à cocher au début de la ligne pour sélectionner un sous-ensemble d’objets supprimés, puis de lancer une tâche en arrière-plan pour les restaurer ou les supprimer définitivement par lot.
 
-## Restore
+## Restaurer
 
-Restoring an element creates it again in the platform with the same information it had before its deletion.
-It also restores all the relationships from or to this object, that have been also deleted during the deletion operation.
-If the object had attached files (uploaded or exported), they are also restored.
+Restaurer un élément le recrée dans la plateforme avec les mêmes informations qu’avant sa suppression.
+Toutes les relations depuis ou vers cet objet, qui ont également été supprimées lors de l’opération de suppression, sont aussi restaurées.
+Si l’objet possédait des fichiers joints (importés ou exportés), ceux-ci sont également restaurés.
 
 ![Trash restore confirm](assets/trash-restore-confirm.png)
 
-## Permanent delete
+## Suppression définitive
 
-From the Trash panel, it is also possible to delete permanently the object, its relationships, and attached files.
+Depuis le panneau Corbeille, il est également possible de supprimer définitivement l’objet, ses relations et ses fichiers joints.
 
 ![Trash delete confirm](assets/trash-delete-confirm.png)
 
-## Trash retention
+## Rétention de la corbeille
 
-Deleted objects are kept in trash during a fixed period of time (7 days by default), then they are permanently deleted by the [trash manager](../deployment/managers.md#trash-manager).
+Les objets supprimés sont conservés dans la corbeille pendant une période fixe (7 jours par défaut), puis ils sont définitivement supprimés par le [gestionnaire de corbeille](../deployment/managers.md#trash-manager).
 
 ## Configuration
 
-The trash system is enabled by default but can be disabled in the platform [configuration](../deployment/configuration.md).
+Le système de corbeille est activé par défaut mais peut être désactivé dans la [configuration](../deployment/configuration.md) de la plateforme.
 
-The trash retention period can also be configured in the settings of the garbage collector manager, you can set any number of days in parameter `garbage_collection_manager:deleted_retention_days`.   
+La période de rétention de la corbeille peut également être configurée dans les paramètres du gestionnaire de collecte des déchets ; il est possible de définir n’importe quel nombre de jours dans le paramètre `garbage_collection_manager:deleted_retention_days`.
 
 ## Limitations
 
-When it comes to restoring a deleted object from the trash, the current implementation shows several limitations. 
-First and foremost, if an object in the trash has lost a relationship dependency (i.e. the other side of a relationship from or to this object is no longer in live database), you will not be able to restore the object.
+Lorsqu’il s’agit de restaurer un objet supprimé depuis la corbeille, l’implémentation actuelle présente plusieurs limitations.
+Avant tout, si un objet dans la corbeille a perdu une dépendance de relation (c’est-à-dire que l’autre côté d’une relation depuis ou vers cet objet n’est plus présent dans la base de données active), il ne sera pas possible de restaurer l’objet.
 
 ![restore error: a dependency is in the trash](assets/trash-error-dependency-in-trash.png)
 
-In such case, if the missing dependency is in the trash too, you can manually restore this dependency first and then retry.
+Dans ce cas, si la dépendance manquante se trouve également dans la corbeille, il est possible de restaurer manuellement cette dépendance en premier, puis de réessayer.
 
-If the missing dependency has been permanently deleted, the object cannot be recovered.
+Si la dépendance manquante a été supprimée définitivement, l’objet ne pourra pas être récupéré.
 
 ![restore error: a dependency is in the trash](assets/trash-error-dependency-missing.png)
 
-In other words:
+En d’autres termes :
 
-* **no partial restore**: the object and _all_ its relationships must be restored in one pass
-* **no "cascading" restore**: restoring one object does not restore automatically all linked objects in the trash
+* **pas de restauration partielle** : l’objet et _toutes_ ses relations doivent être restaurés en une seule fois
+* **pas de restauration « en cascade »** : restaurer un objet ne restaure pas automatiquement tous les objets liés présents dans la corbeille
 
-Please also note that attempting to restore a deeply nested object (for instance an entity with thousands of relationships) is a complex task that can take a lot of time, and put your platform under heavy stress. It is not recommended.
+Il convient également de noter que tenter de restaurer un objet très imbriqué (par exemple une entité avec des milliers de relations) est une opération complexe qui peut prendre beaucoup de temps et mettre la plateforme sous forte charge. Cela n’est pas recommandé.
 
-!!! warning "Trash does not replace a good database backup strategy"
+!!! avertissement "La corbeille ne remplace pas une bonne stratégie de sauvegarde de base de données"
 
-    The trash system is designed to save some precious time when a user deleted knowledge from the platform by mistake.
-    It is not meant to be a complete backup system for your database.
-  
+    Le système de corbeille est conçu pour faire gagner du temps lorsqu’un utilisateur supprime par erreur des connaissances de la plateforme.
+    Il n’est pas destiné à servir de système de sauvegarde complet pour votre base de données.
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

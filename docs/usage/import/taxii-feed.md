@@ -1,34 +1,36 @@
-# TAXII Feeds
+# Flux TAXII
 
-TAXII Feeds in OpenCTI provide a robust mechanism for ingesting TAXII collections from TAXII servers or other OpenCTI instances.
+Les flux TAXII dans OpenCTI offrent un mécanisme robuste pour l’ingestion de collections TAXII depuis des serveurs TAXII ou d’autres instances OpenCTI.
 
 <a id="best-practices-section"></a>
-## Best practices
+## Bonnes pratiques
 
-In OpenCTI, the "Data > Ingestion" section provides users with built-in functions for automated data import. These functions are designed for specific purposes and can be configured to seamlessly ingest data into the platform. Here, we'll explore the configuration process for the five built-in functions: Live Streams, TAXII Feeds, TAXII Push, RSS Feeds, and JSON/CSV Feeds.
+Dans OpenCTI, la section « Données > Ingestion » propose aux utilisateurs des fonctions intégrées pour l’importation automatisée de données. Ces fonctions sont conçues pour des usages spécifiques et peuvent être configurées pour ingérer les données de manière transparente dans la plateforme. Nous allons ici explorer le processus de configuration des cinq fonctions intégrées : Live Streams, TAXII Feeds, TAXII Push, RSS Feeds et JSON/CSV Feeds.
 
-Ensuring a secure and well-organized environment is paramount in OpenCTI. Here are two recommended best practices to enhance security, traceability, and overall organizational clarity:
+Assurer un environnement sécurisé et bien organisé est primordial dans OpenCTI. Voici deux bonnes pratiques recommandées pour renforcer la sécurité, la traçabilité et la clarté organisationnelle :
 
-1. Create a dedicated user for each source: Generate a user specifically for feed import, following the convention `[F] Source name` for clear identification. Assign the user to the "Connectors" group to streamline user management and permission related to data creation. Please [see here](../../deployment/connectors.md#connector-token-section) for more information on this good practice.
-2. Establish a dedicated Organization for the source: Create an organization named after the data source for clear identification. Assign the newly created organization to the "Default author" field in feed import configuration if available.
+1. Créer un utilisateur dédié pour chaque source : Générer un utilisateur spécifiquement pour l’import de flux, en suivant la convention `[F] Nom de la source` pour une identification claire. Assigner cet utilisateur au groupe « Connectors » afin de faciliter la gestion des utilisateurs et des droits liés à la création de données. Veuillez [consulter ici](../../deployment/connectors.md#connector-token-section) pour plus d’informations sur cette bonne pratique.
+2. Créer une Organisation dédiée pour la source : Créer une organisation portant le nom de la source de données pour une identification claire. Assigner l’organisation nouvellement créée au champ « Auteur par défaut » dans la configuration de l’import du flux si disponible.
 
-By adhering to these best practices, you ensure independence in managing rights for each import source through dedicated user and organization structures. In addition, you enable clear traceability to the entity's creator, facilitating source evaluation, dashboard creation, data filtering and other administrative tasks.
+En respectant ces bonnes pratiques, il est possible de gérer de manière indépendante les droits pour chaque source d’import via des structures d’utilisateur et d’organisation dédiées. De plus, cela permet une traçabilité claire du créateur de l’entité, facilitant l’évaluation des sources, la création de tableaux de bord, le filtrage des données et d’autres tâches administratives.
 
 ## Configuration
 
-Here's a step-by-step guide to configure TAXII ingesters:
+Voici un guide étape par étape pour configurer les ingesteurs TAXII :
 
-1. TAXII server URL: Provide the root API URL of the TAXII server. For collections from another OpenCTI instance, the URL is in the form `https://[domain]/taxii2/root`.
-2. TAXII collection: Enter the ID of the TAXII collection to be ingested. For collections from another OpenCTI instance, the ID follows the format `426e3acb-db50-4118-be7e-648fab67c16c`.
-3. Authentication type (if necessary): Enter the authentication type. For non-public collections from another OpenCTI instance, the authentication type is "Bearer token." Enter the token of a user with access to the collection (similar to the point 2 of the Live streams configuration above).
+1. URL du serveur TAXII : Fournir l’URL racine de l’API du serveur TAXII. Pour les collections provenant d’une autre instance OpenCTI, l’URL est de la forme `https://[domaine]/taxii2/root`.
+2. Collection TAXII : Saisir l’ID de la collection TAXII à ingérer. Pour les collections provenant d’une autre instance OpenCTI, l’ID suit le format `426e3acb-db50-4118-be7e-648fab67c16c`.
+3. Type d’authentification (si nécessaire) : Indiquer le type d’authentification. Pour les collections non publiques provenant d’une autre instance OpenCTI, le type d’authentification est « Bearer token ». Saisir le token d’un utilisateur ayant accès à la collection (similaire au point 2 de la configuration des Live streams ci-dessus).
 
-!!! note "TAXII root API URL"
+!!! note "URL racine de l’API TAXII"
 
-    Many ISAC TAXII configuration instructions will provide the URL for the collection or discovery service. In these cases, remove the last path segment from the TAXII Server URL in order to use it in OpenCTI. eg. use https://[domain]/tipapi/tip21, and not https://[domain]/tipapi/tip21/collections.
+    De nombreuses instructions de configuration TAXII fournies par les ISAC indiqueront l’URL de la collection ou du service de découverte. Dans ces cas, retirer le dernier segment du chemin de l’URL du serveur TAXII afin de l’utiliser dans OpenCTI. Par exemple, utiliser https://[domaine]/tipapi/tip21, et non https://[domaine]/tipapi/tip21/collections.
 
-Additional configuration options:
+Options de configuration supplémentaires :
 
-- User responsible for data creation: Define the user responsible for creating data received from this TAXII feed. Best practice is to dedicate one user per source for organizational clarity. Please [see the section "Best practices" below](../import-automated.md#best-practices-section) for more information.
-- Import from date: Specify the date of the oldest data to retrieve. Leave the field empty to import everything.
+- Utilisateur responsable de la création des données : Définir l’utilisateur responsable de la création des données reçues de ce flux TAXII. La bonne pratique consiste à dédier un utilisateur par source pour une meilleure clarté organisationnelle. Veuillez [consulter la section « Bonnes pratiques » ci-dessous](../import-automated.md#best-practices-section) pour plus d’informations.
+- Importer à partir de la date : Spécifier la date des données les plus anciennes à récupérer. Laisser le champ vide pour tout importer.
 
 ![TAXII feed configuration](../assets/taxii-feed-configuration.png)
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

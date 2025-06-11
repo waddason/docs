@@ -1,150 +1,153 @@
-# Entities
+# Entités
 
-OpenCTI's Entities objects provides a comprehensive framework for modeling various targets and attack victims within your threat intelligence data. With five distinct Entity object types, you can represent sectors, events, organizations, systems, and individuals. This robust classification empowers you to contextualize threats effectively, enhancing the depth and precision of your analysis.
+Les objets Entités d’OpenCTI offrent un cadre complet pour modéliser différentes cibles et victimes d’attaques dans vos données de cybermenaces. Avec cinq types distincts d’objets Entité, vous pouvez représenter des secteurs, des événements, des organisations, des systèmes et des individus. Cette classification robuste permet de contextualiser efficacement les menaces, en enrichissant la profondeur et la précision de vos analyses.
 
-When you click on "Entities" in the left-side bar, you access all the "Entities" tabs, visible on the top bar on the left. By default, the user directly access the "Sectors" tab, but can navigate to the other tabs as well.
+En cliquant sur « Entities » dans la barre latérale gauche, il est possible d’accéder à tous les onglets « Entities », visibles dans la barre supérieure à gauche. Par défaut, l’utilisateur accède directement à l’onglet « Sectors », mais peut naviguer vers les autres onglets.
 
-From the `Entities` section, users can access the following tabs:
+Depuis la section `Entities`, les utilisateurs peuvent accéder aux onglets suivants :
 
-- `Sectors`: areas of activity.
-- `Events`: event in the real world.
-- `Organizations`: groups with specific aims such as companies and government entities.
-- `Systems`: technologies such as platforms and software.
-- `Individuals`: real persons.
+- `Sectors` : domaines d’activité.
+- `Events` : événements du monde réel.
+- `Organizations` : groupes avec des objectifs spécifiques tels que des entreprises ou des entités gouvernementales.
+- `Systems` : technologies telles que des plateformes et des logiciels.
+- `Individuals` : personnes réelles.
 
 
 ## Sectors
 
-### General presentation
+### Présentation générale
 
-Sectors represent specific domains of activity, defining areas such as energy, government, health, finance, and more. Utilize sectors to categorize targeted industries or sectors of interest, providing valuable context for threat intelligence analysis within distinct areas of the economy.
+Les secteurs représentent des domaines d’activité spécifiques, définissant des secteurs tels que l’énergie, le gouvernement, la santé, la finance, etc. Utiliser les secteurs pour catégoriser les industries ciblées ou les secteurs d’intérêt, afin d’apporter un contexte précieux à l’analyse de cybermenaces dans des domaines économiques distincts.
 
-When clicking on the Sectors tab at the top left, you see the list of all the Sectors you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Sectors en haut à gauche, la liste de tous les secteurs accessibles s’affiche, selon vos [marking definitions autorisées](../administration/users.md).
 
 ![Sectors list](assets/sectors_list_view.png)
 
-### Visualizing Knowledge associated with a Sector
+### Visualiser la connaissance associée à un secteur
 
-When clicking on a `Sector` in the list, you land on its Overview tab. For a Sector, the following tabs are accessible:
+En cliquant sur un `Sector` dans la liste, vous accédez à son onglet Overview. Pour un secteur, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Sector. Different thematic views are proposed to easily see the related entities, the threats, the incidents, etc. linked to the Sector. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Sector. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in the Sector.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées au secteur. Différentes vues thématiques sont proposées pour visualiser facilement les entités associées, les menaces, les incidents, etc. liés au secteur. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés au secteur. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé dans le secteur.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 ![Sector overview](assets/sector_overview.png)
 
 
 ## Events
 
-### General presentation
+### Présentation générale
 
-Events encompass occurrences like international sports events, summits (e.g., G20), trials, conferences, or any significant happening in the real world. By modeling events, you can analyze threats associated with specific occurrences, allowing for targeted investigations surrounding high-profile incidents.
+Les événements englobent des occurrences telles que des événements sportifs internationaux, des sommets (par exemple, G20), des procès, des conférences ou tout fait marquant du monde réel. En modélisant les événements, il est possible d’analyser les menaces associées à des occurrences spécifiques, permettant des investigations ciblées autour d’incidents de grande envergure.
 
-When clicking on the Events tab at the top left, you see the list of all the Events you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Events en haut à gauche, la liste de tous les événements accessibles s’affiche, selon vos [marking definitions autorisées](../administration/users.md).
 
 ![Events list](assets/events_list_view.png)
 
-### Visualizing Knowledge associated with an Event
+### Visualiser la connaissance associée à un événement
 
-When clicking on an `Event` in the list, you land on its Overview tab. For an Event, the following tabs are accessible:
+En cliquant sur un `Event` dans la liste, vous accédez à son onglet Overview. Pour un événement, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Event. Different thematic views are proposed to easily see the related entities, the threats, the locations, etc. linked to the Event. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Event. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted during an attack against the Event.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à l’événement. Différentes vues thématiques sont proposées pour visualiser facilement les entités associées, les menaces, les localisations, etc. liés à l’événement. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à l’événement. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé lors d’une attaque contre l’événement.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
 
 ## Organizations
 
-### General presentation
+### Présentation générale
 
-Organizations include diverse entities such as companies, government bodies, associations, non-profits, and other groups with specific aims. Modeling organizations enables you to understand the threat landscape concerning various entities, facilitating investigations into cyber-espionage, data breaches, or other malicious activities targeting specific groups.
+Les organisations incluent des entités diverses telles que des entreprises, organismes gouvernementaux, associations, organisations à but non lucratif et autres groupes avec des objectifs spécifiques. Modéliser les organisations permet de comprendre le paysage des menaces concernant différentes entités, facilitant les investigations sur l’espionnage, les fuites de données ou d’autres activités malveillantes ciblant des groupes spécifiques.
 
-When clicking on the Organizations tab at the top left, you see the list of all the Organizations you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Organizations en haut à gauche, la liste de toutes les organisations accessibles s’affiche, selon vos [marking definitions autorisées](../administration/users.md).
 
 ![Organizations list](assets/organizations_list_view.png)
 
-### Visualizing Knowledge associated with an Organization
+### Visualiser la connaissance associée à une organisation
 
-When clicking on an `Organization` in the list, you land on its Overview tab. For an Organization, the following tabs are accessible:
+En cliquant sur une `Organization` dans la liste, vous accédez à son onglet Overview. Pour une organisation, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Organization. Different thematic views are proposed to easily see the related entities, the threats, the locations, etc. linked to the Organization. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Organization. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in the Organization.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à l’organisation. Différentes vues thématiques sont proposées pour visualiser facilement les entités associées, les menaces, les localisations, etc. liés à l’organisation. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à l’organisation. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé dans l’organisation.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
-Furthermore, an Organization can be observed from an "Author" perspective. It is possible to change this viewpoint to the right of the entity name, using the "Display as" drop-down menu (see screenshot below). This different perspective is accessible in the Overview, Knowledge and Analyses tabs. When switched to "Author" mode, the observed data pertains to the entity's description as an author within the platform:
+De plus, une organisation peut être observée sous l’angle « Author ». Il est possible de changer ce point de vue à droite du nom de l’entité, via le menu déroulant « Display as » (voir capture d’écran ci-dessous). Cette perspective différente est accessible dans les onglets Overview, Knowledge et Analyses. En mode « Author », les données affichées concernent la description de l’entité en tant qu’auteur dans la plateforme :
 
-- Overview: The "Latest created relationships" and "Latest containers about the object" panels are replaced by the "Latest containers authored by this entity" panel.
-- Knowledge: A tab that presents an overview of the data authored by the Organization (i.e. counters and a graph).
-- Analyses: The list of all Analyses (`Report`, `Groupings`) and Cases (`Incident response`, `Request for Information`, `Request for Takedown`) for which the Organization is the author.
+- Overview : les panneaux « Latest created relationships » et « Latest containers about the object » sont remplacés par le panneau « Latest containers authored by this entity ».
+- Knowledge : un onglet présentant une vue d’ensemble des données rédigées par l’organisation (compteurs et graphe).
+- Analyses : la liste de toutes les Analyses (`Report`, `Groupings`) et Cas (`Incident response`, `Request for Information`, `Request for Takedown`) pour lesquels l’organisation est l’auteur.
 
 ![Organization author view](assets/organization_author_view.png)
 
 
 ## Systems
 
-### General presentation
+### Présentation générale
 
-Systems represent software applications, platforms, frameworks, or specific tools like WordPress, VirtualBox, Firefox, Python, etc. Modeling systems allows you to focus on threats related to specific software or technology, aiding in vulnerability assessments, patch management, and securing critical applications.
+Les systèmes représentent des applications logicielles, plateformes, frameworks ou outils spécifiques comme WordPress, VirtualBox, Firefox, Python, etc. Modéliser les systèmes permet de se concentrer sur les menaces liées à un logiciel ou une technologie spécifique, facilitant l’évaluation des vulnérabilités, la gestion des correctifs et la sécurisation des applications critiques.
 
-When clicking on the Systems tab at the top left, you see the list of all the Systems you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Systems en haut à gauche, la liste de tous les systèmes accessibles s’affiche, selon vos [marking definitions autorisées](../administration/users.md).
 
 ![Systems list](assets/systems_list_view.png)
 
-### Visualizing Knowledge associated with a System
+### Visualiser la connaissance associée à un système
 
-When clicking on a `System` in the list, you land on its Overview tab. For a System, the following tabs are accessible:
+En cliquant sur un `System` dans la liste, vous accédez à son onglet Overview. Pour un système, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the System. Different thematic views are proposed to easily see the related entities, the threats, the incidents, etc. linked to the System. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the System. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in the System.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées au système. Différentes vues thématiques sont proposées pour visualiser facilement les entités associées, les menaces, les incidents, etc. liés au système. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés au système. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé dans le système.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
-Furthermore, a System can be observed from an "Author" perspective. It is possible to change this viewpoint to the right of the entity name, using the "Display as" drop-down menu (see screenshot below). This different perspective is accessible in the Overview, Knowledge and Analyses tabs. When switched to "Author" mode, the observed data pertains to the entity's description as an author within the platform:
+De plus, un système peut être observé sous l’angle « Author ». Il est possible de changer ce point de vue à droite du nom de l’entité, via le menu déroulant « Display as » (voir capture d’écran ci-dessous). Cette perspective différente est accessible dans les onglets Overview, Knowledge et Analyses. En mode « Author », les données affichées concernent la description de l’entité en tant qu’auteur dans la plateforme :
 
-- Overview: The "Latest created relationships" and "Latest containers about the object" panels are replaced by the "Latest containers authored by this entity" panel.
-- Knowledge: A tab that presents an overview of the data authored by the System (i.e. counters and a graph).
-- Analyses: The list of all Analyses (`Report`, `Groupings`) and Cases (`Incident response`, `Request for Information`, `Request for Takedown`) for which the System is the author.
+- Overview : les panneaux « Latest created relationships » et « Latest containers about the object » sont remplacés par le panneau « Latest containers authored by this entity ».
+- Knowledge : un onglet présentant une vue d’ensemble des données rédigées par le système (compteurs et graphe).
+- Analyses : la liste de toutes les Analyses (`Report`, `Groupings`) et Cas (`Incident response`, `Request for Information`, `Request for Takedown`) pour lesquels le système est l’auteur.
 
 
 ## Individuals
 
-### General presentation
+### Présentation générale
 
-Individuals represent specific persons relevant to your threat intelligence analysis. This category includes targeted individuals, or influential figures in various fields. Modeling individuals enables you to analyze threats related to specific people, enhancing investigations into cyber-stalking, impersonation, or other targeted attacks.
+Les individus représentent des personnes spécifiques pertinentes pour votre analyse de cybermenaces. Cette catégorie inclut des personnes ciblées ou des figures influentes dans divers domaines. Modéliser les individus permet d’analyser les menaces visant des personnes précises, en facilitant les investigations sur le cyber-harcèlement, l’usurpation d’identité ou d’autres attaques ciblées.
 
-When clicking on the Individuals tab at the top left, you see the list of all the Individuals you have access to, in respect with your [allowed marking definitions](../administration/users.md).
+En cliquant sur l’onglet Individuals en haut à gauche, la liste de tous les individus accessibles s’affiche, selon vos [marking definitions autorisées](../administration/users.md).
 
 ![Positions list](assets/positions_list_view.png)
 
-### Visualizing Knowledge associated with an Individual
+### Visualiser la connaissance associée à un individu
 
-When clicking on an `Individual` in the list, you land on its Overview tab. For an Individual, the following tabs are accessible:
+En cliquant sur un `Individual` dans la liste, vous accédez à son onglet Overview. Pour un individu, les onglets suivants sont accessibles :
 
-- Overview: as described [here](overview.md#overview-section).
-- Knowledge: a complex tab that regroups all the structured Knowledge linked to the Individual. Different thematic views are proposed to easily see the related entities, the threats, the locations, etc. linked to the Individual. As described [here](overview.md#knowledge-section).
-- Content: This specific tab allows to previzualize, manage and write deliverable associated with the Individual. For example an analytic report to share with other teams, a markdown files to feed a collaborative wiki with, etc. As described [here](overview.md#content-section).
-- Analyses: as described [here](overview.md#analyses-section).
-- Sightings: a table containing all `Sightings` relationships corresponding to events in which an `Indicator` (IP, domain name, url, etc.) is sighted in the Individual.
-- Data: as described [here](overview.md#data-section).
-- History: as described [here](overview.md#history-section).
+- Overview : comme décrit [ici](overview.md#overview-section).
+- Knowledge : un onglet complexe regroupant toutes les connaissances structurées liées à l’individu. Différentes vues thématiques sont proposées pour visualiser facilement les entités associées, les menaces, les localisations, etc. liés à l’individu. Comme décrit [ici](overview.md#knowledge-section).
+- Content : cet onglet spécifique permet de prévisualiser, gérer et rédiger des livrables associés à l’individu. Par exemple, un rapport analytique à partager avec d’autres équipes, des fichiers markdown pour alimenter un wiki collaboratif, etc. Comme décrit [ici](overview.md#content-section).
+- Analyses : comme décrit [ici](overview.md#analyses-section).
+- Sightings : un tableau contenant toutes les relations `Sightings` correspondant à des événements où un `Indicator` (IP, nom de domaine, url, etc.) est observé chez l’individu.
+- Data : comme décrit [ici](overview.md#data-section).
+- History : comme décrit [ici](overview.md#history-section).
 
-Furthermore, an Individual can be observed from an "Author" perspective. It is possible to change this viewpoint to the right of the entity name, using the "Display as" drop-down menu (see screenshot below). This different perspective is accessible in the Overview, Knowledge and Analyses tabs. When switched to "Author" mode, the observed data pertains to the entity's description as an author within the platform:
+De plus, un individu peut être observé sous l’angle « Author ». Il est possible de changer ce point de vue à droite du nom de l’entité, via le menu déroulant « Display as » (voir capture d’écran ci-dessous). Cette perspective différente est accessible dans les onglets Overview, Knowledge et Analyses. En mode « Author », les données affichées concernent la description de l’entité en tant qu’auteur dans la plateforme :
 
-- Overview: The "Latest created relationships" and "Latest containers about the object" panels are replaced by the "Latest containers authored by this entity" panel.
-- Knowledge: A tab that presents an overview of the data authored by the Individual (i.e. counters and a graph).
-- Analyses: The list of all Analyses (`Report`, `Groupings`) and Cases (`Incident response`, `Request for Information`, `Request for Takedown`) for which the Individual is the author.
+- Overview : les panneaux « Latest created relationships » et « Latest containers about the object » sont remplacés par le panneau « Latest containers authored by this entity ».
+- Knowledge : un onglet présentant une vue d’ensemble des données rédigées par l’individu (compteurs et graphe).
+- Analyses : la liste de toutes les Analyses (`Report`, `Groupings`) et Cas (`Incident response`, `Request for Information`, `Request for Takedown`) pour lesquels l’individu est l’auteur.
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

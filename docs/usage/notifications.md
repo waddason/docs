@@ -1,128 +1,131 @@
-# Notifications and alerting
+# Notifications et alertes
 
-In the evolving landscape of cybersecurity, timely awareness is crucial. OpenCTI empowers users to stay informed and act swiftly through its robust notifications and alerting system. This feature allows users to create personalized triggers that actively monitor the platform for specific events and notify them promptly when these conditions are met.
+Dans le paysage en constante évolution de la cybersécurité, la réactivité est cruciale. OpenCTI permet aux utilisateurs de rester informés et d’agir rapidement grâce à son système robuste de notifications et d’alertes. Cette fonctionnalité permet de créer des déclencheurs personnalisés qui surveillent activement la plateforme pour des événements spécifiques et notifient rapidement les utilisateurs lorsque ces conditions sont remplies.
 
-From individual users tailoring their alert preferences to administrators orchestrating collaborative triggers for Groups or Organizations, OpenCTI's notification system is a versatile tool for keeping cybersecurity stakeholders in the loop.
+Qu’il s’agisse d’utilisateurs individuels adaptant leurs préférences d’alerte ou d’administrateurs orchestrant des déclencheurs collaboratifs pour des Groupes ou des Organisations, le système de notification d’OpenCTI est un outil polyvalent pour tenir les parties prenantes de la cybersécurité informées.
 
-The main menu "Notifications and triggers" for creating and managing notifications is located in the top right-hand corner with the bell icon.
+Le menu principal "Notifications et déclencheurs" pour créer et gérer les notifications se trouve en haut à droite, représenté par l’icône de cloche.
 
 ![Notifications](assets/notifications.png)  
 
-Click on the line "Digest with multiples notifiers" to open a drawer and access to detailed notifications. 
+Cliquer sur la ligne "Digest with multiples notifiers" pour ouvrir un tiroir et accéder aux notifications détaillées.
 
 ![Notifications](assets/digestWithMultipleNotifiers.png)
 
 
-## Triggers
+## Déclencheurs
 
-In OpenCTI, triggers serve as personalized mechanisms for users to stay informed about specific events that align with their cybersecurity priorities. Users can create and manage triggers to tailor their notification experience. Each trigger operates by actively listening to events based on predefined filters and event types, promptly notifying users via chosen notifiers when conditions are met.
+Dans OpenCTI, les déclencheurs servent de mécanismes personnalisés permettant aux utilisateurs de rester informés sur des événements spécifiques correspondant à leurs priorités en cybersécurité. Les utilisateurs peuvent créer et gérer des déclencheurs pour adapter leur expérience de notification. Chaque déclencheur fonctionne en écoutant activement les événements selon des filtres et types d’événements prédéfinis, et notifie rapidement les utilisateurs via les notifiers choisis lorsque les conditions sont remplies.
 
 ![Triggers](assets/triggers.png)
 
-### Trigger management
+### Gestion des déclencheurs
 
-**Individual user triggers:** Each user possesses the autonomy to craft their own triggers, finely tuned to their unique preferences and responsibilities. By setting up personalized filters and selecting preferred notifiers, users ensure that they receive timely and relevant notifications aligned with their specific focus areas.
+**Déclencheurs utilisateur individuel :** Chaque utilisateur possède l’autonomie de créer ses propres déclencheurs, adaptés à ses préférences et responsabilités. En définissant des filtres personnalisés et en sélectionnant les notifiers préférés, les utilisateurs s’assurent de recevoir des notifications pertinentes et en temps voulu, alignées sur leurs domaines d’intérêt.
 
-**Administrative control:** Platform administrators have the capability to create and manage triggers for Users, Groups and Organizations. This provides centralized control and the ability to configure triggers that address collective cybersecurity objectives. Users within the designated Group or Organization will benefit from triggers with read-only access rights. These triggers are to be created directly on the User|Group|Organization with whom to share them in "Settings > Security > Users|Groups|Organizations".
+**Contrôle administratif :** Les administrateurs de la plateforme ont la capacité de créer et de gérer des déclencheurs pour les Utilisateurs, Groupes et Organisations. Cela offre un contrôle centralisé et la possibilité de configurer des déclencheurs répondant à des objectifs collectifs de cybersécurité. Les utilisateurs du Groupe ou de l’Organisation désignés bénéficieront de ces déclencheurs avec des droits d’accès en lecture seule. Ces déclencheurs doivent être créés directement sur l’Utilisateur|Groupe|Organisation avec lequel les partager dans "Paramètres > Sécurité > Utilisateurs|Groupes|Organisations".
 
 ![Restricted trigger](assets/restricted-trigger.png)
 
-### Trigger filters
+### Filtres de déclencheur
 
-Leveraging the filters, users can meticulously **define the criteria that activate their triggers**. This level of granularity ensures that triggers are accurate, responding precisely to events that matter most. Users can tailor filters to consider various parameters such as object types, markings, sources, or other contextual details. They can also allow notifications for the assignment of a Task, a Case, etc.
+Grâce aux filtres, les utilisateurs peuvent **définir précisément les critères qui activent leurs déclencheurs**. Ce niveau de granularité garantit que les déclencheurs sont précis, réagissant uniquement aux événements les plus importants. Les utilisateurs peuvent adapter les filtres selon divers paramètres tels que les types d’objets, les markings, les sources ou d’autres détails contextuels. Il est également possible d’autoriser les notifications pour l’assignation d’une Task, d’un Case, etc.
 
-Beyond filters, a trigger can be configured to **respond to three event types**: creation, modification, and deletion.
+Au-delà des filtres, un déclencheur peut être configuré pour **réagir à trois types d’événements** : création, modification et suppression.
 
 ![Trigger configuration](assets/trigger-configuration.png)
 
-### Instance triggers
+### Déclencheurs d’instance
 
-Instance triggers offer a targeted approach to live monitoring by allowing users to set up triggers specific to one or several entities. These triggers, when activated, keep a vigilant eye on a predefined set of events related to the selected entities, ensuring that you stay instantly informed about crucial changes.
+Les déclencheurs d’instance offrent une approche ciblée de la surveillance en direct en permettant aux utilisateurs de configurer des déclencheurs spécifiques à une ou plusieurs entités. Ces déclencheurs, une fois activés, surveillent un ensemble prédéfini d’événements liés aux entités sélectionnées, garantissant une information instantanée sur les changements cruciaux.
 
-#### Creating instance triggers
+#### Créer des déclencheurs d’instance
 
-**Method 1:** Using the general trigger creation form
+**Méthode 1 :** Utiliser le formulaire général de création de déclencheur
 
-1. Go on the "Notifications and triggers" window.
-2. Navigate to the "Triggers and digests" tab.
-3. Access the general trigger creation form.
-4. Toggle the switch "Instance trigger".
-5. Choose the entities to monitor.
+1. Aller dans la fenêtre "Notifications et déclencheurs".
+2. Naviguer vers l’onglet "Déclencheurs et digests".
+3. Accéder au formulaire général de création de déclencheur.
+4. Activer l’option "Instance trigger".
+5. Choisir les entités à surveiller.
 
 ![Instance trigger creation](assets/instance-trigger-creation.png)
 
-**Method 2:** Quick subscription
+**Méthode 2 :** Abonnement rapide
 
-1. On an entity's overview, locate the "Instance trigger quick subscription" button with the bell icon at the top right.
-2. Click on the button to create the instance trigger.
-3. (Optional) Click on it again to modify the instance trigger created.
+1. Sur la vue d’ensemble d’une entité, localiser le bouton "Instance trigger quick subscription" avec l’icône de cloche en haut à droite.
+2. Cliquer sur le bouton pour créer le déclencheur d’instance.
+3. (Optionnel) Cliquer à nouveau pour modifier le déclencheur d’instance créé.
 
 ![Quick subscription button](assets/quick-subscription-button.png)
 
-#### Events monitored by instance triggers
+#### Événements surveillés par les déclencheurs d’instance
 
-An instance trigger set on an entity X actively monitors the following events:
+Un déclencheur d’instance défini sur une entité X surveille activement les événements suivants :
 
-- Update/Deletion of X: Stay informed when the selected entity undergoes changes or is deleted.
-- Creation/Deletion of relationships: Receive notifications about relationships being added or removed from/to X.
-- Creation/Deletion of related entities: Be alerted when entities that have X in its refs - i.e. contains X, is shared with X, is created by X, etc. - are created or deleted.
-- Adding/Removing X in ref: Stay in the loop when X is included or excluded from the ref of other entities - i.e. adding X in the author of an entity, adding X in a report, etc.).
+- Mise à jour/Suppression de X : Être informé lorsque l’entité sélectionnée subit des modifications ou est supprimée.
+- Création/Suppression de relations : Recevoir des notifications lors de l’ajout ou de la suppression de relations vers/depuis X.
+- Création/Suppression d’entités liées : Être alerté lors de la création ou suppression d’entités qui référencent X – c’est-à-dire qui contiennent X, sont partagées avec X, sont créées par X, etc.
+- Ajout/Retrait de X dans une référence : Être informé lorsque X est inclus ou retiré de la référence d’autres entités – par exemple, ajout de X comme auteur d’une entité, ajout de X dans un rapport, etc.
 
-!!! note "Entity deletion notification"
+!!! note "Notification de suppression d’entité"
 
-    It's important to note that the notification of entity deletion can occur in two scenarios:
-        - Real entity deletion: When the entity is genuinely deleted from the platform.
-        - Visibility loss: When a modification to the entity results in the user losing visibility for that entity.
+    Il est important de noter que la notification de suppression d’entité peut intervenir dans deux scénarios :
+        - Suppression réelle de l’entité : lorsque l’entité est effectivement supprimée de la plateforme.
+        - Perte de visibilité : lorsqu’une modification de l’entité entraîne la perte de visibilité de cette entité pour l’utilisateur.
 
 
 ## Digest
 
-Digests provide an efficient way to streamline and organize your notifications. By grouping notifications based on selected triggers and specifying the delivery period (daily, weekly, monthly), you gain the flexibility to receive consolidated updates at your preferred time, as opposed to immediate notifications triggered by individual events.
+Les digests offrent un moyen efficace de rationaliser et d’organiser vos notifications. En regroupant les notifications selon les déclencheurs sélectionnés et en spécifiant la période de livraison (quotidienne, hebdomadaire, mensuelle), vous bénéficiez de la flexibilité de recevoir des mises à jour consolidées au moment souhaité, plutôt que des notifications immédiates déclenchées par chaque événement.
 
-### Creating digests
+### Créer des digests
 
-1. Go on the "Notifications and triggers" window.
-2. Navigate to the "Triggers and digests" tab.
-3. Create a new digest.
-4. Configure digest: Set the parameters, including triggers to be included and the frequency of notifications (daily, weekly, monthly). 
-5. Choose the notifier(s): Select the notification method(s) (e.g. within the OpenCTI interface, via email, etc.).
+1. Aller dans la fenêtre "Notifications et déclencheurs".
+2. Naviguer vers l’onglet "Déclencheurs et digests".
+3. Créer un nouveau digest.
+4. Configurer le digest : définir les paramètres, y compris les déclencheurs à inclure et la fréquence des notifications (quotidienne, hebdomadaire, mensuelle).
+5. Choisir le(s) notifier(s) : sélectionner la ou les méthodes de notification (par exemple, dans l’interface OpenCTI, par email, etc.).
 
 ![Digest configuration](assets/digest-creation.png)
 
-### Digest Buffering Configuration 
+### Configuration du buffering des digests
 
-You can configure digest buffering directly in your configuration file to group notifications if many changes occur within a short period. 
-The buffering configuration is enabled in the platform by default at one minute. You can change it at your convenience.
+Il est possible de configurer le buffering des digests directement dans votre fichier de configuration afin de regrouper les notifications si de nombreux changements surviennent dans un court laps de temps.
+La configuration du buffering est activée par défaut sur la plateforme à une minute. Vous pouvez la modifier selon vos besoins.
 
-### Benefits of digests
+### Avantages des digests
 
-- Organized notifications: Digests enable you to organize and categorize notifications, preventing a flood of individual alerts.
-- Customized delivery: Choose the frequency of digest delivery based on your preferences, whether it's a daily overview, a weekly summary, or a monthly roundup.
-- Reduced distractions: Receive notifications at a scheduled time, minimizing interruptions and allowing you to focus on critical tasks.
+- Notifications organisées : Les digests permettent d’organiser et de catégoriser les notifications, évitant ainsi une surcharge d’alertes individuelles.
+- Livraison personnalisée : Choisir la fréquence de réception des digests selon vos préférences, qu’il s’agisse d’un aperçu quotidien, d’un résumé hebdomadaire ou d’un récapitulatif mensuel.
+- Moins de distractions : Recevoir les notifications à un moment planifié, minimisant les interruptions et permettant de se concentrer sur les tâches critiques.
 
-Digests enhance your control over notification management, ensuring a more structured and convenient approach to staying informed about important events.
+Les digests renforcent votre contrôle sur la gestion des notifications, assurant une approche plus structurée et pratique pour rester informé des événements importants.
 
 
 ## Notifiers
 
-In OpenCTI, notifiers serve as the channels for delivering notifications, allowing users to stay informed about critical events. The platform offers two built-in notifiers, "Default mailer" for email notifications and "User interface" for in-platform alerts.
+Dans OpenCTI, les notifiers servent de canaux de diffusion des notifications, permettant aux utilisateurs de rester informés des événements critiques. La plateforme propose deux notifiers intégrés, "Default mailer" pour les notifications par email et "User interface" pour les alertes dans la plateforme.
 
 ![Notifiers](assets/notifiers.png)
 
-### Notifier connectors
+### Connecteurs de notifier
 
-OpenCTI features built-in notifier connectors that empower users to create personalized notifiers for notification and activity alerting. Three essential connectors are available:
+OpenCTI propose des connecteurs de notifier intégrés permettant aux utilisateurs de créer des notifiers personnalisés pour la notification et l’alerte d’activité. Trois connecteurs essentiels sont disponibles :
 
-- Platform mailer connector: Enables sending notifications directly within the OpenCTI platform.
-- Simple mailer connector: Offers a straightforward approach to email notifications with simplified configuration options.
-- Generic webhook connector: Facilitates communication through webhooks.
+- Platform mailer connector : permet l’envoi de notifications directement dans la plateforme OpenCTI.
+- Simple mailer connector : offre une approche simplifiée pour les notifications par email avec des options de configuration allégées.
+- Generic webhook connector : facilite la communication via webhooks.
 
-OpenCTI provides two samples of webhook notifiers designed for Teams integration.
+OpenCTI fournit deux exemples de notifiers webhook conçus pour l’intégration avec Teams.
 
 ![Custom notifiers](assets/custom-notifiers.png)
 
-### Configuration and Access
+### Configuration et accès
 
-Notifiers are manageable in the "Settings > Customization > Notifiers" window and can be restricted through Role-Based Access Control (RBAC). Administrators can restrict access to specific Users, Groups, or Organizations, ensuring controlled usage.
+Les notifiers sont gérables dans la fenêtre "Paramètres > Personnalisation > Notifiers" et peuvent être restreints via le contrôle d’accès basé sur les rôles (RBAC). Les administrateurs peuvent restreindre l’accès à certains Utilisateurs, Groupes ou Organisations, assurant ainsi un usage contrôlé.
 
-For guidance on configuring custom notifiers and explore detailed setup instructions, refer to the [dedicated documentation page](../administration/notifiers.md).
+Pour obtenir des conseils sur la configuration de notifiers personnalisés et consulter des instructions détaillées, se référer à la [page de documentation dédiée](../administration/notifiers.md).
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

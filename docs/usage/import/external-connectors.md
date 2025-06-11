@@ -1,30 +1,32 @@
-# Connectors
+# Connecteurs
 
-Connectors in OpenCTI serve as dynamic gateways, facilitating the import of data from a wide array of sources and systems. Every connector is designed to handle specific data types and structures of the source, allowing OpenCTI to efficiently ingest the data.
+Les connecteurs dans OpenCTI servent de passerelles dynamiques, facilitant l'importation de données depuis une grande variété de sources et de systèmes. Chaque connecteur est conçu pour gérer des types et structures de données spécifiques à la source, permettant à OpenCTI d'ingérer efficacement les données.
 
-## Connector behaviors
+## Comportement des connecteurs
 
-The behavior of each connector is defined by its development, determining the types of data it imports and its configuration options. This flexibility allows users to customize the import process to their specific needs, ensuring a seamless and personalized data integration experience.
+Le comportement de chaque connecteur est défini par son développement, déterminant les types de données qu'il importe et ses options de configuration. Cette flexibilité permet aux utilisateurs de personnaliser le processus d'importation selon leurs besoins, assurant une intégration de données fluide et adaptée.
 
-The level of configuration granularity regarding the imported data type varies with each connector. Nevertheless, connectors empower users to specify the date from which they wish to fetch data. This capability is particularly useful during the initial activation of a connector, enabling the retrieval of historical data. Following this, the connector operates in real-time, continuously importing new data from the source.
+Le niveau de granularité de configuration concernant le type de données importées varie selon chaque connecteur. Néanmoins, les connecteurs permettent aux utilisateurs de spécifier la date à partir de laquelle ils souhaitent récupérer les données. Cette fonctionnalité est particulièrement utile lors de l'activation initiale d'un connecteur, permettant la récupération de données historiques. Par la suite, le connecteur fonctionne en temps réel, important continuellement les nouvelles données de la source.
 
-### Reset connector state
+### Réinitialiser l'état du connecteur
 
-Resetting the connector state enables you to restart the ingestion process from the very beginning.
-Additionally, resetting the connector state will purge the RabbitMQ queue for this specific connector.
+Réinitialiser l'état du connecteur permet de redémarrer le processus d'ingestion depuis le tout début.
+De plus, la réinitialisation de l'état du connecteur purge la file RabbitMQ pour ce connecteur spécifique.
 
-However, this action requires the "Manage connector state" capability (more details about capabilities: [List of capabilities](../administration/users.md#list-of-capabilities)). Without this specific capability, you will not be able to reset the connector state.
+Cependant, cette action nécessite la capacité "Gérer l'état du connecteur" (plus de détails sur les capacités : [Liste des capacités](../administration/users.md#list-of-capabilities)). Sans cette capacité spécifique, il ne sera pas possible de réinitialiser l'état du connecteur.
 
-When the action is performed, a message is displayed confirming the reset and inform you about the number of messages that will be purged
+Lorsque l'action est effectuée, un message s'affiche pour confirmer la réinitialisation et vous informer du nombre de messages qui seront purgés.
 
-![Reset state message pop-up](../assets/reset-state-msg.png)
+![Fenêtre contextuelle de message de réinitialisation](../assets/reset-state-msg.png)
 
-Purging a message queue is necessary to remove any accumulated messages that may be outdated or redundant. It helps to avoid reprocessing messages that have already been ingested.
+Purger une file de messages est nécessaire pour supprimer les messages accumulés qui peuvent être obsolètes ou redondants. Cela permet d'éviter de retraiter des messages déjà ingérés.
 
-By purging the queue, you ensure that the connector starts with a clean slate, processing only the new data.
+En purgeant la file, vous vous assurez que le connecteur démarre sur une base propre, ne traitant que les nouvelles données.
 
-### Connector Ecosystem
+### Écosystème des connecteurs
 
-OpenCTI's connector ecosystem covers a broad spectrum of sources, enhancing the platform's capability to integrate data from various contexts, from threat intelligence providers to specialized databases. The list of available connectors can be found in our [connectors catalog](https://www.notion.site/OpenCTI-Ecosystem-868329e9fb734fca89692b2ed6087e76). Connectors are categorized into three types: import connectors (the focus here), [enrichment connectors](enrichment.md), and stream consumers. Further documentation on connectors is available on [the dedicated documentation page](../deployment/connectors.md).
+L'écosystème des connecteurs d'OpenCTI couvre un large éventail de sources, renforçant la capacité de la plateforme à intégrer des données issues de divers contextes, allant des fournisseurs de threat intelligence aux bases de données spécialisées. La liste des connecteurs disponibles est accessible dans notre [catalogue de connecteurs](https://www.notion.site/OpenCTI-Ecosystem-868329e9fb734fca89692b2ed6087e76). Les connecteurs sont classés en trois types : import connecteurs (le sujet ici), [enrichment connecteurs](enrichment.md), et stream consumers. Une documentation supplémentaire sur les connecteurs est disponible sur [la page dédiée](../deployment/connecteurs.md).
 
-In summary, automated imports through connectors empower OpenCTI users with a scalable, efficient, and customizable mechanism for data ingestion, ensuring that the platform remains enriched with the latest and most relevant intelligence.
+En résumé, les imports automatisés via les connecteurs offrent aux utilisateurs d'OpenCTI un mécanisme d'ingestion de données évolutif, efficace et personnalisable, garantissant que la plateforme reste enrichie avec les renseignements les plus récents et pertinents.
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

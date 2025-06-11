@@ -1,57 +1,56 @@
-# Search for knowledge
+# Rechercher des connaissances
 
-In OpenCTI, you have access to different capabilities to be able to search for knowledge in the platform. In most cases, a search by keyword can be refined with additional filters for instance on the type of object, the author etc.
+Dans OpenCTI, différentes fonctionnalités sont disponibles pour rechercher des connaissances sur la plateforme. Dans la plupart des cas, une recherche par mot-clé peut être affinée avec des filtres supplémentaires, par exemple sur le type d'objet, l'auteur, etc.
 
-## Global search
+## Recherche globale
 
-The global search is always available in the top bar of the platform.
+La recherche globale est toujours disponible dans la barre supérieure de la plateforme.
 
 <figure markdown>
   ![Search bar](assets/search-bar.png)
 </figure>
 
-This search covers all [STIX Domain Objects (SDOs)](data-model.md#stix-model-section) and [STIX Cyber Observables (SCOs)](data-model.md#stix-model-section) in the platform. The search results are sorted according to the following behaviour:
+Cette recherche couvre tous les [STIX Domain Objects (SDOs)](data-model.md#stix-model-section) et [STIX Cyber Observables (SCOs)](data-model.md#stix-model-section) présents sur la plateforme. Les résultats de recherche sont triés selon le comportement suivant :
 
-* Priority 1 for exact matching of the keyword in one attribute of the objects.
-* Priority 2 for partial matching of the keyword in the `name`, the `aliases` and the `description` attributes (full text search).
-* Priority 3 for partial matching of the keyword in all other attributes (full text search).
+* Priorité 1 pour une correspondance exacte du mot-clé dans un attribut des objets.
+* Priorité 2 pour une correspondance partielle du mot-clé dans les attributs `name`, `aliases` et `description` (recherche en texte intégral).
+* Priorité 3 pour une correspondance partielle du mot-clé dans tous les autres attributs (recherche en texte intégral).
 
-If you get unexpected result, it is always possible to add some filters after the initial search:
+Si le résultat obtenu n'est pas celui attendu, il est toujours possible d'ajouter des filtres après la recherche initiale :
 
 ![Search filters](assets/search-filters.png)
 
-Also, using the `Advanced search` button, it is possible to directly put filters in a global search:
+De plus, en utilisant le bouton `Recherche avancée`, il est possible d'ajouter directement des filtres dans une recherche globale :
 
 ![Advanced search](assets/advanced-search.png)
 
-!!! info "Advanced filters"
+!!! info "Filtres avancés"
 
-    You have access to advanced filters all accross the UI, if you want to know more about how to use these 
-    filters with the API or the Python library, [don't hesitate to read the dedicated page](../reference/filters.md)
+    Des filtres avancés sont disponibles partout dans l'interface. Pour en savoir plus sur l'utilisation de ces filtres avec l'API ou la bibliothèque Python, [consulter la page dédiée](../reference/filters.md)
 
-### Full text search in files content
+### Recherche en texte intégral dans le contenu des fichiers
 
-!!! tip "Enterprise edition"
+!!! astuce "Édition Enterprise"
 
-    Full text search in files content is available under the "OpenCTI Enterprise Edition" license.
+    La recherche en texte intégral dans le contenu des fichiers est disponible sous licence "OpenCTI Enterprise Edition".
 
-    [Please read the dedicated page to have all information](../administration/enterprise.md)
+    [Consulter la page dédiée pour plus d'informations](../administration/enterprise.md)
 
-It's possible to extend the global search by keywords to the content of documents uploaded to the platform via the Data import tab, or directly linked to an entity via its Data tab.
+Il est possible d'étendre la recherche globale par mots-clés au contenu des documents importés sur la plateforme via l'onglet Data import, ou directement liés à une entité via son onglet Data.
 
-It is particularly useful to enable ``Full text indexing`` to avoid missing important information that may not have been structured within the platform. This situation can arise due to a partial automatic import of document content, limitations of a connector, and, of course, errors during manual processing.
+Il est particulièrement utile d'activer l'option ``Full text indexing`` afin d'éviter de manquer des informations importantes qui n'auraient pas été structurées dans la plateforme. Cette situation peut survenir à cause d'une importation automatique partielle du contenu d'un document, de limitations d'un connector, ou bien sûr d'erreurs lors d'un traitement manuel.
 
 ![Files search](assets/global-search-files.png)
 
-In order to search in files, you need to configure [file indexing](../administration/file-indexing.md).
+Pour rechercher dans les fichiers, il est nécessaire de configurer [l'indexation des fichiers](../administration/file-indexing.md).
 
-## Bulk search
+## Recherche en masse
 
-The bulk search capabilities is available in the top bar of the platform and allows you to copy paste a list of keyword or objects (ie. list of domains, list of IP addresses, list of vulnerabilities, etc.) to search in the platform:
+La fonctionnalité de recherche en masse est disponible dans la barre supérieure de la plateforme et permet de copier-coller une liste de mots-clés ou d'objets (par exemple, une liste de domaines, d'adresses IP, de vulnérabilités, etc.) à rechercher sur la plateforme :
 
 ![Bulk search](assets/bulk-search.png)
 
-When searching in bulk, OpenCTI is only looking for an exact match in some properties:
+Lors d'une recherche en masse, OpenCTI recherche uniquement une correspondance exacte dans certains attributs :
 
 * `name`
 * `aliases`
@@ -66,22 +65,23 @@ When searching in bulk, OpenCTI is only looking for an exact match in some prope
 * `hashes.SHA-512`
 * `x_opencti_additional_names`
 
-When something is not found, it appears in the list as `Unknown` and will be excluded if you choose to export your search result in a JSON STIX bundle or in a CSV file.
+Si un élément n'est pas trouvé, il apparaît dans la liste comme `Unknown` et sera exclu si vous choisissez d'exporter le résultat de la recherche dans un bundle JSON STIX ou dans un fichier CSV.
 
 ![Bulk search results](assets/bulk-result.png)
 
-## Contextual search
+## Recherche contextuelle
 
-In most of the screens of knowledge, you always have a contextual search bar allowing you to filter the list you are on:
+Sur la plupart des écrans de connaissances, une barre de recherche contextuelle permet de filtrer la liste affichée :
 
 ![Contextual search](assets/contextual-search.png)
 
-The search keyword used here is taken into account if you decide to export the current view in a file such as a JSON STIX bundle or a CSV file.
+Le mot-clé utilisé ici est pris en compte si vous décidez d'exporter la vue courante dans un fichier tel qu'un bundle JSON STIX ou un fichier CSV.
 
-## Other search bars
+## Autres barres de recherche
 
-Some other screens can contain search bars for specific purposes. For instance, in the graph views to filter the nodes displayed on the graph:
+D'autres écrans peuvent contenir des barres de recherche pour des usages spécifiques. Par exemple, dans les vues graphiques pour filtrer les nœuds affichés sur le graphe :
 
 ![Search in graph](assets/search-graph.png)
 
 
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

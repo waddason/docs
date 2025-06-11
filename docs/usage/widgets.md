@@ -1,100 +1,103 @@
-# Widget creation
+# Création de widget
 
-Creating widgets on the [dashboard](dashboards.md) involves a four-step configuration process. By navigating through these configuration steps, users can design widgets that meet their specific requirements.
+La création de widgets sur le [dashboard](dashboards.md) implique un processus de configuration en quatre étapes. En naviguant à travers ces étapes, il est possible de concevoir des widgets adaptés à des besoins spécifiques.
 
-## Widget configuration
+## Configuration du widget
 
-#### 1. Visualization
+#### 1. Visualisation
 
-Users can select from 15 diverse visualization options to highlight different aspects of their data. This includes simple views like counters and lists, as well as more intricate views like heatmaps and trees. The chosen visualization impacts the available perspectives and parameters, making it crucial to align the view with the desired data observations. Here are a few insights:
+Il est possible de choisir parmi 15 options de visualisation différentes pour mettre en avant divers aspects des données. Cela inclut des vues simples comme les compteurs et les listes, ainsi que des vues plus complexes comme les heatmaps et les arbres. La visualisation choisie influence les perspectives et paramètres disponibles, il est donc crucial d’aligner la vue avec les observations souhaitées. Quelques exemples :
 
-- Line and Area views: Ideal for visualizing activity volumes over time.
-- Horizontal bar views: Designed to identify top entities that best satisfy applied filters (e.g., top malware targeting the Finance sector).
-- Tree views: Useful for comparing activity volumes.
+- Vues Ligne et Aire : idéales pour visualiser les volumes d’activité dans le temps.
+- Vues Barres horizontales : conçues pour identifier les entités principales qui satisfont le mieux les filtres appliqués (ex : principaux malware ciblant le secteur Finance).
+- Vues Arbre : utiles pour comparer les volumes d’activité.
 - ...
 
 ![Widget visualization](assets/widget-visualization.png)
 
 #### 2. Perspective
 
-A perspective is the way the platform will count the data to display in your widgets:
+Une perspective correspond à la manière dont la plateforme va compter les données à afficher dans les widgets :
 
-- **Entities Perspective:** Focuses on entities, allowing observation of simple knowledge based on defined filters and criteria. The count will be based on entities only.
-- **Knowledge Graph Perspective:** Concentrates on relationships, displaying intricate knowledge derived from relationships between entities and specified filters.  The count will be based on relations only.
-- **Activity & History Perspective:** Centers on activities within the platform, not the knowledge content. This perspective is valuable for monitoring user and connector activities, evaluating data sources, and more.
+- **Entities Perspective :** Se concentre sur les entités, permettant d’observer des connaissances simples selon des filtres et critères définis. Le comptage se base uniquement sur les entités.
+- **Knowledge Graph Perspective :** Se concentre sur les relations, affichant des connaissances complexes issues des relations entre entités et des filtres spécifiés. Le comptage se base uniquement sur les relations.
+- **Activity & History Perspective :** Se concentre sur les activités au sein de la plateforme, et non sur le contenu de la connaissance. Cette perspective est utile pour surveiller les activités des utilisateurs et connecteurs, évaluer les sources de données, etc.
 
 ![Widget perspective](assets/widget-perspective.png)
 
-#### 3. Filters
+#### 3. Filtres
 
-#### Generic knowledge
+#### Connaissance générique
 
-Filters vary based on the selected perspective, defining the dataset to be utilized in the widget. Filters are instrumental in narrowing down the scope of data for a more focused analysis.
+Les filtres varient selon la perspective sélectionnée et définissent l’ensemble de données utilisé dans le widget. Ils sont essentiels pour restreindre le périmètre d’analyse.
 
-While filters in the "Entities" and "Activity & History" perspectives align with the platform's familiar search and feed creation filters, the "Knowledge Graph" perspective introduces a more intricate filter configuration.Therefore, they need to be addressed in more detail.
+Les filtres dans les perspectives "Entities" et "Activity & History" sont similaires à ceux utilisés pour la recherche ou la création de flux sur la plateforme, tandis que la perspective "Knowledge Graph" introduit une configuration de filtre plus complexe. Ils doivent donc être détaillés davantage.
 
-#### Filter in the context of Knowledge Graph
+#### Filtre dans le contexte du Knowledge Graph
 
-Two types of filters are available in the Knowledge Graph perspective:
+Deux types de filtres sont disponibles dans la perspective Knowledge Graph :
 
-- **Main query filter**
-    - **Classic filters (gray):** Define the relationships to be retrieved, forming the basis on which the widget displays data. Remember, statistics in the Knowledge Graph perspective are based on relationships.
+- **Filtre de requête principal**
+    - **Filtres classiques (gris) :** Définissent les relations à récupérer, constituant la base sur laquelle le widget affiche les données. Rappel : les statistiques dans la perspective Knowledge Graph sont basées sur les relations.
   
-- **Pre-query filters**
-    - Pre-query filters are used to **provide to your main query** a specific dataset. In other words, instead of making a query on the whole data set of your platform, you can already target a subset of data that will match certain criteria. They are two types of pre-query filters:
-        - **Dynamic filters on the source (orange):** Refine data by filtering on entities positioned as the source (in the "from" position) of the relationship.
-        - **Dynamic filters on the target (green):** Refine data by filtering on entities positioned as the target (in the "to" position) of the relationship.
+- **Filtres de pré-requête**
+    - Les filtres de pré-requête servent à **fournir à la requête principale** un ensemble de données spécifique. Autrement dit, au lieu d’interroger l’ensemble des données de la plateforme, il est possible de cibler un sous-ensemble répondant à certains critères. Il existe deux types de filtres de pré-requête :
+        - **Filtres dynamiques sur la source (orange) :** Affinent les données en filtrant sur les entités positionnées comme source (dans la position "from") de la relation.
+        - **Filtres dynamiques sur la cible (vert) :** Affinent les données en filtrant sur les entités positionnées comme cible (dans la position "to") de la relation.
 
-!!! warning "Pre-query limitation"
+!!! avertissement "Limitation de la pré-requête"
 
-    The pre-query is limited to 5000 results. If your pre-query results in having more than 5000 results, your widget will only display statistics based on these 5000 results matching your pre-query, resulting in a wrong view. To avoid this issue, be specific in your pre-query filters.
+    La pré-requête est limitée à 5000 résultats. Si la pré-requête retourne plus de 5000 résultats, le widget affichera uniquement des statistiques basées sur ces 5000 résultats, ce qui peut donner une vue erronée. Pour éviter ce problème, il est conseillé de spécifier précisément les filtres de pré-requête.
 
-**Example scenario:**
+**Exemple de scénario :**
 
-Let's consider an example scenario: Analyzing the initial access attack patterns used by intrusion sets targeting the finance sector.
+Prenons un exemple : analyser les modes d’accès initiaux utilisés par les intrusion sets ciblant le secteur finance.
 
-1. Classic filters: Define the relationships associated with the use of attack patterns by intrusion sets
-2. Dynamic filters on the source (Orange): Narrow down the data by filtering on intrusion sets targeting the finance sector.
-3. Dynamic filters on the target (Green): Narrow down the data by filtering on attack patterns associated with the kill chain's initial access phase.
+1. Filtres classiques : définir les relations associées à l’utilisation de attack patterns par les intrusion sets.
+2. Filtres dynamiques sur la source (orange) : restreindre les données en filtrant sur les intrusion sets ciblant le secteur finance.
+3. Filtres dynamiques sur la cible (vert) : restreindre les données en filtrant sur les attack patterns associés à la phase d’accès initial du kill chain.
 
-By leveraging these advanced filters, users can conduct detailed analyses within the Knowledge Graph perspective, unlocking insights that are crucial for understanding intricate relationships and statistics.
+En utilisant ces filtres avancés, il est possible de réaliser des analyses détaillées dans la perspective Knowledge Graph, permettant d’obtenir des informations essentielles sur les relations et statistiques complexes.
 
 ![Widget filters](assets/widget-filters.png)
 
-In certain views, you can access buttons like `+`, `+ Relationships,` or `+ Entities`. These buttons enable you to incorporate different data into the same widget for comparative analysis. For instance, in a Line view, adding a second set of filters will display two curves in the widget, each corresponding to one of the filtered data sets. Depending on the view, you can work with 1 to 5 sets of filters. The `Label` field allows you to name a data set, and this label can then be shown as a legend in the widget using the `Display legend` button in the widget parameters (see the next section).
+Dans certaines vues, il est possible d’accéder à des boutons comme `+`, `+ Relationships` ou `+ Entities`. Ces boutons permettent d’incorporer différentes données dans un même widget pour une analyse comparative. Par exemple, dans une vue Ligne, l’ajout d’un second ensemble de filtres affichera deux courbes dans le widget, chacune correspondant à un ensemble de données filtré. Selon la vue, il est possible de travailler avec 1 à 5 ensembles de filtres. Le champ `Label` permet de nommer un ensemble de données, ce libellé pouvant ensuite être affiché comme légende dans le widget via le bouton `Display legend` dans les paramètres du widget (voir la section suivante).
 
 ![Widget multiple filters](assets/widget-multiple-filters.png)
 
-#### 4. Parameters
+#### 4. Paramètres
 
-Parameters depend on the chosen visualization and allow users to define widget titles, choose displayed elements from the filtered data, select data reference date, and configure various other parameters specific to each visualization.
+Les paramètres dépendent de la visualisation choisie et permettent de définir les titres des widgets, de choisir les éléments affichés à partir des données filtrées, de sélectionner la date de référence des données, ainsi que de configurer divers autres paramètres propres à chaque visualisation.
 
-For the "Knowledge Graph" perspective, a critical parameter is the `Display the source` toggle. This feature empowers users to choose whether the widget displays entities from the source side or the target side of the relationships.
+Pour la perspective "Knowledge Graph", un paramètre essentiel est le bouton `Display the source`. Cette fonctionnalité permet de choisir si le widget affiche les entités du côté source ou du côté cible des relations.
 
-- Toggle ON ("Display the source"): The widget focuses on entities positioned as the source of the relationships (in the "from" position).
-- Toggle OFF ("Display the target"): The widget shifts its focus to entities positioned as the target of the relationships (in the "to" position).
+- Bouton activé ("Display the source") : le widget se concentre sur les entités positionnées comme source des relations (dans la position "from").
+- Bouton désactivé ("Display the target") : le widget se concentre sur les entités positionnées comme cible des relations (dans la position "to").
 
-This level of control ensures that your dashboard aligns precisely with your analytical objectives, offering a tailored perspective based on your data and relationship.
+Ce niveau de contrôle permet d’adapter précisément le dashboard à vos objectifs d’analyse, en offrant une perspective personnalisée selon les données et relations.
 
 ![Widget parameters](assets/widget-parameters.png)
 
 
-## Prerequisite knowledge
+## Connaissances préalables
 
-To successfully configure widgets in OpenCTI, having a solid understanding of the platform's data modeling is essential. Knowing specific relationships, entities, and their attributes helps refine filters accurately. Let's explore two examples.
+Pour configurer efficacement des widgets dans OpenCTI, il est essentiel de bien comprendre la modélisation des données de la plateforme. Connaître les relations, entités et leurs attributs permet d’affiner les filtres avec précision. Voici deux exemples.
 
-**Scenarios 1:**
+**Scénario 1 :**
 
-Consider the scenario where you aim to visualize relationships between intrusion sets and attack patterns. In this case, the relevant relationship type connecting intrusion sets to attack patterns is labeled as "Uses" (as illustrated in the "Filters" section).
+Supposons que l’objectif soit de visualiser les relations entre intrusion sets et attack patterns. Dans ce cas, le type de relation pertinent reliant les intrusion sets aux attack patterns est nommé "Uses" (comme illustré dans la section "Filtres").
 
-**Scenarios 2:**
+**Scénario 2 :**
 
-Suppose your goal is to retrieve all reports associated with the finance sector. In this case, it's essential to use the correct filter for the finance sector. Instead of placing the finance sector in the "Related entity" filter, it should be placed in the "Contains" filter. Since a Report is a container object (like Cases and Groupings), it **contains** entities within it and is **not related to** entities.
+Si l’objectif est de récupérer tous les rapports associés au secteur finance, il est important d’utiliser le filtre approprié pour le secteur finance. Au lieu de placer le secteur finance dans le filtre "Related entity", il faut l’utiliser dans le filtre "Contains". Un Report étant un objet container (comme Cases et Groupings), il **contient** des entités et n’est **pas lié à** des entités.
 
-### Key data modeling aspects
+### Points clés de la modélisation des données
 
-- Entities: Recognizing [container](containers.md) (e.g. Reports, Cases and Groupings) and understanding the difference with non-container.
-- Relationships: Identifying the relationship types connecting entities.
-- Attributes: Understanding entities and relationships attributes for effective filtering.
+- Entités : reconnaître les [container](containers.md) (ex : Reports, Cases et Groupings) et comprendre la différence avec les entités non-container.
+- Relations : identifier les types de relations reliant les entités.
+- Attributs : comprendre les attributs des entités et des relations pour un filtrage efficace.
 
-Having this prerequisite knowledge allows you to navigate the widget configuration process seamlessly, ensuring accurate and insightful visualizations based on your specific data requirements.
+Disposer de ces connaissances préalables permet de naviguer aisément dans le processus de configuration des widgets, garantissant des visualisations précises et pertinentes selon les besoins spécifiques.
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

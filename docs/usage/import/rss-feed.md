@@ -1,33 +1,34 @@
-# RSS Feeds
+# Flux RSS
 
-RSS Feeds functionality enables users to seamlessly ingest items in report form from specified RSS feeds.
+La fonctionnalité des flux RSS permet aux utilisateurs d’ingérer facilement des éléments sous forme de rapports à partir de flux RSS spécifiés.
 
 <a id="best-practices-section"></a>
-## Best practices
+## Bonnes pratiques
 
-In OpenCTI, the "Data > Ingestion" section provides users with built-in functions for automated data import. These functions are designed for specific purposes and can be configured to seamlessly ingest data into the platform. Here, we'll explore the configuration process for the five built-in functions: Live Streams, TAXII Feeds, TAXII Push, RSS Feeds, and JSON/CSV Feeds.
+Dans OpenCTI, la section « Données > Ingestion » propose des fonctions intégrées pour l’importation automatisée de données. Ces fonctions sont conçues pour des usages spécifiques et peuvent être configurées pour ingérer automatiquement des données dans la plateforme. Nous allons explorer ici le processus de configuration des cinq fonctions intégrées : Live Streams, TAXII Feeds, TAXII Push, RSS Feeds et JSON/CSV Feeds.
 
-Ensuring a secure and well-organized environment is paramount in OpenCTI. Here are two recommended best practices to enhance security, traceability, and overall organizational clarity:
+Assurer un environnement sécurisé et bien organisé est primordial dans OpenCTI. Voici deux bonnes pratiques recommandées pour renforcer la sécurité, la traçabilité et la clarté organisationnelle :
 
-1. Create a dedicated user for each source: Generate a user specifically for feed import, following the convention `[F] Source name` for clear identification. Assign the user to the "Connectors" group to streamline user management and permission related to data creation. Please [see here](../../deployment/connectors.md#connector-token-section) for more information on this good practice.
-2. Establish a dedicated Organization for the source: Create an organization named after the data source for clear identification. Assign the newly created organization to the "Default author" field in feed import configuration if available.
+1. Créer un utilisateur dédié pour chaque source : Générer un utilisateur spécifiquement pour l’import de flux, en suivant la convention `[F] Nom de la source` pour une identification claire. Assigner cet utilisateur au groupe « Connectors » afin de faciliter la gestion des utilisateurs et des droits liés à la création de données. Veuillez [voir ici](../../deployment/connectors.md#connector-token-section) pour plus d’informations sur cette bonne pratique.
+2. Créer une Organisation dédiée pour la source : Créer une organisation portant le nom de la source de données pour une identification claire. Assigner cette organisation au champ « Auteur par défaut » dans la configuration de l’import de flux si disponible.
 
-By adhering to these best practices, you ensure independence in managing rights for each import source through dedicated user and organization structures. In addition, you enable clear traceability to the entity's creator, facilitating source evaluation, dashboard creation, data filtering and other administrative tasks.
+En suivant ces bonnes pratiques, il est possible de gérer de façon indépendante les droits pour chaque source d’import via des structures dédiées d’utilisateur et d’organisation. De plus, cela permet une traçabilité claire du créateur de l’entité, facilitant l’évaluation des sources, la création de tableaux de bord, le filtrage des données et d’autres tâches administratives.
 
 
 ## Configuration
 
-Here's a step-by-step guide to configure RSS ingesters:
+Voici un guide étape par étape pour configurer les ingesteurs RSS :
 
-1. RSS Feed URL: Provide the URL of the RSS feed from which items will be imported.
+1. URL du flux RSS : Indiquer l’URL du flux RSS à partir duquel les éléments seront importés.
 
-Additional configuration options:
+Options de configuration supplémentaires :
 
-- User responsible for data creation: Define the user responsible for creating data received from this RSS feed. Best practice is to dedicate one user per source for organizational clarity. Please [see the section "Best practices" below](import-automated.md#best-practices-section) for more information.
-- Import from date: Specify the date of the oldest data to retrieve. Leave the field empty to import everything.
-- Default report types: Indicate the report type to be applied to the imported report.
-- Default author: Indicate the default author to be applied to the imported report. Please [see the section "Best practices" below](../import-automated.md#best-practices-section) for more information.
-- Default marking definitions: Indicate the default markings to be applied to the imported reports.
+- Utilisateur responsable de la création des données : Définir l’utilisateur responsable de la création des données reçues de ce flux RSS. La bonne pratique consiste à dédier un utilisateur par source pour plus de clarté organisationnelle. Veuillez [voir la section « Bonnes pratiques » ci-dessous](import-automated.md#best-practices-section) pour plus d’informations.
+- Importer à partir de la date : Spécifier la date des données les plus anciennes à récupérer. Laisser le champ vide pour tout importer.
+- Types de rapport par défaut : Indiquer le type de rapport à appliquer au rapport importé.
+- Auteur par défaut : Indiquer l’auteur par défaut à appliquer au rapport importé. Veuillez [voir la section « Bonnes pratiques » ci-dessous](../import-automated.md#best-practices-section) pour plus d’informations.
+- Définitions de marquage par défaut : Indiquer les marquages par défaut à appliquer aux rapports importés.
 
 ![RSS feed configuration](../assets/rss-feed-configuration.png)
 
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

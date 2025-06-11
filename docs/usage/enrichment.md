@@ -1,29 +1,31 @@
-# Enrichment connectors
+# Connecteurs d'enrichissement
 
-Enriching the data within the OpenCTI platform is made seamlessly through the integration of enrichment connectors. These connectors facilitate the retrieval of additional data from external sources or portals.
+L'enrichissement des données au sein de la plateforme OpenCTI s'effectue de manière transparente grâce à l'intégration de connecteurs d'enrichissement. Ces connecteurs facilitent la récupération de données supplémentaires depuis des sources ou portails externes.
 
+### Enrichissement automatique
 
-### Automatic enrichment
+L'enrichissement peut être réalisé automatiquement selon deux modes distincts :
 
-Enrichment can be conducted automatically in two distinct modes:
+- À l'arrivée des données : Configurer le connecteur pour s'exécuter automatiquement lors de l'arrivée de nouvelles données dans OpenCTI permet un enrichissement en temps réel, complétant ainsi les données de la plateforme. Cependant, il est recommandé d'éviter l'enrichissement automatique pour les connecteurs soumis à des quotas sur des sources payantes afin de ne pas épuiser rapidement tous les quotas. De plus, cet enrichissement automatique contribue à augmenter le volume de données. À grande échelle, avec des centaines de milliers d'objets, l'espace disque occupé par ces données peut être conséquent, ce qui doit être pris en compte, notamment si l'espace disque est une contrainte. L'exécution automatique se configure au niveau du connecteur via le paramètre "auto: true|false".
+- Enrichissement ciblé via les playbooks : L'enrichissement peut également être effectué de manière plus ciblée à l'aide de [playbooks](automation.md). Cette approche permet de définir une stratégie d'enrichissement personnalisée, en se concentrant sur des objets spécifiques et en optimisant la pertinence des données récupérées.
 
-- Upon data arrival: Configuring the connector to run automatically when data arrives in OpenCTI ensures a real-time enrichment process, supplementing the platform's data. However, it's advisable to avoid automatic enrichment for quota-based connectors to paid sources to prevent quickly depleting all quotas. Additionally, this automatic enrichment contributes to increased data volume. On a large scale, with hundreds of thousands of objects, the disk space occupied by this data can be substantial, and it should be considered, especially if disk space is a concern. The automatic execution is configured at the connector level using the "auto: true|false" parameter.
-- Targeted enrichment via playbooks: Enrichment can also be performed in a more targeted manner using [playbooks](automation.md). This approach allows for a customized enrichment strategy, focusing on specific objects and optimizing the relevance of the retrieved data.
+### Enrichissement manuel
 
-### Manual enrichment
-
-Manually initiating the enrichment process is straightforward. Simply locate the button with the cloud icon at the top right of an entity. 
+Lancer manuellement le processus d'enrichissement est simple. Il suffit de localiser le bouton avec l'icône de nuage en haut à droite d'une entité.
 
 ![Enrichment button](assets/enrichment-button.png)
 
-Clicking on this icon unveils a side panel displaying a list of available connectors that can be activated for the given object. If no connectors appear in the panel, it indicates that no enrichment connectors are available for the specific type of object in focus.
+Cliquer sur cette icône ouvre un panneau latéral affichant la liste des connecteurs disponibles pouvant être activés pour l'objet concerné. Si aucun connecteur n'apparaît dans le panneau, cela signifie qu'aucun connecteur d'enrichissement n'est disponible pour le type d'objet sélectionné.
 
 ![Enrichment panel](assets/enrichment-panel.png)
 
-Activation of an enrichment connector triggers a contact with the designated remote source, importing a set of data into OpenCTI to enrich the selected object. Each enrichment connector operates uniquely, focusing on a specific set of object types it can enrich and a distinct set of data it imports. Depending on the connectors, they may, establish relationships, add external references, or complete object information, thereby contributing to the comprehensiveness of information within the platform.
+L'activation d'un connecteur d'enrichissement déclenche un contact avec la source distante désignée, important un ensemble de données dans OpenCTI pour enrichir l'objet sélectionné. Chaque connecteur d'enrichissement fonctionne de manière unique, en se concentrant sur un ensemble spécifique de types d'objets qu'il peut enrichir et un ensemble distinct de données qu'il importe. Selon les connecteurs, ils peuvent établir des relations, ajouter des références externes ou compléter les informations de l'objet, contribuant ainsi à la richesse des informations au sein de la plateforme.
 
-The list of available connectors can be found in our [connectors catalog](https://www.notion.site/OpenCTI-Ecosystem-868329e9fb734fca89692b2ed6087e76). In addition, further documentation on connectors is available on [the dedicated documentation page](../deployment/connectors.md).
+La liste des connecteurs disponibles est consultable dans notre [catalogue de connecteurs](https://www.notion.site/OpenCTI-Ecosystem-868329e9fb734fca89692b2ed6087e76). De plus, une documentation complémentaire sur les connecteurs est disponible sur [la page dédiée à la documentation](../deployment/connectors.md).
 
-!!! note "Impact of the max confidence level"
+!!! note "Impact du niveau de confiance maximal"
 
-  The maximum confidence level per user can have an impact on enrichment connectors, not being able to update data in the platform. To understand the concept and the potential issues you could face, please navigate to this [page](reliability-confidence.md) to understand.
+  Le niveau de confiance maximal par utilisateur peut avoir un impact sur les connecteurs d'enrichissement, ceux-ci pouvant ne pas être en mesure de mettre à jour les données dans la plateforme. Pour comprendre ce concept et les éventuels problèmes rencontrés, consulter cette [page](reliability-confidence.md) pour plus d'informations.
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

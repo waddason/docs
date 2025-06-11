@@ -1,89 +1,87 @@
 ---
 hide:
-  - navigation
-  - toc
+    - navigation
+    - toc
 ---
 
-# OpenCTI Documentation Space
+# Espace de documentation OpenCTI
 
-Welcome to the OpenCTI Documentation space. Here you will be able to find all documents, meeting notes and presentations about the platform.
+Bienvenue dans l’espace de documentation OpenCTI. Vous trouverez ici tous les documents, comptes rendus de réunions et présentations concernant la plateforme.
 
+!!! astuce "Notes de version"
 
-!!! tip "Release notes"
-
-    Please, be sure to also take a look at the [OpenCTI releases notes](https://github.com/OpenCTI-Platform/opencti/releases), they may contain important information about releases and deployments.
+        Veuillez également consulter les [notes de version OpenCTI](https://github.com/OpenCTI-Platform/opencti/releases), elles peuvent contenir des informations importantes sur les versions et les déploiements.
 
 ## Introduction
 
-OpenCTI is an open source platform allowing organizations to manage their cyber threat intelligence knowledge and observables. It has been created in order to structure, store, organize and visualize technical and non-technical information about cyber threats.
+OpenCTI est une plateforme open source permettant aux organisations de gérer leurs connaissances et observables en cyber threat intelligence. Elle a été créée afin de structurer, stocker, organiser et visualiser des informations techniques et non techniques sur les cybermenaces.
 
-## Getting started
+## Pour commencer
 
 <div class="grid cards" markdown>
 
--   :material-rocket-launch-outline:{ .lg .middle } __Deployment & Setup__
+-   :material-rocket-launch-outline:{ .lg .middle } __Déploiement & Configuration__
 
-    ---
+        ---
 
-    Learn how to deploy and configure the platform as well as
-    launch connectors to get the first data in OpenCTI.
+        Apprendre à déployer et configurer la plateforme ainsi qu’à lancer des connectors pour importer les premières données dans OpenCTI.
 
-    [:octicons-arrow-right-24:{ .middle } Deploy now](deployment/overview.md)
+        [:octicons-arrow-right-24:{ .middle } Déployer maintenant](deployment/overview.md)
 
--   :fontawesome-regular-compass:{ .lg .middle } __User Guide__
+-   :fontawesome-regular-compass:{ .lg .middle } __Guide utilisateur__
 
-    ---
+        ---
 
-    Understand how to use the platform, explore the knowledge, import
-    and export information, create dashboard, etc.
+        Comprendre comment utiliser la plateforme, explorer la connaissance, importer et exporter des informations, créer des tableaux de bord, etc.
 
-    [:octicons-arrow-right-24:{ .middle } Explore](usage/getting-started.md)
+        [:octicons-arrow-right-24:{ .middle } Explorer](usage/getting-started.md)
 
 -   :material-tune-vertical:{ .lg .middle } __Administration__
 
-    ---
+        ---
 
-    Know how to administrate OpenCTI, create users and groups using RBAC /
-    segregation, put retention policies and custom taxonomies.
+        Savoir administrer OpenCTI, créer des utilisateurs et groupes via RBAC / ségrégation, appliquer des politiques de rétention et des taxonomies personnalisées.
 
-    [:octicons-arrow-right-24:{ .middle } Customize](administration/introduction.md)
+        [:octicons-arrow-right-24:{ .middle } Personnaliser](administration/introduction.md)
 
 </div>
 
-!!! info "Need more help?"
+!!! info "Besoin d’aide supplémentaire ?"
 
-    We are doing our best to keep this documentation complete, accurate and up to date. 
-    
-    If you still have questions or you find something which is not sufficiently explained, join the [Filigran Community on Slack](https://community.filigran.io).
+        Nous faisons de notre mieux pour maintenir cette documentation complète, précise et à jour.
 
+        Si vous avez encore des questions ou si vous trouvez un point insuffisamment expliqué, rejoignez la [Communauté Filigran sur Slack](https://community.filigran.io).
 
-## Blog posts
+## Articles de blog
 
 <div class="grid cards" markdown>
 
--   :material-newspaper-variant-outline:{ .lg .middle } __Resources and content__
+-   :material-newspaper-variant-outline:{ .lg .middle } __Ressources et contenus__
 
-    ---
+        ---
 
-    Discover tutorials, best practices and deep dives on OpenCTI features on our Filigran blog.
+        Découvrir des tutoriels, bonnes pratiques et analyses approfondies sur les fonctionnalités OpenCTI sur notre blog Filigran.
 
-    [:octicons-arrow-right-24:{ .middle } Read now](https://blog.filigran.io)
+        [:octicons-arrow-right-24:{ .middle } Lire maintenant](https://blog.filigran.io)
 </div>
 
-## Additional resources
+## Ressources supplémentaires
 
-Below, you will find external resources which may be useful along your OpenCTI journey.
+Vous trouverez ci-dessous des ressources externes qui peuvent être utiles tout au long de votre parcours OpenCTI.
 
 <div class="grid" markdown>
 
-[**:material-package-variant-closed:{ .middle } OpenCTI Ecosystem**](https://filigran.notion.site/OpenCTI-Ecosystem-868329e9fb734fca89692b2ed6087e76)<br />
-List of available connectors and integrations to expand platform usage.
+[**:material-package-variant-closed:{ .middle } Écosystème OpenCTI**](https://filigran.notion.site/OpenCTI-Ecosystem-868329e9fb734fca89692b2ed6087e76)<br />
+Liste des connectors et intégrations disponibles pour étendre l’utilisation de la plateforme.
 
-[**:material-school-outline:{ .middle } Training Courses**](https://training.filigran.io)<br />
-Training courses for analysts and administrators in the Filigran training center.
+[**:material-school-outline:{ .middle } Formations**](https://training.filigran.io)<br />
+Formations pour analystes et administrateurs dans le centre de formation Filigran.
 
-[**:material-youtube:{ .middle } Video materials**](https://www.youtube.com/@Filigran/videos)<br />
-Set of video illustrating the implementation of use cases and platform capabilities.
+[**:material-youtube:{ .middle } Vidéos**](https://www.youtube.com/@Filigran/videos)<br />
+Ensemble de vidéos illustrant la mise en œuvre de cas d’usage et les capacités de la plateforme.
 
 </div>
 <br /><br /><br />
+
+
+> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
