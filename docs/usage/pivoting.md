@@ -98,4 +98,4 @@ Après avoir cliqué sur le bouton `ADD`, le navigateur sera redirigé vers l’
 ![investigation-turn-to-report-or-case-success.png](assets/investigation-turn-to-report-or-case-success.png)
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

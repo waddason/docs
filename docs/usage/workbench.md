@@ -42,4 +42,4 @@ Pour plus d’informations sur l’import de fichiers, consulter la page de docu
 Le niveau de confiance des connaissances créées via l’espace de travail dépend du niveau de confiance de l’utilisateur. Veuillez consulter cette [page](reliability-confidence.md) pour plus de détails.
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

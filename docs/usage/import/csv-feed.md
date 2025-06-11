@@ -71,4 +71,4 @@ Comme vu précédemment, il est nécessaire de vérifier la configuration CSV av
 ![Formulaire de duplication de flux CSV : dupliquer](../assets/feeds-start-duplicate.png)
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

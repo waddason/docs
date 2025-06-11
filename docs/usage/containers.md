@@ -74,4 +74,4 @@ Dans la liste de tous les containers, il est aussi possible de filtrer les conta
 
 ![Container filters](assets/container-filters.png)
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

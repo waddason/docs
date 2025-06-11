@@ -113,4 +113,4 @@ En résultat, vous obtenez une liste de malware avec la répartition de leurs pr
 Pour voir d'autres cas d'utilisation, n'hésitez pas à consulter cet [article de blog](https://blog.filigran.io/new-octi-dashboards-the-first-graph-dashboarding-engine-for-the-stix-model-406e4eb5842a) qui vous apportera des informations complémentaires.
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

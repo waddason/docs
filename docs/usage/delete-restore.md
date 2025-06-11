@@ -75,4 +75,4 @@ Il convient également de noter que tenter de restaurer un objet très imbriqué
     Le système de corbeille est conçu pour faire gagner du temps lorsqu’un utilisateur supprime par erreur des connaissances de la plateforme.
     Il n’est pas destiné à servir de système de sauvegarde complet pour votre base de données.
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

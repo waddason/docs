@@ -126,4 +126,4 @@ L'état est un objet JSON qui représente les informations qui seront injectées
 Il est important de prendre le temps d'adapter la configuration pour obtenir le mapping attendu.
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

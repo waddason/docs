@@ -23,4 +23,4 @@ La fonctionnalité de fusion d’OpenCTI contribue à améliorer la qualité des
 - **Mécanisme de déduplication :** la plateforme est équipée de [processus de déduplication](deduplication.md) qui fusionnent automatiquement les données lors de leur création (manuellement ou par importation depuis différentes sources) si certaines conditions sont remplies.
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -29,4 +29,4 @@ L'écosystème des connecteurs d'OpenCTI couvre un large éventail de sources, r
 
 En résumé, les imports automatisés via les connecteurs offrent aux utilisateurs d'OpenCTI un mécanisme d'ingestion de données évolutif, efficace et personnalisable, garantissant que la plateforme reste enrichie avec les renseignements les plus récents et pertinents.
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

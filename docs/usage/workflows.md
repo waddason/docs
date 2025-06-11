@@ -22,4 +22,4 @@ Les attributs peuvent être définis comme obligatoires ou avec des valeurs par 
 
 Les utilisateurs peuvent rester informés des assignations via les [déclencheurs de notification](notifications.md). En configurant des déclencheurs de notification, les utilisateurs reçoivent des alertes lorsqu’un objet leur est assigné. Cela garantit une communication rapide et un engagement proactif avec les tâches ou responsabilités assignées.
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

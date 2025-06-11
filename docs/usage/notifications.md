@@ -128,4 +128,4 @@ Les notifiers sont gérables dans la fenêtre "Paramètres > Personnalisation > 
 Pour obtenir des conseils sur la configuration de notifiers personnalisés et consulter des instructions détaillées, se référer à la [page de documentation dédiée](../administration/notifiers.md).
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

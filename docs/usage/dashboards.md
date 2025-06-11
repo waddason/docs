@@ -162,4 +162,4 @@ Après duplication, un message de confirmation s’affiche brièvement, accompag
 
   L’utilisateur important ou dupliquant un tableau de bord devient le seul à y avoir accès. L’accès peut ensuite être géré comme d’habitude.
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

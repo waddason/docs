@@ -185,4 +185,4 @@ Pour cela, vous utilisez l’échelle de confiance « Objective » dans votr
 ![Example with the Objective template](assets/example-objective-scale.png)
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

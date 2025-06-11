@@ -100,4 +100,4 @@ Ces méthodes complémentaires offrent flexibilité et praticité, permettant d'
 Lors de la création de connaissances dans la plateforme, le niveau de confiance maximal des utilisateurs est utilisé. Veuillez consulter cette [page](reliability-confidence.md) pour comprendre ce concept et son impact sur la création de connaissances.
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

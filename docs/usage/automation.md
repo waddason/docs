@@ -182,4 +182,4 @@ En haut à droite de l'interface, il est possible d'accéder à la trace d'exéc
 
 ![Suivi des étapes](assets/playbook_traces.png)
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

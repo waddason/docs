@@ -99,4 +99,4 @@ En cliquant sur une carte Campaign, vous accédez à son onglet Overview. Les on
 - History : comme décrit [ici](overview.md#history-section).
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

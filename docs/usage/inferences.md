@@ -41,4 +41,4 @@ OpenCTI appliquera cette règle aux données existantes. S’il trouve un Intrus
 - **Playbooks :** Les [OpenCTI playbooks](automation.md) sont des scénarios d’automatisation hautement personnalisables. Cette intégration transparente permet d’automatiser davantage, rendant vos processus de cybermenace encore plus efficaces et adaptés à vos besoins spécifiques. Plus d’informations dans notre [article de blog](https://blog.filigran.io/introducing-threat-intelligence-automation-and-playbooks-in-opencti-b9e2f9483aba).
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

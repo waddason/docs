@@ -93,4 +93,4 @@ Les actions possibles sont : copier le lien du tableau de bord public, désactiv
 
 Pour partager un tableau de bord public, il suffit de copier le lien et de transmettre l’URL à la personne souhaitée. Le tableau de bord sera visible même si la personne n’est pas connectée à OpenCTI.
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

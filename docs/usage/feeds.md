@@ -117,4 +117,4 @@ Ou dans le fichier de configuration de la plateforme :
   Modifier la limite de taille peut entraîner une dégradation des performances selon votre plateforme et la configuration de votre flux CSV.
   Tester correctement votre installation et aligner ce nombre avec la capacité de votre plateforme pour éviter tout problème.
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

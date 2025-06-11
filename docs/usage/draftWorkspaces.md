@@ -110,4 +110,4 @@ Même si les brouillons essaient de fournir autant d'actions que possible dans l
 - disseminate a file
 - merge entities
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -32,4 +32,4 @@ Pour démarrer votre nouvel ingesteur, cliquer sur "Start" dans le menu burger.
 
 ![TAXII Push creation: start](../assets/taxii-push-creation-start.png)
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

@@ -43,4 +43,4 @@ Nous travaillons également sur une vue Timeline plus pertinente, qui pourra aus
 - Vous sélectionnez rapidement tout le contexte trouvé et l’ajoutez à un nouveau `Incident response` case. Vous positionnez la priorité sur High, au vu du contexte, et la sévérité sur Low, car il n’est pas encore certain qu’une interaction ait eu lieu avec "bad.com".
 - Vous assignez également le case à un de vos collègues, en charge de l’investigation. Pour le guider, vous créez aussi une `Task` dans votre case afin de vérifier si une interaction réelle a eu lieu avec "bad.com".
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

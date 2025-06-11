@@ -72,4 +72,4 @@ Pour initier des imports de fichiers, les utilisateurs doivent disposer de la [c
     Les CSV mappers peuvent être créés et configurés dans l'interface d'administration.   
 
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.

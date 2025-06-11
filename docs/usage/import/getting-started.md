@@ -30,4 +30,4 @@ Un gestionnaire d’ingestion s’exécute périodiquement en arrière-plan, et 
 L’intervalle de périodicité est configuré avec le gestionnaire via `ingestion_manager:interval`.
 Un feed peut être configuré pour planifier la récupération des données sur une période plus longue.
 
-> Taduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
+> Traduction automatique de la documentation en ligne d'OpenCTI 6.6.x le 10 juin 2025.
